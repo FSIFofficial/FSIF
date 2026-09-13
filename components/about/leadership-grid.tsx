@@ -97,6 +97,20 @@ export function LeadershipGrid() {
                 )}
               </div>
             </div>
+
+            {active.career && active.career.length > 0 && (
+              <div className="mt-8 border-t border-border pt-6">
+                <p className="section-label text-fsif-blue">経歴</p>
+                <ol className="mt-4 space-y-3">
+                  {active.career.map((c, i) => (
+                    <li key={i} className="flex flex-col gap-0.5 sm:flex-row sm:gap-4">
+                      <span className="shrink-0 font-mono text-xs text-muted-foreground sm:w-24">{c.date}</span>
+                      <span className="text-sm text-foreground/90">{c.text}</span>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            )}
           </div>
         </div>
       )}

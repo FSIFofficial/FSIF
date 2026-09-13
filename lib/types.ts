@@ -136,6 +136,8 @@ export interface LeadershipMember {
   image: string
   bio: string
   message?: string
+  /** 経歴（年月とできごと）。新しい順ではなく年代順で保持する。 */
+  career?: { date: string; text: string }[]
 }
 
 export interface HistoryEntry {
