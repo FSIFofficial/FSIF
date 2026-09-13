@@ -95,9 +95,9 @@ export function MvvpScroller({ items, theme = 'dark', eyebrow = 'PHILOSOPHY / �
   }
 
   return (
-    <section aria-label="FSIFの理念（MVVP）" className={cn('relative overflow-hidden', t.section)}>
+    <section aria-label="FSIFの理念（MVVP）" className={cn('relative', t.section)}>
       {dark && (
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-40">
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden opacity-40">
           <div className="absolute -right-40 top-1/4 h-[600px] w-[600px] rounded-full border border-white/5" />
           <div className="absolute -left-56 bottom-0 h-[700px] w-[700px] rounded-full border border-white/5" />
         </div>

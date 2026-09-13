@@ -37,7 +37,7 @@ export default function JoinPage() {
       />
 
       {/* Intro banner */}
-      <section className="border-b border-border bg-fsif-navy text-white">
+      <section className="border-b border-border bg-navy text-white">
         <div className="mx-auto grid max-w-6xl gap-8 px-4 py-14 md:grid-cols-2 md:items-center md:py-20">
           <Reveal>
             <h2 className="text-balance text-2xl font-bold leading-snug tracking-tight md:text-3xl">

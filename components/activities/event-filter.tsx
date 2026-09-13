@@ -7,14 +7,15 @@ import { events, eventTypes } from '@/lib/data/events'
 import { formatDate } from '@/lib/utils'
 import { cn } from '@/lib/utils'
 
-export function EventFilter() {
+export function EventFilter({ excludeSlug }: { excludeSlug?: string } = {}) {
   const [type, setType] = useState<string>('ALL')
 
   const items = useMemo(() => {
     return events
+      .filter((e) => e.slug !== excludeSlug)
       .filter((e) => (type === 'ALL' ? true : e.type === type))
       .sort((a, b) => (a.date < b.date ? 1 : -1))
-  }, [type])
+  }, [type, excludeSlug])
 
   return (
     <div>

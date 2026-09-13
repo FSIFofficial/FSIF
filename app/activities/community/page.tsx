@@ -127,7 +127,7 @@ export default function CommunityPage() {
             はじめての方も歓迎です。あなたのペースで、宇宙とのかかわり方を見つけてください。
           </p>
           <div className="mt-8 flex justify-center gap-3">
-            <CtaLink href="/join" variant="primary">参加する</CtaLink>
+            <CtaLink href="https://discord.gg/3UzPQUYaZB" variant="primary">参加する</CtaLink>
             <CtaLink href="/activities/community/cosmobase" variant="secondary" onDark>Cosmo Baseを見る</CtaLink>
           </div>
         </div>
