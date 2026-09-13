@@ -1,3 +1,14 @@
+// GitHub Pages serves the site from https://<org>.github.io/<repo>/, so the
+// build needs a basePath/assetPrefix matching the repository name. This is
+// only applied in GitHub Actions (via GITHUB_REPOSITORY) so local dev/build
+// keeps working at the site root.
+const isGithubActions = process.env.GITHUB_ACTIONS === 'true'
+let basePath = ''
+if (isGithubActions && process.env.GITHUB_REPOSITORY) {
+  const repo = process.env.GITHUB_REPOSITORY.replace(/.*\//, '')
+  basePath = `/${repo}`
+}
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   typescript: {
@@ -6,33 +17,12 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  async redirects() {
-    return [
-      // Old PROJECTS section -> PRODUCT / community
-      { source: '/projects', destination: '/product', permanent: true },
-      { source: '/projects/orbit', destination: '/product/orbit', permanent: true },
-      {
-        source: '/projects/cosmobase',
-        destination: '/activities/community/cosmobase',
-        permanent: true,
-      },
-      {
-        source: '/projects/cosmobase/partners',
-        destination: '/activities/community/cosmobase/partners',
-        permanent: true,
-      },
-      // Retired "development" activity -> PRODUCT
-      { source: '/activities/development', destination: '/product', permanent: true },
-      // Symposium canonical route (single 2024 record)
-      {
-        source: '/events/space-business-symposium',
-        destination: '/activities/event/space-business-symposium-2024',
-        permanent: true,
-      },
-      // Old /events index folded into the event activity page
-      { source: '/events', destination: '/activities/event', permanent: true },
-    ]
-  },
+  // Static export for GitHub Pages: there is no Node server, so
+  // next.config.mjs redirects/rewrites/headers cannot run and were removed.
+  output: 'export',
+  trailingSlash: true,
+  basePath,
+  assetPrefix: basePath,
 }
 
 export default nextConfig
