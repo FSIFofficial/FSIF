@@ -1,0 +1,193 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-card: var(--surface);
+  --color-card-foreground: var(--foreground);
+  --color-popover: var(--surface);
+  --color-popover-foreground: var(--foreground);
+
+  --color-navy: var(--navy);
+  --color-navy-foreground: var(--navy-foreground);
+  --color-fsif-blue: var(--fsif-blue);
+  --color-accent-blue: var(--accent-blue);
+  --color-pale-blue: var(--pale-blue);
+
+  --color-primary: var(--fsif-blue);
+  --color-primary-foreground: oklch(1 0 0);
+  --color-secondary: var(--pale-blue);
+  --color-secondary-foreground: var(--navy);
+  --color-muted: var(--pale-blue);
+  --color-muted-foreground: var(--muted);
+  --color-accent: var(--pale-blue);
+  --color-accent-foreground: var(--navy);
+  --color-destructive: #d7263d;
+  --color-destructive-foreground: #ffffff;
+
+  --color-border: var(--border);
+  --color-input: var(--border);
+  --color-ring: var(--fsif-blue);
+
+  --font-sans: var(--font-geist-sans), 'Noto Sans JP', ui-sans-serif, system-ui, sans-serif;
+  --font-jp: 'Noto Sans JP', var(--font-geist-sans), sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+
+  --breakpoint-sm: 480px;
+}
+
+:root {
+  color-scheme: light;
+  --header-h: 4rem;
+  --background: #f7f9fc;
+  --surface: #ffffff;
+  --foreground: #071526;
+  --navy: #061a33;
+  --navy-foreground: #eaf4ff;
+  --fsif-blue: #0068e8;
+  --accent-blue: #28a8ff;
+  --pale-blue: #eaf4ff;
+  --muted: #66758a;
+  --border: #dce4ed;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection {
+    background: var(--fsif-blue);
+    color: #ffffff;
+  }
+  :focus-visible {
+    outline: 2px solid var(--fsif-blue);
+    outline-offset: 2px;
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --header-h: 5rem;
+  }
+}
+
+@layer utilities {
+  .section-label {
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    font-size: 0.72rem;
+    font-weight: 500;
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+  .container-fsif {
+    width: 100%;
+    max-width: 1280px;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+  @media (min-width: 768px) {
+    .container-fsif {
+      padding-inline: 2.5rem;
+    }
+  }
+  .container-wide {
+    width: 100%;
+    max-width: 1440px;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+  @media (min-width: 768px) {
+    .container-wide {
+      padding-inline: 2.5rem;
+    }
+  }
+  .orbit-line {
+    background-image: radial-gradient(circle at center, transparent 0, transparent 68%, rgba(40, 168, 255, 0.14) 68.5%, transparent 70%);
+  }
+}
+
+/* Entrance animations */
+@keyframes fsif-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fsif-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fsif-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.reveal {
+  opacity: 0;
+}
+.reveal.is-visible {
+  animation: fsif-fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.reveal-fade.is-visible {
+  animation: fsif-fade 0.8s ease forwards;
+}
+
+.marquee-track {
+  animation: fsif-marquee 40s linear infinite;
+}
+.marquee-track:hover,
+.marquee-track:focus-within {
+  animation-play-state: paused;
+}
+/* Cosmo Base partner carousel: right-to-left, pausable on hover/focus. */
+.marquee-cosmo {
+  animation: fsif-marquee 32s linear infinite;
+}
+.marquee-cosmo:hover,
+.marquee-cosmo:focus-within {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-fade {
+    opacity: 1 !important;
+    animation: none !important;
+  }
+  .marquee-track,
+  .marquee-cosmo {
+    animation: none !important;
+  }
+  * {
+    scroll-behavior: auto !important;
+  }
+}
