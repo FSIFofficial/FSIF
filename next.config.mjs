@@ -14,8 +14,12 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  // Static export has no /_next/image endpoint, and Next's built-in
+  // "unoptimized" image handling doesn't apply basePath to <img> src/srcset.
+  // A custom loader (lib/image-loader.js) prepends basePath manually instead.
   images: {
-    unoptimized: true,
+    loader: 'custom',
+    loaderFile: './lib/image-loader.js',
   },
   // Static export for GitHub Pages: there is no Node server, so
   // next.config.mjs redirects/rewrites/headers cannot run and were removed.
@@ -23,6 +27,9 @@ const nextConfig = {
   trailingSlash: true,
   basePath,
   assetPrefix: basePath,
+  env: {
+    NEXT_PUBLIC_BASE_PATH: basePath,
+  },
 }
 
 export default nextConfig
