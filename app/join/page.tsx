@@ -88,7 +88,7 @@ export default function JoinPage() {
       </section>
 
       {/* Open positions */}
-      <section className="border-b border-border bg-secondary">
+      <section id="positions" className="scroll-mt-[var(--header-h)] border-b border-border bg-secondary">
         <div className="mx-auto max-w-6xl px-4 py-16 md:py-24">
           <SectionHeading
             eyebrow="Open Positions"
