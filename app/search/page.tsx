@@ -8,13 +8,7 @@ export const metadata: Metadata = {
   description: 'FSIFサイト内のニュース・読み物・プロジェクト・イベント・ページを横断検索します。',
 }
 
-export default async function SearchPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ q?: string }>
-}) {
-  const { q } = await searchParams
-
+export default function SearchPage() {
   return (
     <>
       <PageHero
@@ -26,7 +20,7 @@ export default async function SearchPage({
       <section className="bg-background">
         <div className="mx-auto max-w-3xl px-4 py-16 md:py-20">
           <Suspense>
-            <SearchClient initialQuery={q ?? ''} />
+            <SearchClient />
           </Suspense>
         </div>
       </section>

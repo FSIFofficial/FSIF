@@ -41,7 +41,6 @@ export const metadata: Metadata = {
     description: '宇宙を、みんなのものにする。すべての人に、宇宙とかかわる選択肢を。',
     images: ['/images/hero-forum.png'],
   },
-  generator: 'v0.app',
 }
 
 export const viewport: Viewport = {
