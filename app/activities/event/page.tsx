@@ -53,7 +53,7 @@ export default function EventPage() {
             <div className="relative aspect-[16/10] lg:aspect-auto lg:min-h-[320px]">
               <Image
                 src="/images/symposium.png"
-                alt={symposium2024.gallery[2]?.alt ?? '宇宙ビジネスシンポジウム2024の会場'}
+                alt="宇宙ビジネスシンポジウム2024の会場"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -87,13 +87,13 @@ export default function EventPage() {
         </div>
       </section>
 
-      {/* その他のイベント */}
+      {/* 過去の開催イベントとその報告書 */}
       <section className="bg-surface py-16 md:py-20">
         <div className="container-fsif">
-          <SectionHeading labelEn="ALL EVENTS" title="その他のイベント" />
+          <SectionHeading labelEn="PAST EVENTS" title="過去の開催イベントとその報告書" />
           <p className="mt-4 text-sm text-muted-foreground">種別で絞り込めます。</p>
           <div className="mt-8">
-            <EventFilter />
+            <EventFilter excludeSlug="SBS24" />
           </div>
           <div className="mt-12 flex justify-center">
             <CtaLink href={symposiumHref} variant="primary">

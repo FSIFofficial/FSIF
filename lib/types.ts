@@ -98,6 +98,7 @@ export interface Project {
 export interface EventItem {
   slug: string
   title: string
+  /** ISO date (event's first day). Drives sorting/display on the card grid. */
   date: string
   type: '主催' | '共催' | '運営支援' | '出展' | '登壇' | 'ワークショップ'
   venue: string
@@ -105,6 +106,19 @@ export interface EventItem {
   image: string
   imageAlt: string
   href: string
+  /** Optional fields for a dedicated report detail page. */
+  subtitle?: string
+  /** 種類（例: イベント報告書、常設活動報告書、ブース出展報告書） */
+  reportType?: string
+  /** ISO date the report was published. */
+  publishedDate?: string
+  /** 日時（複数日にまたがる場合はそのまま表示用テキストとして保持） */
+  eventDateDisplay?: string
+  /** 場所（カード表示の venue より詳しい表示用テキスト） */
+  venueDisplay?: string
+  /** 内容 */
+  content?: string
+  externalLinks?: { label: string; href: string }[]
 }
 
 export interface Partner {
