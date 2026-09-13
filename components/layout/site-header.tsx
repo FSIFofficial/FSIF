@@ -17,7 +17,7 @@ export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false)
   const [activeMenu, setActiveMenu] = useState<string | null>(null)
   const [mobileOpen, setMobileOpen] = useState(false)
-  const navRef = useRef<HTMLDivElement>(null)
+  const navRef = useRef<HTMLElement>(null)
 
   const overDarkHero = DARK_HERO_ROUTES.includes(pathname)
   const transparent = overDarkHero && !scrolled && !activeMenu
@@ -57,6 +57,7 @@ export function SiteHeader() {
   return (
     <>
       <header
+        ref={navRef}
         className={cn(
           'fixed inset-x-0 top-0 z-[60] transition-colors duration-300',
           transparent
@@ -65,7 +66,7 @@ export function SiteHeader() {
         )}
         onMouseLeave={() => setActiveMenu(null)}
       >
-        <div ref={navRef} className="container-wide flex h-16 items-center justify-between gap-4 md:h-20">
+        <div className="container-wide flex h-16 items-center justify-between gap-4 md:h-20">
           <Logo variant={textLight ? 'light' : 'dark'} />
 
           {/* Desktop nav */}
