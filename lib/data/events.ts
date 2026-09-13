@@ -120,7 +120,7 @@ export const events: EventItem[] = [
     href: '/activities/event/J2',
   },
   {
-    slug: 'J1',
+    slug: 'FSIF0',
     title: '趣味からつながる宇宙',
     subtitle: '＠宇宙の店',
     reportType: 'イベント報告書',
@@ -133,7 +133,7 @@ export const events: EventItem[] = [
     summary: '趣味から宇宙へとつながるワークショップを、宇宙の店で開催しました。',
     image: '/images/workshop.png',
     imageAlt: 'ワークショップの様子',
-    href: '/activities/event/J1',
+    href: '/activities/event/FSIF0',
   },
 ]
 
