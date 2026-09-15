@@ -4,7 +4,6 @@ import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { PageHero } from '@/components/shared/page-hero'
 import { SectionHeading } from '@/components/ui/section-heading'
-import { CtaLink } from '@/components/ui/cta-link'
 import { EventFilter } from '@/components/activities/event-filter'
 import { symposium2024 } from '@/lib/data/events'
 
@@ -13,7 +12,7 @@ export const metadata: Metadata = {
   description: '立場と分野を越えた出会いと共創が始まる場を企画・運営するFSIFのイベント事業。',
 }
 
-const symposiumHref = '/activities/event/space-business-symposium-2024'
+const symposiumHref = '/activities/event/SBS24'
 
 export default function EventPage() {
   return (
@@ -93,12 +92,7 @@ export default function EventPage() {
           <SectionHeading labelEn="PAST EVENTS" title="過去の開催イベントとその報告書" />
           <p className="mt-4 text-sm text-muted-foreground">種別で絞り込めます。</p>
           <div className="mt-8">
-            <EventFilter excludeSlug="SBS24" />
-          </div>
-          <div className="mt-12 flex justify-center">
-            <CtaLink href={symposiumHref} variant="primary">
-              宇宙ビジネスシンポジウム2024を見る
-            </CtaLink>
+            <EventFilter />
           </div>
         </div>
       </section>

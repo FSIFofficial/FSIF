@@ -41,7 +41,7 @@ export function FeaturedEvent() {
           </dl>
 
           <div className="mt-10 flex flex-wrap gap-3">
-            <CtaLink href="/activities/event/space-business-symposium-2024" variant="primary">
+            <CtaLink href="/activities/event/SBS24" variant="primary">
               開催記録を見る
             </CtaLink>
             <CtaLink href="/activities/event" variant="secondary" onDark>

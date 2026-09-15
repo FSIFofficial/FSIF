@@ -33,7 +33,7 @@ export const projects: Project[] = [
       '企業・研究機関・大学・学生が一堂に会し、宇宙産業の未来を語り合った開催実績。基調講演やパネル、学生ピッチ、交流会を通じて共創が生まれました。',
     image: '/images/SBS24.png',
     imageAlt: '宇宙ビジネスシンポジウム2024の会場',
-    href: '/activities/event/space-business-symposium-2024',
+    href: '/activities/event/SBS24',
     kind: 'event',
   },
 ]

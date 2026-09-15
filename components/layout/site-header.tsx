@@ -10,7 +10,7 @@ import { Logo } from './logo'
 import { MobileMenu } from './mobile-menu'
 import { cn } from '@/lib/utils'
 
-const DARK_HERO_ROUTES = ['/', '/activities/event/space-business-symposium-2024']
+const DARK_HERO_ROUTES = ['/', '/activities/event/SBS24']
 
 export function SiteHeader() {
   const pathname = usePathname()

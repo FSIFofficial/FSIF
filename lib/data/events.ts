@@ -60,7 +60,7 @@ export const events: EventItem[] = [
     summary: '企業・研究機関・大学・学生が集い、宇宙産業の未来を語り合いました。',
     image: '/event/SBS24.jpg',
     imageAlt: '宇宙ビジネスシンポジウム2024の告知',
-    href: '/activities/event/space-business-symposium-2024',
+    href: '/activities/event/SBS24',
     externalLinks: [
       { label: 'シンポジウム詳細', href: 'https://fsifofficial.wixsite.com/future-space-industr/0928' },
       { label: 'プログラム', href: 'https://fsifofficial.wixsite.com/future-space-industr/0928/program' },

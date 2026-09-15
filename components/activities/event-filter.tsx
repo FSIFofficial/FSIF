@@ -48,7 +48,7 @@ export function EventFilter({ excludeSlug }: { excludeSlug?: string } = {}) {
                   alt={e.imageAlt}
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="object-contain transition-transform duration-500 group-hover:scale-105"
                 />
                 <span className="absolute left-3 top-3 rounded-sm bg-navy/85 px-2 py-1 font-mono text-[0.65rem] tracking-wide text-navy-foreground">
                   {e.type}

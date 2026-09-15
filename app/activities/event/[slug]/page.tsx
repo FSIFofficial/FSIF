@@ -4,8 +4,9 @@ import { EventReport } from '@/components/activities/event-report'
 import { events } from '@/lib/data/events'
 
 // The symposium keeps its own dedicated static route at
-// /activities/event/space-business-symposium-2024, so it's excluded here.
-const reports = events.filter((e) => e.href === `/activities/event/${e.slug}`)
+// /activities/event/SBS24 (app/activities/event/SBS24/page.tsx), so it's
+// excluded here to avoid a duplicate static path at build time.
+const reports = events.filter((e) => e.slug !== 'SBS24')
 
 function getReportBySlug(slug: string) {
   return reports.find((e) => e.slug === slug)
