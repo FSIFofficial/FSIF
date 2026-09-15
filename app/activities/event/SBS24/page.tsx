@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Calendar, Clock, Download, FileText, MapPin, Mic2, Ticket } from 'lucide-react'
+import { Calendar, Clock, Download, MapPin, Mic2, Ticket } from 'lucide-react'
 import { PageHero } from '@/components/shared/page-hero'
 import { SectionHeading } from '@/components/ui/section-heading'
 import { CtaLink } from '@/components/ui/cta-link'
@@ -240,14 +240,16 @@ export default function SymposiumPage() {
               </div>
             )}
 
-            {item.reportPdf && (
-              <div className="mt-6 flex flex-wrap items-center gap-4 rounded-xl border border-border bg-surface p-5">
-                <div className="flex size-12 shrink-0 items-center justify-center rounded-md bg-pale-blue text-fsif-blue">
-                  <FileText className="size-6" aria-hidden />
-                </div>
-                <div className="min-w-0 flex-1">
+          </Reveal>
+        </div>
+
+        {item.reportPdf && (
+          <div className="container-fsif mt-10">
+            <Reveal>
+              <div className="mb-4 flex flex-wrap items-center justify-between gap-4">
+                <div className="min-w-0">
                   <p className="font-bold text-foreground">{item.reportPdf.label}</p>
-                  <p className="text-sm text-muted-foreground">当日の様子をまとめた報告書をPDFでご覧いただけます。</p>
+                  <p className="text-sm text-muted-foreground">当日の様子をまとめた報告書です。</p>
                 </div>
                 <a
                   href={item.reportPdf.href}
@@ -258,9 +260,16 @@ export default function SymposiumPage() {
                   ダウンロード
                 </a>
               </div>
-            )}
-          </Reveal>
-        </div>
+              <div className="overflow-hidden rounded-xl border border-border bg-surface">
+                <iframe
+                  src={item.reportPdf.href}
+                  title={item.reportPdf.label}
+                  className="h-[600px] w-full md:h-[800px]"
+                />
+              </div>
+            </Reveal>
+          </div>
+        )}
       </section>
 
       {/* concept */}
@@ -358,7 +367,7 @@ export default function SymposiumPage() {
                             <Clock className="size-4" aria-hidden />
                             {s.time}
                           </span>
-                          <span className="italic">{s.title}</span>
+                          <span>{s.title}</span>
                         </>
                       ) : (
                         <>

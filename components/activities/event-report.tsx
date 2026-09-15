@@ -79,22 +79,28 @@ export function EventReport({ item }: { item: EventItem }) {
 
           {item.reportPdf && (
             <Reveal>
-              <div className="mt-10 flex flex-wrap items-center gap-4 rounded-xl border border-border bg-surface p-5">
-                <div className="flex size-12 shrink-0 items-center justify-center rounded-md bg-pale-blue text-fsif-blue">
-                  <FileText className="size-6" aria-hidden />
+              <div className="mt-10">
+                <div className="mb-4 flex flex-wrap items-center justify-between gap-4">
+                  <div className="min-w-0">
+                    <p className="font-bold text-foreground">{item.reportPdf.label}</p>
+                    <p className="text-sm text-muted-foreground">当日の様子をまとめた報告書です。</p>
+                  </div>
+                  <a
+                    href={item.reportPdf.href}
+                    download={item.reportPdf.downloadName}
+                    className="inline-flex items-center gap-2 rounded-md bg-fsif-blue px-5 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-[#0057c4]"
+                  >
+                    <Download className="size-4" />
+                    ダウンロード
+                  </a>
                 </div>
-                <div className="min-w-0 flex-1">
-                  <p className="font-bold text-foreground">{item.reportPdf.label}</p>
-                  <p className="text-sm text-muted-foreground">当日の様子をまとめた報告書をPDFでご覧いただけます。</p>
+                <div className="overflow-hidden rounded-xl border border-border bg-surface">
+                  <iframe
+                    src={item.reportPdf.href}
+                    title={item.reportPdf.label}
+                    className="h-[600px] w-full md:h-[800px]"
+                  />
                 </div>
-                <a
-                  href={item.reportPdf.href}
-                  download={item.reportPdf.downloadName}
-                  className="inline-flex items-center gap-2 rounded-md bg-fsif-blue px-5 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-[#0057c4]"
-                >
-                  <Download className="size-4" />
-                  ダウンロード
-                </a>
               </div>
             </Reveal>
           )}

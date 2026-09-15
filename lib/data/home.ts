@@ -151,7 +151,7 @@ export const galleryItems: GalleryItem[] = [
     title: '宇宙ビジネスシンポジウム2024 パネル',
     date: '2024.11.16',
     category: 'EVENT',
-    href: '/activities/event/space-business-symposium-2024',
+    href: '/activities/event/SBS24',
     span: 'wide',
   },
   {

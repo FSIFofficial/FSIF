@@ -733,7 +733,7 @@ export const news: NewsItem[] = [
       }
     ],
     externalUrl: { label: '詳細はこちら', href: 'https://fsifofficial.wixsite.com/future-space-industr/0928' },
-    relatedLink: { label: '開催実績（報告書）を見る', href: '/activities/event/space-business-symposium-2024' },
+    relatedLink: { label: '開催実績（報告書）を見る', href: '/activities/event/SBS24' },
   },
   {
     slug: 'cbcometree',
