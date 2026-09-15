@@ -90,8 +90,12 @@ export const mainNav: NavItem[] = [
 export const socialLinks = [
   { label: 'X', href: 'https://x.com/fsif_official_', handle: '@fsif_official_' },
   { label: 'Instagram', href: 'https://instagram.com/fsif.official', handle: '@fsif.official' },
-  { label: 'YouTube', href: 'https://youtube.com/channel/FSIF.official', handle: 'FSIF.official' },
-  { label: 'Facebook', href: 'https://facebook.com', handle: '' },
+  { label: 'YouTube', href: 'https://www.youtube.com/@FSIF.official', handle: '@FSIF.official' },
+  {
+    label: 'Facebook',
+    href: 'https://www.facebook.com/people/%E6%9C%AA%E6%9D%A5%E5%AE%87%E5%AE%99%E7%94%A3%E6%A5%AD%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A9%E3%83%A0/61560527245437/',
+    handle: '未来宇宙産業フォーラム',
+  },
 ]
 
 export const footerSitemap = [

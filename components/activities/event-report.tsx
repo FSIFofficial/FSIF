@@ -23,8 +23,8 @@ export function EventReport({ item }: { item: EventItem }) {
         imageAlt={item.imageAlt}
       />
 
-      <section className="section-y">
-        <div className="container-wide">
+      <section className="bg-surface py-16 md:py-20">
+        <div className="container-fsif">
           <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr]">
             <Reveal>
               <SectionHeading eyebrow="REPORT" title="開催概要" description={item.summary} />
@@ -79,8 +79,8 @@ export function EventReport({ item }: { item: EventItem }) {
         </div>
       </section>
 
-      <section className="section-y bg-navy text-navy-foreground">
-        <div className="container-wide text-center">
+      <section className="bg-navy py-16 text-navy-foreground md:py-20">
+        <div className="container-fsif text-center">
           <Reveal>
             <SectionHeading
               align="center"

@@ -17,11 +17,9 @@ const colors = [
   { name: 'Foreground', value: '#071526', varName: '--foreground' },
 ]
 
-const downloads = [
-  { label: 'ロゴ（PNG）', note: 'RGB / 透過' },
-  { label: 'ロゴ（SVG）', note: 'ベクター' },
-  { label: 'ブランドガイドライン（PDF）', note: '使用規定' },
-]
+const downloads = [{ label: 'ロゴ（PNG）', note: 'RGB / 透過', href: '/FSIF_logo.png' }]
+
+const comingSoonDownloads = [{ label: 'ブランドガイドライン（PDF）', note: '準備中' }]
 
 export default function BrandPage() {
   return (
@@ -141,11 +139,12 @@ export default function BrandPage() {
       <section className="bg-navy py-16 text-navy-foreground md:py-20">
         <div className="container-fsif">
           <SectionHeading labelEn="DOWNLOADS" title="素材ダウンロード" onDark />
-          <ul className="mt-8 grid gap-4 sm:grid-cols-3">
+          <ul className="mt-8 grid max-w-2xl gap-4 sm:grid-cols-2">
             {downloads.map((d) => (
               <li key={d.label}>
                 <a
-                  href="#"
+                  href={d.href}
+                  download
                   className="flex items-center justify-between gap-4 rounded-xl border border-white/15 bg-white/5 p-5 transition-colors hover:border-accent-blue"
                 >
                   <span>
@@ -154,6 +153,17 @@ export default function BrandPage() {
                   </span>
                   <Download className="size-5 text-accent-blue" />
                 </a>
+              </li>
+            ))}
+            {comingSoonDownloads.map((d) => (
+              <li key={d.label}>
+                <div className="flex cursor-not-allowed items-center justify-between gap-4 rounded-xl border border-white/10 bg-white/[0.02] p-5 opacity-50">
+                  <span>
+                    <span className="block font-medium text-white">{d.label}</span>
+                    <span className="mt-0.5 block text-xs text-navy-foreground/60">{d.note}</span>
+                  </span>
+                  <Download className="size-5 text-navy-foreground/40" />
+                </div>
               </li>
             ))}
           </ul>

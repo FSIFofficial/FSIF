@@ -62,9 +62,11 @@ export function SiteFooter() {
             <p className="mt-4 text-sm leading-relaxed text-navy-foreground/75">
               {brand.name}（{brand.nameEn}）。{brand.description}
             </p>
+            {/* Newsletter signup — no backend wired up yet, may come later.
             <div className="mt-8">
               <Newsletter />
             </div>
+            */}
           </div>
 
           {/* Sitemap - desktop */}
