@@ -251,6 +251,7 @@ export default function SymposiumPage() {
                 </div>
                 <a
                   href={item.reportPdf.href}
+                  download={item.reportPdf.downloadName}
                   className="inline-flex items-center gap-2 rounded-md bg-fsif-blue px-5 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-[#0057c4]"
                 >
                   <Download className="size-4" />

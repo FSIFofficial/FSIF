@@ -18,7 +18,11 @@ export const events: EventItem[] = [
     image: '/event/YOXO26.png',
     imageAlt: 'YOXO FESTIVAL 2026 出展の告知',
     href: '/activities/event/YOXO26',
-    reportPdf: { label: 'ブース出展報告書（PDF）', href: '/event/YOXO FESTIVAL 2026 報告書.pdf' },
+    reportPdf: {
+      label: 'ブース出展報告書（PDF）',
+      href: '/event/YOXO FESTIVAL 2026 報告書.pdf',
+      downloadName: 'YOXO FESTIVAL 2026報告書.pdf',
+    },
   },
   {
     slug: 'FSID3',
@@ -35,7 +39,11 @@ export const events: EventItem[] = [
     image: '/event/FSID3.jpg',
     imageAlt: '未来宇宙産業DAY DAY3の告知',
     href: '/activities/event/FSID3',
-    reportPdf: { label: 'イベント報告書（PDF）', href: '/event/FSID3.pdf' },
+    reportPdf: {
+      label: 'イベント報告書（PDF）',
+      href: '/event/FSID3.pdf',
+      downloadName: '未来宇宙産業DAY DAY3報告書.pdf',
+    },
   },
   {
     slug: 'SBS24',
@@ -57,7 +65,11 @@ export const events: EventItem[] = [
       { label: 'シンポジウム詳細', href: 'https://fsifofficial.wixsite.com/future-space-industr/0928' },
       { label: 'プログラム', href: 'https://fsifofficial.wixsite.com/future-space-industr/0928/program' },
     ],
-    reportPdf: { label: 'イベント報告書（PDF）', href: '/event/SBS24.pdf' },
+    reportPdf: {
+      label: 'イベント報告書（PDF）',
+      href: '/event/SBS24.pdf',
+      downloadName: '宇宙ビジネスシンポジウム2024報告書.pdf',
+    },
   },
   {
     slug: 'J3',
@@ -74,7 +86,11 @@ export const events: EventItem[] = [
     image: '/event/J3.jpg',
     imageAlt: '神奈川大学宇宙ロケット部新入部員交流会の告知',
     href: '/activities/event/J3',
-    reportPdf: { label: '常設活動報告書（PDF）', href: '/event/J3報告書.pdf' },
+    reportPdf: {
+      label: '常設活動報告書（PDF）',
+      href: '/event/J3報告書.pdf',
+      downloadName: '常設活動#003報告書.pdf',
+    },
   },
   {
     slug: 'FSID2',
@@ -91,7 +107,11 @@ export const events: EventItem[] = [
     image: '/event/FSID2.jpg',
     imageAlt: '未来宇宙産業DAY DAY2の告知',
     href: '/activities/event/FSID2',
-    reportPdf: { label: 'イベント報告書（PDF）', href: '/event/FSID2報告書.pdf' },
+    reportPdf: {
+      label: 'イベント報告書（PDF）',
+      href: '/event/FSID2報告書.pdf',
+      downloadName: '未来宇宙産業DAY DAY2報告書.pdf',
+    },
   },
   {
     slug: 'FSID1',
@@ -108,7 +128,11 @@ export const events: EventItem[] = [
     image: '/event/FSID1.jpg',
     imageAlt: '未来宇宙産業DAYの告知',
     href: '/activities/event/FSID1',
-    reportPdf: { label: 'イベント報告書（PDF）', href: '/event/FSID1報告書.pdf' },
+    reportPdf: {
+      label: 'イベント報告書（PDF）',
+      href: '/event/FSID1報告書.pdf',
+      downloadName: '未来宇宙産業DAY報告書.pdf',
+    },
   },
   {
     slug: 'J2',
@@ -124,7 +148,11 @@ export const events: EventItem[] = [
     image: '/event/J2.png',
     imageAlt: '常設活動#002の告知',
     href: '/activities/event/J2',
-    reportPdf: { label: '常設活動報告書（PDF）', href: '/event/J2報告書.pdf' },
+    reportPdf: {
+      label: '常設活動報告書（PDF）',
+      href: '/event/J2報告書.pdf',
+      downloadName: '常設活動#002報告書.pdf',
+    },
   },
   {
     slug: 'FSIF0',
@@ -141,7 +169,11 @@ export const events: EventItem[] = [
     image: '/event/趣味からつながる宇宙.png',
     imageAlt: '趣味からつながる宇宙の告知',
     href: '/activities/event/FSIF0',
-    reportPdf: { label: 'イベント報告書（PDF）', href: '/event/趣味からつながる宇宙報告書.pdf' },
+    reportPdf: {
+      label: 'イベント報告書（PDF）',
+      href: '/event/趣味からつながる宇宙報告書.pdf',
+      downloadName: '趣味からつながる宇宙報告書.pdf',
+    },
   },
 ]
 
