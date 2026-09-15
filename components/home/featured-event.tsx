@@ -8,7 +8,7 @@ export function FeaturedEvent() {
       <div className="grid lg:grid-cols-2">
         <div className="relative min-h-[300px] lg:min-h-full">
           <Image
-            src="/images/symposium.png"
+            src="/images/SBS24.png"
             alt="宇宙ビジネスシンポジウム2024の会場"
             fill
             sizes="(max-width: 1024px) 100vw, 50vw"

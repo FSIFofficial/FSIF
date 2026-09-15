@@ -117,7 +117,7 @@ export const memberStories = [
     name: 'Bさん',
     role: 'イベント企画 / 大学3年',
     quote: 'シンポジウムの運営を任せてもらい、企業の方と直接話せる経験ができました。',
-    image: '/images/event-networking.png',
+    image: '/images/SBS24R.png',
   },
   {
     name: 'Cさん',
