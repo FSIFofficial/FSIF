@@ -16,18 +16,18 @@ const fieldClass =
   'mt-1.5 w-full rounded-md border border-border bg-background px-3.5 py-2.5 text-sm text-foreground shadow-sm outline-none transition-colors placeholder:text-muted-foreground/60 focus:border-fsif-blue focus:ring-2 focus:ring-fsif-blue/20'
 
 // This form keeps its own UI and submits into a Google Form behind the
-// scenes, so the layout stays fully custom while Forms handles storage and
-// notification. Swap these three values for the target form's own
-// `formResponse` action URL and its `entry.<id>` field IDs (visible in the
-// live form's page source), then flip FORM_CONFIGURED to true.
-const FORM_CONFIGURED = false
-const GOOGLE_FORM_ACTION = 'https://docs.google.com/forms/d/e/REPLACE_ME/formResponse'
+// scenes, so the layout stays fully custom while Forms handles storage,
+// auto-reply, and staff notification (see the Apps Script bound to the
+// form itself). Source form: https://forms.gle/ZdAQBvprq6b1kkw3A
+const FORM_CONFIGURED = true
+const GOOGLE_FORM_ACTION =
+  'https://docs.google.com/forms/u/0/d/e/1FAIpQLSdjie59I_RAYkv-1mCSkbYUygQz5Wk8C5nxlenz7lP3xPk7og/formResponse'
 const FIELD_IDS = {
-  name: 'entry.REPLACE_ME',
-  org: 'entry.REPLACE_ME',
-  email: 'entry.REPLACE_ME',
-  type: 'entry.REPLACE_ME',
-  message: 'entry.REPLACE_ME',
+  name: 'entry.2082586519',
+  org: 'entry.1602816975',
+  email: 'entry.929546141',
+  type: 'entry.1156602354',
+  message: 'entry.810188869',
 }
 
 export function ContactForm() {
