@@ -23,7 +23,7 @@ export default function EventPage() {
         title="宇宙を、人と人が出会う場所へ。"
         description="主催・共催・運営支援・出展・登壇・ワークショップ。多様な形で、共創が始まる場をつくります。"
         breadcrumbs={[{ label: 'ACTIVITIES', href: '/activities' }, { label: 'イベント事業' }]}
-        image="/images/event-networking.png"
+        image="/images/SBS24R.png"
         imageAlt="イベントの交流風景"
       />
 
@@ -52,7 +52,7 @@ export default function EventPage() {
           >
             <div className="relative aspect-[16/10] lg:aspect-auto lg:min-h-[320px]">
               <Image
-                src="/images/symposium.png"
+                src="/images/SBS24.png"
                 alt="宇宙ビジネスシンポジウム2024の会場"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"

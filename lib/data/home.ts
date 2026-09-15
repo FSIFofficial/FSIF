@@ -25,7 +25,7 @@ export const heroSlides: HeroSlide[] = [
     copy: '宇宙を、人と人が出会う場所へ。',
     sub: '立場と分野を越え、新しい共創が始まる場をつくる。',
     cta: { label: 'イベント事業を見る', href: '/activities/event' },
-    image: '/images/event-networking.png',
+    image: '/images/SBS24R.png',
     imageAlt: 'イベントで交流する参加者たち',
   },
   {
@@ -118,7 +118,7 @@ export const activities: Activity[] = [
     labelEn: 'EVENT',
     labelJa: 'イベント事業',
     description: '立場と分野を越えた出会いと共創が始まる場を企画・運営します。',
-    image: '/images/event-networking.png',
+    image: '/images/SBS24R.png',
     imageAlt: 'イベント事業の交流風景',
     href: '/activities/event',
   },

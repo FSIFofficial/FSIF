@@ -156,7 +156,7 @@ export const news: NewsItem[] = [
     category: 'NEWS',
     title: 'モノづくり団体・研究室を募集',
     excerpt: '学生の宇宙開発団体の認知度向上などを目的としてJapan Students Space Weekを開催する運びとなりました。詳細はお気軽にご連絡ください。',
-    thumbnail: '/images/event-networking.png',
+    thumbnail: '/images/SBS24R.png',
     thumbnailAlt: '学生団体同士の交流の様子',
     lead: '学生の宇宙開発団体の認知度向上などを目的としてJapan Students Space Weekを開催する運びとなりました。詳細はお気軽にご連絡ください。',
     body: [
