@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Calendar, Clock, MapPin, Mic2, Ticket } from 'lucide-react'
+import { Calendar, Clock, Download, FileText, MapPin, Mic2, Ticket } from 'lucide-react'
 import { PageHero } from '@/components/shared/page-hero'
 import { SectionHeading } from '@/components/ui/section-heading'
 import { CtaLink } from '@/components/ui/cta-link'
@@ -237,6 +237,25 @@ export default function SymposiumPage() {
                     {l.label}
                   </CtaLink>
                 ))}
+              </div>
+            )}
+
+            {item.reportPdf && (
+              <div className="mt-6 flex flex-wrap items-center gap-4 rounded-xl border border-border bg-surface p-5">
+                <div className="flex size-12 shrink-0 items-center justify-center rounded-md bg-pale-blue text-fsif-blue">
+                  <FileText className="size-6" aria-hidden />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <p className="font-bold text-foreground">{item.reportPdf.label}</p>
+                  <p className="text-sm text-muted-foreground">当日の様子をまとめた報告書をPDFでご覧いただけます。</p>
+                </div>
+                <a
+                  href={item.reportPdf.href}
+                  className="inline-flex items-center gap-2 rounded-md bg-fsif-blue px-5 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-[#0057c4]"
+                >
+                  <Download className="size-4" />
+                  ダウンロード
+                </a>
               </div>
             )}
           </Reveal>

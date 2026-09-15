@@ -119,6 +119,8 @@ export interface EventItem {
   /** 内容 */
   content?: string
   externalLinks?: { label: string; href: string }[]
+  /** 報告書PDFのダウンロードリンク（開催実績の報告書ページで使用）。 */
+  reportPdf?: { label: string; href: string }
 }
 
 export interface Partner {
