@@ -63,8 +63,8 @@ export const history: HistoryEntry[] = [
     date: '2023.09',
     title: 'FSIF設立',
     description: '「宇宙をみんなのものにする」を掲げ、学生を中心に未来宇宙産業フォーラムを設立。',
-    image: '/images/group.png',
-    imageAlt: '設立時のメンバー',
+    image: '/images/member.png',
+    imageAlt: '宇宙ビジネスシンポジウム2024でのメンバーの集合写真',
   },
   {
     year: '2023',
@@ -103,7 +103,7 @@ export const history: HistoryEntry[] = [
     date: '2026.08',
     title: '全日本学生ものづくりEXPO 出展',
     description: 'プロダクトとコミュニティの取り組みを、全国の学生に向けて紹介。',
-    image: '/images/expo-booth.png',
+    image: '/images/booth.png',
     imageAlt: 'EXPO出展',
   },
 ]

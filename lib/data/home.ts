@@ -7,8 +7,8 @@ export const heroSlides: HeroSlide[] = [
     copy: '宇宙を、みんなのものにする。',
     sub: 'すべての人に、宇宙とかかわる選択肢を。',
     cta: { label: 'FSIFについて', href: '/about' },
-    image: '/images/hero-forum.png',
-    imageAlt: '宇宙産業フォーラムのステージに立つFSIFのメンバーたち',
+    image: '/images/member.png',
+    imageAlt: '宇宙ビジネスシンポジウム2024でのメンバーの集合写真',
   },
   {
     id: 'cosmobase',
@@ -43,7 +43,7 @@ export const heroSlides: HeroSlide[] = [
     copy: '挑戦が、次の可能性をひらく。',
     sub: '全日本学生ものづくりEXPOへの出展レポート。',
     cta: { label: '活動レポートを読む', href: '/news/monozukuri-expo-report' },
-    image: '/images/expo-booth.png',
+    image: '/images/booth.png',
     imageAlt: '全日本学生ものづくりEXPOのFSIF出展ブース',
   },
 ]
@@ -164,7 +164,7 @@ export const galleryItems: GalleryItem[] = [
     span: 'tall',
   },
   {
-    image: '/images/expo-booth.png',
+    image: '/images/booth.png',
     alt: '学生ものづくりEXPOの出展',
     title: '全日本学生ものづくりEXPO 出展',
     date: '2026.02.20',
@@ -191,8 +191,8 @@ export const galleryItems: GalleryItem[] = [
     span: 'tall',
   },
   {
-    image: '/images/group.png',
-    alt: 'FSIFメンバーの集合写真',
+    image: '/images/member.png',
+    alt: '宇宙ビジネスシンポジウム2024でのメンバーの集合写真',
     title: '2025年度キックオフ',
     date: '2025.04.12',
     category: 'FSIF',
@@ -209,7 +209,7 @@ export const galleryItems: GalleryItem[] = [
     span: 'normal',
   },
   {
-    image: '/images/exhibition.png',
+    image: '/images/booth.png',
     alt: '展示ブースの様子',
     title: '産学連携展示イベント',
     date: '2025.07.19',

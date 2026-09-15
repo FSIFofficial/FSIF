@@ -18,8 +18,8 @@ export const media: MediaItem[] = [
     title: 'なぜ「宇宙をみんなのものに」なのか',
     excerpt:
       '宇宙産業は急速に広がっている一方で、関わり方の入口はまだ限られています。FSIFがコミュニティから始める理由を綴ります。',
-    thumbnail: '/images/hero-forum.png',
-    thumbnailAlt: 'フォーラムのステージ',
+    thumbnail: '/images/member.png',
+    thumbnailAlt: '宇宙ビジネスシンポジウム2024でのメンバーの集合写真',
     author: '編集部',
     readingTime: 6,
     featured: true,

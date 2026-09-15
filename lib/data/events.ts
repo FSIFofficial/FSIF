@@ -15,7 +15,7 @@ export const events: EventItem[] = [
     content: 'ブース出展',
     type: '出展',
     summary: 'iSIOメンバーによる宇宙学生団体の展示ブースを出展しました。',
-    image: '/images/expo-booth.png',
+    image: '/images/booth.png',
     imageAlt: 'ブース出展の様子',
     href: '/activities/event/YOXO26',
   },

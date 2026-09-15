@@ -527,8 +527,8 @@ export const news: NewsItem[] = [
     category: 'NEWS',
     title: 'HPリニューアル',
     excerpt: 'HPをリニューアルいたしました。',
-    thumbnail: '/images/hero-forum.png',
-    thumbnailAlt: 'FSIFのステージに立つメンバーたち',
+    thumbnail: '/images/member.png',
+    thumbnailAlt: '宇宙ビジネスシンポジウム2024でのメンバーの集合写真',
     lead: 'HPをリニューアルいたしました。',
     body: [
       {
