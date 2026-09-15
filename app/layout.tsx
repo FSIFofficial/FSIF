@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     siteName: 'FSIF 未来宇宙産業フォーラム',
     title: '未来宇宙産業フォーラム FSIF',
     description: '宇宙を、みんなのものにする。すべての人に、宇宙とかかわる選択肢を。',
-    images: ['/images/hero-forum.png'],
+    images: ['/images/member.png'],
   },
 }
 
