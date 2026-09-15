@@ -15,13 +15,54 @@ const inquiryTypes = [
 const fieldClass =
   'mt-1.5 w-full rounded-md border border-border bg-background px-3.5 py-2.5 text-sm text-foreground shadow-sm outline-none transition-colors placeholder:text-muted-foreground/60 focus:border-fsif-blue focus:ring-2 focus:ring-fsif-blue/20'
 
+// This form keeps its own UI and submits into a Google Form behind the
+// scenes, so the layout stays fully custom while Forms handles storage and
+// notification. Swap these three values for the target form's own
+// `formResponse` action URL and its `entry.<id>` field IDs (visible in the
+// live form's page source), then flip FORM_CONFIGURED to true.
+const FORM_CONFIGURED = false
+const GOOGLE_FORM_ACTION = 'https://docs.google.com/forms/d/e/REPLACE_ME/formResponse'
+const FIELD_IDS = {
+  name: 'entry.REPLACE_ME',
+  org: 'entry.REPLACE_ME',
+  email: 'entry.REPLACE_ME',
+  type: 'entry.REPLACE_ME',
+  message: 'entry.REPLACE_ME',
+}
+
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [failed, setFailed] = useState(false)
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    // Demo only: no backend wired up. Simulate a successful submission.
-    setSubmitted(true)
+    setFailed(false)
+
+    if (!FORM_CONFIGURED) {
+      setSubmitted(true)
+      return
+    }
+
+    setSubmitting(true)
+    const values = new FormData(e.currentTarget)
+    const payload = new FormData()
+    payload.append(FIELD_IDS.name, String(values.get('name') ?? ''))
+    payload.append(FIELD_IDS.org, String(values.get('org') ?? ''))
+    payload.append(FIELD_IDS.email, String(values.get('email') ?? ''))
+    payload.append(FIELD_IDS.type, String(values.get('type') ?? ''))
+    payload.append(FIELD_IDS.message, String(values.get('message') ?? ''))
+
+    try {
+      // Google Forms doesn't send CORS headers, so the response is opaque
+      // under no-cors — a resolved fetch is the only success signal available.
+      await fetch(GOOGLE_FORM_ACTION, { method: 'POST', mode: 'no-cors', body: payload })
+      setSubmitted(true)
+    } catch {
+      setFailed(true)
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   if (submitted) {
@@ -111,11 +152,18 @@ export function ContactForm() {
         </label>
       </div>
 
+      {failed && (
+        <p className="text-sm text-destructive">
+          送信に失敗しました。通信環境をご確認のうえ、時間をおいて再度お試しください。
+        </p>
+      )}
+
       <button
         type="submit"
-        className="inline-flex items-center justify-center rounded-md bg-fsif-blue px-6 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-[#0057c4] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-fsif-blue"
+        disabled={submitting}
+        className="inline-flex items-center justify-center rounded-md bg-fsif-blue px-6 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-[#0057c4] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-fsif-blue disabled:opacity-60"
       >
-        送信する
+        {submitting ? '送信中…' : '送信する'}
       </button>
     </form>
   )
