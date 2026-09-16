@@ -6,6 +6,7 @@ import { news, getNewsBySlug, getRelatedNews } from '@/lib/data/news'
 import { Breadcrumbs } from '@/components/shared/page-hero'
 import { CategoryTag, NewsCard } from '@/components/shared/news-card'
 import { ArticleShare } from '@/components/shared/article-share'
+import { Linkify } from '@/components/shared/linkify'
 import { CtaLink } from '@/components/ui/cta-link'
 import { SectionHeading } from '@/components/ui/section-heading'
 import { formatDateJa } from '@/lib/utils'
@@ -89,7 +90,7 @@ export default async function NewsDetailPage({ params }: { params: Promise<{ slu
               )}
               {block.paragraphs.map((p, j) => (
                 <p key={j} className="mb-4 leading-[1.9] text-foreground/90">
-                  {p}
+                  <Linkify text={p} />
                 </p>
               ))}
               {block.image && (
