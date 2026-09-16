@@ -103,6 +103,10 @@ export function HeroSlider() {
   // ---- Press-and-hold pause via Pointer Events ----
   const beginHold = (e: React.PointerEvent) => {
     if (pointerId.current !== null) return
+    // Let interactive controls (CTA link, arrows, dots) handle their own
+    // click natively — capturing the pointer here would redirect their
+    // pointerup/click to the section instead, silently breaking them.
+    if ((e.target as HTMLElement).closest('a, button')) return
     pointerId.current = e.pointerId
     startX.current = e.clientX
     startY.current = e.clientY

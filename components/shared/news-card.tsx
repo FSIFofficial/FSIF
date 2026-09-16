@@ -25,13 +25,13 @@ export function NewsCard({ item, className }: { item: NewsItem; className?: stri
       href={`/news/${item.slug}`}
       className={cn('group flex flex-col', className)}
     >
-      <div className="relative aspect-[16/10] overflow-hidden rounded-lg bg-pale-blue">
+      <div className="relative aspect-[16/10] overflow-hidden rounded-lg bg-white">
         <Image
           src={item.thumbnail || '/placeholder.svg'}
           alt={item.thumbnailAlt}
           fill
           sizes="(max-width: 768px) 100vw, 33vw"
-          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          className="object-contain transition-transform duration-500 group-hover:scale-105"
         />
       </div>
       <div className="mt-4 flex items-center gap-3">
@@ -54,13 +54,13 @@ export function NewsRow({ item }: { item: NewsItem }) {
       href={`/news/${item.slug}`}
       className="group flex items-center gap-4 py-4"
     >
-      <div className="relative aspect-[4/3] w-24 shrink-0 overflow-hidden rounded-md bg-pale-blue sm:w-28">
+      <div className="relative aspect-[4/3] w-24 shrink-0 overflow-hidden rounded-md bg-white sm:w-28">
         <Image
           src={item.thumbnail || '/placeholder.svg'}
           alt={item.thumbnailAlt}
           fill
           sizes="120px"
-          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          className="object-contain transition-transform duration-500 group-hover:scale-105"
         />
       </div>
       <div className="min-w-0 flex-1">
