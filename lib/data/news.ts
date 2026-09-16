@@ -124,7 +124,7 @@ export const news: NewsItem[] = [
           '「シーイング測定装置開発」',
           '「望遠鏡の遠隔操作化」',
           '「屋上望遠鏡の改修」',
-          'AstroKIT ホームページ',
+          '[AstroKIT ホームページ](https://sites.google.com/view/astrokitproject/%E3%83%9B%E3%83%BC%E3%83%A0)',
         ],
       },
       {
@@ -134,7 +134,7 @@ export const news: NewsItem[] = [
           '代表者：共同設立者兼代表,眞鍋 和士(マナベ カズト)',
           '設立：2023 年 9 月 10 日',
           '活動内容：イベントの開催、コミュニティーの運営 他',
-          '未来宇宙産業フォーラム(FSIF)ホームページ',
+          '[未来宇宙産業フォーラム(FSIF)ホームページ](https://fsifofficial.wixsite.com/home)',
         ],
       },
       {
@@ -144,7 +144,7 @@ export const news: NewsItem[] = [
           '代表者：Cosmo Base 事業責任者,後藤 槻成(ゴトウ キナリ)',
           '設立：2026 年 4 月 1 日',
           'サービス内容：メディア、イベント紹介 他',
-          'Cosmo Baseホームページ',
+          '[Cosmo Baseホームページ](https://fsifofficial.github.io/cosmobase/)',
         ],
       }
     ],
@@ -370,7 +370,7 @@ export const news: NewsItem[] = [
       {
         heading: 'Fuzion関東 団体概要',
         paragraphs: [
-          'Fuzion ホームページ ',
+          '[Fuzion ホームページ](https://fuzion.jp/)',
         ],
       },
       {
@@ -380,7 +380,7 @@ export const news: NewsItem[] = [
           '代表者：共同設立者兼代表,眞鍋 和士(マナベ カズト)',
           '設立：2023年9月10日',
           '活動内容：イベントの開催、コミュニティーの運営 他',
-          '未来宇宙産業フォーラム(FSIF)ホームページ',
+          '[未来宇宙産業フォーラム(FSIF)ホームページ](https://fsifofficial.wixsite.com/home)',
         ],
       },
       {
@@ -390,7 +390,7 @@ export const news: NewsItem[] = [
           '代表者：Cosmo Base事業責任者,後藤 槻成(ゴトウ キナリ)',
           '設立：2026年4月1日',
           'サービス内容：メディア、イベント紹介 他',
-          'Cosmo Baseホームページ',
+          '[Cosmo Baseホームページ](https://fsifofficial.github.io/cosmobase/)',
         ],
       }
     ],
