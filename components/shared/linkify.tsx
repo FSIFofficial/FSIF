@@ -1,29 +1,31 @@
-const URL_RE = /https?:\/\/[^\s。、，,)）」』】]+/g
+// Matches either a markdown-style [label](url) link or a bare http(s) URL.
+const LINK_RE = /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)|https?:\/\/[^\s。、，,)）」』】]+/g
 
-/** Renders plain text with any http(s) URLs turned into clickable links. */
+const linkClass = 'break-all text-fsif-blue underline underline-offset-2 hover:text-[#0057c4]'
+
+/**
+ * Renders plain text with links turned clickable. Supports bare URLs
+ * (linked as-is) and markdown-style `[label](url)` for custom link text,
+ * e.g. an `@handle` that should point to a different profile URL.
+ */
 export function Linkify({ text }: { text: string }) {
   const nodes: React.ReactNode[] = []
   let lastIndex = 0
   let match: RegExpExecArray | null
   let key = 0
 
-  while ((match = URL_RE.exec(text)) !== null) {
+  while ((match = LINK_RE.exec(text)) !== null) {
     if (match.index > lastIndex) {
       nodes.push(text.slice(lastIndex, match.index))
     }
-    const url = match[0]
+    const [full, label, mdHref] = match
+    const href = mdHref ?? full
     nodes.push(
-      <a
-        key={key++}
-        href={url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="break-all text-fsif-blue underline underline-offset-2 hover:text-[#0057c4]"
-      >
-        {url}
+      <a key={key++} href={href} target="_blank" rel="noopener noreferrer" className={linkClass}>
+        {label ?? full}
       </a>,
     )
-    lastIndex = match.index + url.length
+    lastIndex = match.index + full.length
   }
   if (lastIndex < text.length) nodes.push(text.slice(lastIndex))
 

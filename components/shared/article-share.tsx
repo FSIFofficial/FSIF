@@ -38,26 +38,24 @@ export function ArticleShare({ title, path }: { title: string; path: string }) {
   const enc = encodeURIComponent
   const shareTitle = enc(title)
 
-  const links = [
-    {
-      label: 'X',
-      href: `https://twitter.com/intent/tweet?text=${shareTitle}&url=${enc(url)}`,
-      Icon: XIcon,
-      hover: 'hover:border-foreground hover:text-foreground',
-    },
-    {
-      label: 'Facebook',
-      href: `https://www.facebook.com/sharer/sharer.php?u=${enc(url)}`,
-      Icon: FacebookIcon,
-      hover: 'hover:border-[#1877F2] hover:text-[#1877F2]',
-    },
-    {
-      label: 'LINE',
-      href: `https://social-plugins.line.me/lineit/share?url=${enc(url)}`,
-      Icon: MessageCircle,
-      hover: 'hover:border-[#06C755] hover:text-[#06C755]',
-    },
-  ]
+  const x = {
+    label: 'X',
+    href: `https://twitter.com/intent/tweet?text=${shareTitle}&url=${enc(url)}`,
+    Icon: XIcon,
+    hover: 'hover:border-foreground hover:text-foreground',
+  }
+  const facebook = {
+    label: 'Facebook',
+    href: `https://www.facebook.com/sharer/sharer.php?u=${enc(url)}`,
+    Icon: FacebookIcon,
+    hover: 'hover:border-[#1877F2] hover:text-[#1877F2]',
+  }
+  const line = {
+    label: 'LINE',
+    href: `https://social-plugins.line.me/lineit/share?url=${enc(url)}`,
+    Icon: MessageCircle,
+    hover: 'hover:border-[#06C755] hover:text-[#06C755]',
+  }
 
   const copy = async () => {
     try {
@@ -81,24 +79,26 @@ export function ArticleShare({ title, path }: { title: string; path: string }) {
     }
   }
 
+  const shareLink = (l: { label: string; href: string; Icon: React.ComponentType<{ className?: string }>; hover: string }) => (
+    <a
+      key={l.label}
+      href={l.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`${l.label}でシェア（外部サイトへ移動します）`}
+      className={cn(
+        'flex size-9 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors',
+        l.hover,
+      )}
+    >
+      <l.Icon className="size-4" />
+    </a>
+  )
+
   return (
     <div className="flex items-center gap-2">
       <span className="section-label mr-1 text-muted-foreground">SHARE</span>
-      {links.map((l) => (
-        <a
-          key={l.label}
-          href={l.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={`${l.label}でシェア（外部サイトへ移動します）`}
-          className={cn(
-            'flex size-9 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors',
-            l.hover,
-          )}
-        >
-          <l.Icon className="size-4" />
-        </a>
-      ))}
+      {shareLink(x)}
       <div className="relative">
         <button
           type="button"
@@ -114,6 +114,8 @@ export function ArticleShare({ title, path }: { title: string; path: string }) {
           </span>
         )}
       </div>
+      {shareLink(facebook)}
+      {shareLink(line)}
       <button
         type="button"
         onClick={copy}

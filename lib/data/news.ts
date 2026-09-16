@@ -660,8 +660,8 @@ export const news: NewsItem[] = [
           '主な活動内容：',
           '主な実績：',
           '公式サイト：https://spaceuniversity.jp/',
-          '公式 X：@spaceuni_isio',
-          '公式 Instagram：@spaceuniversity.jp ',
+          '公式 X：[@spaceuni_isio](https://x.com/spaceuni_isio)',
+          '公式 Instagram：[@spaceuniversity.jp](https://instagram.com/spaceuniversity.jp)',
         ],
       },
       {
