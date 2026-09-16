@@ -118,7 +118,7 @@ export default async function NewsDetailPage({ params }: { params: Promise<{ slu
                 </CtaLink>
               )}
               {item.externalUrl && (
-                <CtaLink href={item.externalUrl.href} variant="primary" external>
+                <CtaLink href={item.externalUrl.href} variant="secondary" external>
                   {item.externalUrl.label}
                 </CtaLink>
               )}

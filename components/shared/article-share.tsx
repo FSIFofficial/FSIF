@@ -20,8 +20,19 @@ function FacebookIcon(props: React.SVGProps<SVGSVGElement>) {
   )
 }
 
+function InstagramIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} aria-hidden {...props}>
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <circle cx="12" cy="12" r="4.2" />
+      <circle cx="17.3" cy="6.7" r="0.9" fill="currentColor" stroke="none" />
+    </svg>
+  )
+}
+
 export function ArticleShare({ title, path }: { title: string; path: string }) {
   const [copied, setCopied] = useState(false)
+  const [igCopied, setIgCopied] = useState(false)
 
   const url = typeof window !== 'undefined' ? `${window.location.origin}${path}` : path
   const enc = encodeURIComponent
@@ -58,6 +69,18 @@ export function ArticleShare({ title, path }: { title: string; path: string }) {
     }
   }
 
+  // Instagram has no web share intent for an arbitrary URL, so copy the
+  // link instead and prompt the user to paste it (story, bio, DM, etc.).
+  const copyForInstagram = async () => {
+    try {
+      await navigator.clipboard.writeText(url)
+      setIgCopied(true)
+      setTimeout(() => setIgCopied(false), 2500)
+    } catch {
+      /* clipboard unavailable */
+    }
+  }
+
   return (
     <div className="flex items-center gap-2">
       <span className="section-label mr-1 text-muted-foreground">SHARE</span>
@@ -76,6 +99,21 @@ export function ArticleShare({ title, path }: { title: string; path: string }) {
           <l.Icon className="size-4" />
         </a>
       ))}
+      <div className="relative">
+        <button
+          type="button"
+          onClick={copyForInstagram}
+          aria-label="Instagramでシェア（リンクをコピーします）"
+          className="flex size-9 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors hover:border-[#E1306C] hover:text-[#E1306C]"
+        >
+          <InstagramIcon className="size-4" />
+        </button>
+        {igCopied && (
+          <span className="absolute -top-10 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md bg-navy px-2.5 py-1.5 text-xs text-navy-foreground shadow-lg">
+            リンクをコピーしました
+          </span>
+        )}
+      </div>
       <button
         type="button"
         onClick={copy}
