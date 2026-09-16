@@ -20,8 +20,6 @@ export function AboutFsif() {
             </div>
             <div className="absolute -bottom-4 left-4 flex items-center gap-3 rounded-md bg-navy px-4 py-2.5 font-mono text-xs text-navy-foreground shadow-lg md:-bottom-5 md:left-6">
               <span className="text-accent-blue">EST. 2023</span>
-              <span className="h-3 w-px bg-white/20" />
-              <span className="text-navy-foreground/70">35.68°N, 139.76°E</span>
             </div>
           </Reveal>
 
