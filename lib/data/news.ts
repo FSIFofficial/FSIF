@@ -496,8 +496,8 @@ export const news: NewsItem[] = [
           '所属：2015 年より慶應義塾大学公認学生団体、2016 年より慶應義塾大学文化団体連盟所属',
           '活動内容：天文・工学・理学・先進技術の 4 本部を中心とした研究、観測、遠征、分野別セクション活動、会員同士の交流・議論',
           '公式サイト：https://lyncs-keio.net/',
-          'X：https://x.com/keio_LYNCS',
-          'Instagram：https://instagram.com/keio_lyncs',
+          'X：[@keio_LYNCS](https://x.com/keio_LYNCS)',
+          'Instagram：[@keio_lyncs](https://instagram.com/keio_lyncs)',
         ],
       },
       {
