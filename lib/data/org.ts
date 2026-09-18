@@ -23,7 +23,7 @@ export const leadership: LeadershipMember[] = [
     nameEn: 'Manabe Kazuto',
     role: '代表',
     area: '全体統括',
-    image: '/images/representative.png',
+    image: '/images/Manabe.jpg',
     bio: '大学在学中にFSIFを立ち上げ。宇宙産業と社会の接点づくりに取り組む。「一番身近な宇宙の専門家」を掲げる。',
     message:
       '宇宙は、限られた人のものではありません。学ぶ人、働く人、応援する人。すべての人がそれぞれの距離で宇宙とかかわれる社会を、仲間とともにつくっていきます。',
@@ -46,7 +46,7 @@ export const leadership: LeadershipMember[] = [
     nameEn: 'Goto Kinari',
     role: '副代表 / コミュニティ事業責任者',
     area: 'コミュニティ事業',
-    image: '/images/cosmobase.png',
+    image: '/images/Kinari.jpg',
     bio: '複数の事業運営を統括するとともに、Cosmo Baseの立ち上げと運営を担当。誰もが参加できる場づくりに情熱を注ぐ。',
     career: [
       { date: '2023年4月', text: '慶應義塾大学理工学部機械工学科　入学' },
@@ -68,11 +68,11 @@ export const history: HistoryEntry[] = [
   },
   {
     year: '2023',
-    date: '2023.09',
+    date: '2023.12',
     title: 'ワークショップイベントを初開催',
     description: '宇宙の店にてワークショップ形式のイベントを初開催。',
     image: '/images/workshop.png',
-    imageAlt: 'ワークショップイベントの告知',
+    imageAlt: 'ワークショップの様子',
   },
   {
     year: '2024',
@@ -81,6 +81,14 @@ export const history: HistoryEntry[] = [
     description: '第1回シンポジウムを開催。宇宙産業を語り合う場のはじまり。',
     image: '/images/SBS24.png',
     imageAlt: '宇宙ビジネスシンポジウム2024の様子',
+  },
+  {
+    year: '2025',
+    date: '2025.10',
+    title: '学生活動大使に選出',
+    description: '大阪・関西万博「One World, One Planet.」学生共感企画実行委員会より、スペース学生活動大使に任命。',
+    image: '/news/学生活動大使_認定証54.png',
+    imageAlt: 'スペース学生活動大使 認定証',
   },
   {
     year: '2026',
@@ -97,14 +105,6 @@ export const history: HistoryEntry[] = [
     description: '組織運営の課題を解決するプラットフォーム「Orbit」の開発に着手。',
     image: '/images/orbit-team.png',
     imageAlt: 'Orbit開発',
-  },
-  {
-    year: '2026',
-    date: '2026.08',
-    title: '全日本学生ものづくりEXPO 出展',
-    description: 'プロダクトとコミュニティの取り組みを、全国の学生に向けて紹介。',
-    image: '/images/booth.png',
-    imageAlt: 'EXPO出展',
   },
 ]
 

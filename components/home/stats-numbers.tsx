@@ -17,7 +17,7 @@ export function StatsNumbers() {
               className="border-t-2 border-fsif-blue pt-5"
             >
               <dd className="font-mono text-[clamp(2.4rem,5vw,3.6rem)] font-bold leading-none tracking-tight text-navy">
-                <CountUp value={stat.value} suffix={stat.suffix} />
+                <CountUp value={stat.value} suffix={stat.suffix} noSeparator={stat.noSeparator} />
               </dd>
               <dt className="mt-3">
                 <span className="section-label block text-muted-foreground">{stat.labelEn}</span>

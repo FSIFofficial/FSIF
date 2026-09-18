@@ -6,9 +6,10 @@ interface CountUpProps {
   value: number
   suffix?: string
   duration?: number
+  noSeparator?: boolean
 }
 
-export function CountUp({ value, suffix = '', duration = 1600 }: CountUpProps) {
+export function CountUp({ value, suffix = '', duration = 1600, noSeparator = false }: CountUpProps) {
   const ref = useRef<HTMLSpanElement>(null)
   const [display, setDisplay] = useState(0)
   const started = useRef(false)
@@ -47,7 +48,7 @@ export function CountUp({ value, suffix = '', duration = 1600 }: CountUpProps) {
 
   return (
     <span ref={ref}>
-      {display.toLocaleString('en-US')}
+      {noSeparator ? display : display.toLocaleString('en-US')}
       {suffix}
     </span>
   )
