@@ -94,12 +94,14 @@ export function EventReport({ item }: { item: EventItem }) {
                     ダウンロード
                   </a>
                 </div>
-                <div className="overflow-hidden rounded-xl border border-border bg-surface">
-                  <iframe
-                    src={withBasePath(item.reportPdf.href)}
-                    title={item.reportPdf.label}
-                    className="h-[600px] w-full md:h-[800px]"
-                  />
+                <div className="mx-auto w-full max-w-xl overflow-hidden rounded-lg border border-border bg-white shadow-lg">
+                  <div className="aspect-[210/297] w-full">
+                    <iframe
+                      src={`${withBasePath(item.reportPdf.href)}#toolbar=0&navpanes=0`}
+                      title={item.reportPdf.label}
+                      className="h-full w-full"
+                    />
+                  </div>
                 </div>
               </div>
             </Reveal>
