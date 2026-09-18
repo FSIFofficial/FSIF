@@ -48,16 +48,16 @@ export default function CosmoBasePage() {
         image="/images/cosmobase.png"
         imageAlt="Cosmo Baseの活動"
       />
-      <section className="border-b border-border bg-surface">
+      <section className="bg-[#000033]">
         <div className="container-fsif flex flex-wrap items-center justify-between gap-6 py-8">
           <Image
             src="/CB/CosmoBase.png"
             alt="Cosmo Base"
             width={1658}
             height={348}
-            className="h-12 w-auto rounded-md"
+            className="h-12 w-auto"
           />
-          <CtaLink href={officialUrl} variant="secondary" external>
+          <CtaLink href={officialUrl} variant="secondary" onDark external>
             Cosmo Base公式サイト
           </CtaLink>
         </div>

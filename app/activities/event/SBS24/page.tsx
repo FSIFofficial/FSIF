@@ -6,6 +6,7 @@ import { CtaLink } from '@/components/ui/cta-link'
 import { Reveal } from '@/components/ui/reveal'
 import { events } from '@/lib/data/events'
 import { pageOpenGraph } from '@/lib/site-url'
+import { withBasePath } from '@/lib/utils'
 
 const item = events.find((e) => e.slug === 'SBS24')!
 
@@ -247,7 +248,7 @@ export default function SymposiumPage() {
                   <p className="text-sm text-muted-foreground">当日の様子をまとめた報告書です。</p>
                 </div>
                 <a
-                  href={item.reportPdf.href}
+                  href={withBasePath(item.reportPdf.href)}
                   download={item.reportPdf.downloadName}
                   className="inline-flex items-center gap-2 rounded-md bg-fsif-blue px-5 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-[#0057c4]"
                 >
@@ -257,7 +258,7 @@ export default function SymposiumPage() {
               </div>
               <div className="overflow-hidden rounded-xl border border-border bg-surface">
                 <iframe
-                  src={item.reportPdf.href}
+                  src={withBasePath(item.reportPdf.href)}
                   title={item.reportPdf.label}
                   className="h-[600px] w-full md:h-[800px]"
                 />

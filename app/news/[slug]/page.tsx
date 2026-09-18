@@ -9,7 +9,7 @@ import { ArticleShare } from '@/components/shared/article-share'
 import { Linkify } from '@/components/shared/linkify'
 import { CtaLink } from '@/components/ui/cta-link'
 import { SectionHeading } from '@/components/ui/section-heading'
-import { formatDateJa } from '@/lib/utils'
+import { formatDateJa, withBasePath } from '@/lib/utils'
 import { pageOpenGraph } from '@/lib/site-url'
 
 export function generateStaticParams() {
@@ -125,7 +125,7 @@ export default async function NewsDetailPage({ params }: { params: Promise<{ slu
               )}
               {item.pdf && (
                 <a
-                  href={item.pdf.href}
+                  href={withBasePath(item.pdf.href)}
                   className="inline-flex items-center gap-2 rounded-md border border-border bg-background px-5 py-3 text-sm font-medium transition-colors hover:border-fsif-blue hover:text-fsif-blue"
                 >
                   <Download className="size-4" />

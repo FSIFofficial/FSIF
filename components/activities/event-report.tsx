@@ -3,7 +3,7 @@ import { PageHero } from '@/components/shared/page-hero'
 import { SectionHeading } from '@/components/ui/section-heading'
 import { CtaLink } from '@/components/ui/cta-link'
 import { Reveal } from '@/components/ui/reveal'
-import { formatDateJa } from '@/lib/utils'
+import { formatDateJa, withBasePath } from '@/lib/utils'
 import type { EventItem } from '@/lib/types'
 
 /** Shared detail template for a past-event report (開催実績の報告書). */
@@ -86,7 +86,7 @@ export function EventReport({ item }: { item: EventItem }) {
                     <p className="text-sm text-muted-foreground">当日の様子をまとめた報告書です。</p>
                   </div>
                   <a
-                    href={item.reportPdf.href}
+                    href={withBasePath(item.reportPdf.href)}
                     download={item.reportPdf.downloadName}
                     className="inline-flex items-center gap-2 rounded-md bg-fsif-blue px-5 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-[#0057c4]"
                   >
@@ -96,7 +96,7 @@ export function EventReport({ item }: { item: EventItem }) {
                 </div>
                 <div className="overflow-hidden rounded-xl border border-border bg-surface">
                   <iframe
-                    src={item.reportPdf.href}
+                    src={withBasePath(item.reportPdf.href)}
                     title={item.reportPdf.label}
                     className="h-[600px] w-full md:h-[800px]"
                   />
