@@ -26,9 +26,6 @@ export function StatsNumbers() {
             </Reveal>
           ))}
         </dl>
-        <p className="mt-10 text-center text-xs text-muted-foreground">
-          ※ 数値はプロトタイプ用のモックデータです。実データへの差し替えを前提に構造化しています。
-        </p>
       </div>
     </section>
   )
