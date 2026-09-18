@@ -3,6 +3,7 @@ import { PageHero } from '@/components/shared/page-hero'
 import { SectionHeading } from '@/components/ui/section-heading'
 import { CtaLink } from '@/components/ui/cta-link'
 import { Reveal } from '@/components/ui/reveal'
+import { PdfViewer } from '@/components/activities/pdf-viewer'
 import { formatDateJa, withBasePath } from '@/lib/utils'
 import type { EventItem } from '@/lib/types'
 
@@ -94,15 +95,11 @@ export function EventReport({ item }: { item: EventItem }) {
                     ダウンロード
                   </a>
                 </div>
-                <div className="mx-auto w-full max-w-xl overflow-hidden rounded-lg border border-border bg-white shadow-lg">
-                  <div className="aspect-[210/297] w-full">
-                    <iframe
-                      src={`${withBasePath(item.reportPdf.href)}#toolbar=0&navpanes=0`}
-                      title={item.reportPdf.label}
-                      className="h-full w-full"
-                    />
-                  </div>
-                </div>
+                <PdfViewer
+                  src={item.reportPdf.href}
+                  label={item.reportPdf.label}
+                  downloadName={item.reportPdf.downloadName}
+                />
               </div>
             </Reveal>
           )}
