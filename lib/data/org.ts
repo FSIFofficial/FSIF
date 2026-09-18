@@ -72,7 +72,7 @@ export const history: HistoryEntry[] = [
     title: 'ワークショップイベントを初開催',
     description: '宇宙の店にてワークショップ形式のイベントを初開催。',
     image: '/images/workshop.png',
-    imageAlt: 'ワークショップイベントの告知',
+    imageAlt: 'ワークショップの様子',
   },
   {
     year: '2024',
