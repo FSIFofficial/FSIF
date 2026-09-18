@@ -1,14 +1,19 @@
 import type { Metadata } from 'next'
+import { pageOpenGraph } from '@/lib/site-url'
 import { PageHero } from '@/components/shared/page-hero'
 import { SectionHeading } from '@/components/ui/section-heading'
 import { CtaLink } from '@/components/ui/cta-link'
 import { WgTabs } from '@/components/activities/wg-tabs'
 import { wgThemeExamples } from '@/lib/data/workinggroups'
 
+const title = 'ワーキンググループ事業'
+const description =
+  '学生団体とFSIFが、宇宙利用をテーマに議論・検討する場。学生の視点を持ち寄り、新しい宇宙利用の可能性を考えるFSIFのワーキンググループ事業。'
+
 export const metadata: Metadata = {
-  title: 'ワーキンググループ事業',
-  description:
-    '学生団体とFSIFが、宇宙利用をテーマに議論・検討する場。学生の視点を持ち寄り、新しい宇宙利用の可能性を考えるFSIFのワーキンググループ事業。',
+  title,
+  description,
+  openGraph: pageOpenGraph(title, description),
 }
 
 export default function WorkingGroupPage() {

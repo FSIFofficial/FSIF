@@ -1,11 +1,16 @@
 import type { Metadata } from 'next'
+import { pageOpenGraph } from '@/lib/site-url'
 import Image from 'next/image'
 import { PageHero } from '@/components/shared/page-hero'
 import { history } from '@/lib/data/org'
 
+const title = '沿革 / History'
+const description = '2023年の設立から現在まで、FSIFの歩みを写真とともにご紹介します。'
+
 export const metadata: Metadata = {
-  title: '沿革 / History',
-  description: '2023年の設立から現在まで、FSIFの歩みを写真とともにご紹介します。',
+  title,
+  description,
+  openGraph: pageOpenGraph(title, description),
 }
 
 export default function HistoryPage() {

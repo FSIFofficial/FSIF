@@ -1,12 +1,17 @@
 import type { Metadata } from 'next'
+import { pageOpenGraph } from '@/lib/site-url'
 import Image from 'next/image'
 import { PageHero } from '@/components/shared/page-hero'
 import { CtaLink } from '@/components/ui/cta-link'
 import { products } from '@/lib/data/projects'
 
+const title = 'PRODUCT'
+const description = 'FSIFから生まれたプロダクト。FSIF内部から生まれ、外部への提供を想定している自主開発ツールを紹介します。現在はOrbit。'
+
 export const metadata: Metadata = {
-  title: 'PRODUCT',
-  description: 'FSIFから生まれたプロダクト。FSIF内部から生まれ、外部への提供を想定している自主開発ツールを紹介します。現在はOrbit。',
+  title,
+  description,
+  openGraph: pageOpenGraph(title, description),
 }
 
 export default function ProductPage() {

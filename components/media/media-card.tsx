@@ -7,13 +7,13 @@ import { cn } from '@/lib/utils'
 export function MediaCard({ item, className }: { item: MediaItem; className?: string }) {
   return (
     <Link href={`/media/${item.slug}`} className={cn('group flex flex-col', className)}>
-      <div className="relative aspect-[16/10] overflow-hidden rounded-lg bg-pale-blue">
+      <div className="relative aspect-[16/10] overflow-hidden rounded-lg bg-white">
         <Image
           src={item.thumbnail || '/placeholder.svg'}
           alt={item.thumbnailAlt}
           fill
           sizes="(max-width: 768px) 100vw, 33vw"
-          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          className="object-contain transition-transform duration-500 group-hover:scale-105"
         />
         <span className="absolute left-3 top-3 inline-flex items-center rounded-sm bg-surface/95 px-2 py-1 font-mono text-[0.65rem] font-medium tracking-wide text-fsif-blue">
           {item.category}

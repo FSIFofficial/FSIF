@@ -1,12 +1,17 @@
 import type { Metadata } from 'next'
+import { pageOpenGraph } from '@/lib/site-url'
 import { PageHero } from '@/components/shared/page-hero'
 import { profile, partners } from '@/lib/data/org'
 import { SectionHeading } from '@/components/ui/section-heading'
 import { CtaLink } from '@/components/ui/cta-link'
 
+const title = '組織概要'
+const description = 'FSIF（未来宇宙産業フォーラム）の名称・英語名称・略称・設立・代表・活動拠点・メンバー数・事業・連絡先・SNS。'
+
 export const metadata: Metadata = {
-  title: '組織概要',
-  description: 'FSIF（未来宇宙産業フォーラム）の名称・英語名称・略称・設立・代表・活動拠点・メンバー数・事業・連絡先・SNS。',
+  title,
+  description,
+  openGraph: pageOpenGraph(title, description),
 }
 
 const partnerGroups = ['企業', '大学', '行政・研究機関', '学生団体'] as const

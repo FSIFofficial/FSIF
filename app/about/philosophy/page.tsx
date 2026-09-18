@@ -1,11 +1,16 @@
 import type { Metadata } from 'next'
+import { pageOpenGraph } from '@/lib/site-url'
 import { PageHero } from '@/components/shared/page-hero'
 import { MvvpScroller } from '@/components/shared/mvvp-scroller'
 import { philosophies } from '@/lib/data/home'
 
+const title = '理念 / Philosophy'
+const description = 'FSIFのMission・Vision・Value・Purposeと、それぞれを掲げる理由をご紹介します。'
+
 export const metadata: Metadata = {
-  title: '理念 / Philosophy',
-  description: 'FSIFのMission・Vision・Value・Purposeと、それぞれを掲げる理由をご紹介します。',
+  title,
+  description,
+  openGraph: pageOpenGraph(title, description),
 }
 
 const reasons: Record<string, string> = {

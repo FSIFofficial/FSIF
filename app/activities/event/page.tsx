@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { pageOpenGraph } from '@/lib/site-url'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
@@ -7,9 +8,13 @@ import { SectionHeading } from '@/components/ui/section-heading'
 import { EventFilter } from '@/components/activities/event-filter'
 import { symposium2024 } from '@/lib/data/events'
 
+const title = 'イベント事業'
+const description = '立場と分野を越えた出会いと共創が始まる場を企画・運営するFSIFのイベント事業。'
+
 export const metadata: Metadata = {
-  title: 'イベント事業',
-  description: '立場と分野を越えた出会いと共創が始まる場を企画・運営するFSIFのイベント事業。',
+  title,
+  description,
+  openGraph: pageOpenGraph(title, description),
 }
 
 const symposiumHref = '/activities/event/SBS24'

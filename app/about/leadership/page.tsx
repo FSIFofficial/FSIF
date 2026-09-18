@@ -1,10 +1,15 @@
 import type { Metadata } from 'next'
+import { pageOpenGraph } from '@/lib/site-url'
 import { PageHero } from '@/components/shared/page-hero'
 import { LeadershipGrid } from '@/components/about/leadership-grid'
 
+const title = '経営・執行メンバー'
+const description = 'FSIFの組織を動かす代表・執行メンバーをご紹介します。'
+
 export const metadata: Metadata = {
-  title: '経営・執行メンバー',
-  description: 'FSIFの組織を動かす代表・執行メンバーをご紹介します。',
+  title,
+  description,
+  openGraph: pageOpenGraph(title, description),
 }
 
 export default function LeadershipPage() {

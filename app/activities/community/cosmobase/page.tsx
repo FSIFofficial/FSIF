@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { pageOpenGraph } from '@/lib/site-url'
 import Image from 'next/image'
 import { PageHero } from '@/components/shared/page-hero'
 import { SectionHeading } from '@/components/ui/section-heading'
@@ -9,10 +10,14 @@ import { CosmoPartnerCarousel } from '@/components/cosmobase/partner-carousel'
 import { news } from '@/lib/data/news'
 import { externalUrls } from '@/lib/data/site'
 
+const title = 'Cosmo Base'
+const description =
+  'FSIFがコミュニティ事業として運営する宇宙コミュニティ Cosmo Base。学ぶ・つながる・体験するを通じて、誰もが宇宙に参加できる場をつくります。'
+
 export const metadata: Metadata = {
-  title: 'Cosmo Base',
-  description:
-    'FSIFがコミュニティ事業として運営する宇宙コミュニティ Cosmo Base。学ぶ・つながる・体験するを通じて、誰もが宇宙に参加できる場をつくります。',
+  title,
+  description,
+  openGraph: pageOpenGraph(title, description),
 }
 
 const pillars = [

@@ -8,6 +8,7 @@ import { ArticleShare } from '@/components/shared/article-share'
 import { MediaCard } from '@/components/media/media-card'
 import { SectionHeading } from '@/components/ui/section-heading'
 import { formatDateJa } from '@/lib/utils'
+import { pageOpenGraph } from '@/lib/site-url'
 
 export function generateStaticParams() {
   return media.map((m) => ({ slug: m.slug }))
@@ -24,7 +25,7 @@ export async function generateMetadata({
   return {
     title: item.title,
     description: item.excerpt,
-    openGraph: { title: item.title, description: item.excerpt, images: [item.thumbnail] },
+    openGraph: pageOpenGraph(item.title, item.excerpt, item.thumbnail),
   }
 }
 
@@ -76,14 +77,14 @@ export default async function MediaDetailPage({ params }: { params: Promise<{ sl
         </header>
 
         <div className="mx-auto mt-10 max-w-4xl">
-          <div className="relative aspect-[16/9] overflow-hidden rounded-xl bg-pale-blue">
+          <div className="relative aspect-[16/9] overflow-hidden rounded-xl bg-white">
             <Image
               src={item.thumbnail || '/placeholder.svg'}
               alt={item.thumbnailAlt}
               fill
               priority
               sizes="(max-width: 896px) 100vw, 896px"
-              className="object-cover"
+              className="object-contain"
             />
           </div>
         </div>

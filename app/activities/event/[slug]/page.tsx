@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { EventReport } from '@/components/activities/event-report'
 import { events } from '@/lib/data/events'
+import { pageOpenGraph } from '@/lib/site-url'
 
 // The symposium keeps its own dedicated static route at
 // /activities/event/SBS24 (app/activities/event/SBS24/page.tsx), so it's
@@ -27,6 +28,7 @@ export async function generateMetadata({
   return {
     title: item.title,
     description: item.summary,
+    openGraph: pageOpenGraph(item.title, item.summary, item.image),
   }
 }
 

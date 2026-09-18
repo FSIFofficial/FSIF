@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { pageOpenGraph } from '@/lib/site-url'
 import Image from 'next/image'
 import { PageHero } from '@/components/shared/page-hero'
 import { SectionHeading } from '@/components/ui/section-heading'
@@ -6,9 +7,13 @@ import { CtaLink } from '@/components/ui/cta-link'
 import { NewsCard } from '@/components/shared/news-card'
 import { news } from '@/lib/data/news'
 
+const title = 'コミュニティ事業'
+const description = '学ぶ・つながる・体験する。誰もが参加できる宇宙コミュニティを運営するFSIFのコミュニティ事業。'
+
 export const metadata: Metadata = {
-  title: 'コミュニティ事業',
-  description: '学ぶ・つながる・体験する。誰もが参加できる宇宙コミュニティを運営するFSIFのコミュニティ事業。',
+  title,
+  description,
+  openGraph: pageOpenGraph(title, description),
 }
 
 const relatedNews = news.filter((n) => n.relatedArea === 'community').slice(0, 3)

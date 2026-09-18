@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { pageOpenGraph } from '@/lib/site-url'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
@@ -8,9 +9,13 @@ import { CtaLink } from '@/components/ui/cta-link'
 import { CountUp } from '@/components/ui/count-up'
 import { homeStats, activities } from '@/lib/data/home'
 
+const title = 'FSIFについて'
+const description = '未来宇宙産業フォーラム（FSIF）の設立背景、解決したい課題、事業領域、理念、沿革をご紹介します。'
+
 export const metadata: Metadata = {
-  title: 'FSIFについて',
-  description: '未来宇宙産業フォーラム（FSIF）の設立背景、解決したい課題、事業領域、理念、沿革をご紹介します。',
+  title,
+  description,
+  openGraph: pageOpenGraph(title, description),
 }
 
 const aboutLinks = [

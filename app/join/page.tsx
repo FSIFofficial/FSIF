@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { pageOpenGraph } from '@/lib/site-url'
 import Image from 'next/image'
 import { PageHero } from '@/components/shared/page-hero'
 import { SectionHeading } from '@/components/ui/section-heading'
@@ -14,10 +15,14 @@ import {
 } from '@/lib/data/join'
 import { cn } from '@/lib/utils'
 
+const title = '参加する'
+const description =
+  '肯定の組織で、すべてに挑戦する。専攻や立場を問わず、宇宙産業に関わりたい仲間を募集しています。FSIFの募集ポジションと参加の流れをご紹介します。'
+
 export const metadata: Metadata = {
-  title: '参加する | FSIF',
-  description:
-    '肯定の組織で、すべてに挑戦する。専攻や立場を問わず、宇宙産業に関わりたい仲間を募集しています。FSIFの募集ポジションと参加の流れをご紹介します。',
+  title,
+  description,
+  openGraph: pageOpenGraph(title, description),
 }
 
 const statusStyles: Record<string, string> = {

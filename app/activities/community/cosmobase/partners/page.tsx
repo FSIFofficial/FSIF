@@ -1,11 +1,16 @@
 import type { Metadata } from 'next'
+import { pageOpenGraph } from '@/lib/site-url'
 import { PageHero } from '@/components/shared/page-hero'
 import { CtaLink } from '@/components/ui/cta-link'
 import { CosmoPartnersList } from '@/components/cosmobase/partners-list'
 
+const title = 'Cosmo Base パートナー一覧'
+const description = 'Cosmo Baseを支える企業・団体・学生団体・研究機関などのパートナー一覧。'
+
 export const metadata: Metadata = {
-  title: 'Cosmo Base パートナー一覧',
-  description: 'Cosmo Baseを支える企業・団体・学生団体・研究機関などのパートナー一覧。',
+  title,
+  description,
+  openGraph: pageOpenGraph(title, description),
 }
 
 export default function CosmoPartnersPage() {
