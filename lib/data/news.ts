@@ -59,6 +59,7 @@ export const news: NewsItem[] = [
         ],
       }
     ],
+    relatedLink: { label: 'シンポジウム詳細を見る', href: '/activities/event/SBS24' },
   },
   {
     slug: 'isio',
