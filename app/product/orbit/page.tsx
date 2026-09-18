@@ -60,7 +60,7 @@ export default function OrbitPage() {
               Orbitは、遂行履歴・要求スキル・担当者の成長を一つの流れとして扱う、FSIF発の自主開発ツールです。FSIF自身の運営から生まれ、同じ課題を抱える組織への提供を想定しています。
             </p>
             <div className="mt-8">
-              <CtaLink href={project.external!.href} external>
+              <CtaLink href={project.external!.href} variant="secondary" external>
                 {project.external!.label}
               </CtaLink>
             </div>
