@@ -5,7 +5,7 @@ import { PageHero } from '@/components/shared/page-hero'
 import { SearchClient } from '@/components/search/search-client'
 
 const title = 'サイト内検索'
-const description = 'FSIFサイト内のニュース・読み物・プロジェクト・イベント・ページを横断検索します。'
+const description = 'FSIFサイト内のニュース・プロジェクト・イベント・ページを横断検索します。'
 
 export const metadata: Metadata = {
   title,

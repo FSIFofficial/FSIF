@@ -45,33 +45,6 @@ export interface NewsItem {
   pdf?: { label: string; href: string }
 }
 
-export type MediaCategory =
-  | 'Article'
-  | 'Interview'
-  | 'Report'
-  | 'Column'
-  | 'Research'
-  | 'Event Report'
-  | 'Project Story'
-
-export interface MediaItem {
-  slug: string
-  date: string
-  category: MediaCategory
-  title: string
-  excerpt: string
-  thumbnail: string
-  thumbnailAlt: string
-  author?: string
-  readingTime?: number
-  relatedProject?: string
-  popular?: boolean
-  featured?: boolean
-  lead: string
-  body: NewsBody[]
-  pdf?: { label: string; href: string; cover?: string; publishedAt?: string }
-}
-
 export interface Activity {
   id: BusinessArea
   number: string

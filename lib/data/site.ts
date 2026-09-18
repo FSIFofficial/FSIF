@@ -83,7 +83,6 @@ export const mainNav: NavItem[] = [
     },
   },
   { label: 'PRODUCT', labelJa: 'プロダクト', href: '/product' },
-  { label: 'MEDIA', labelJa: '読み物', href: '/media' },
   { label: 'JOIN', labelJa: '参加する', href: '/join' },
 ]
 
@@ -129,7 +128,6 @@ export const footerSitemap = [
     heading: 'CONNECT',
     links: [
       { label: 'ニュース', href: '/news' },
-      { label: '読み物 / MEDIA', href: '/media' },
       { label: '参加する / JOIN', href: '/join' },
       { label: 'お問い合わせ', href: '/contact' },
     ],
