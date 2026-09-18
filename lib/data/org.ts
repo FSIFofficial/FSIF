@@ -23,7 +23,7 @@ export const leadership: LeadershipMember[] = [
     nameEn: 'Manabe Kazuto',
     role: '代表',
     area: '全体統括',
-    image: '/images/representative.png',
+    image: '/images/Manabe.jpg',
     bio: '大学在学中にFSIFを立ち上げ。宇宙産業と社会の接点づくりに取り組む。「一番身近な宇宙の専門家」を掲げる。',
     message:
       '宇宙は、限られた人のものではありません。学ぶ人、働く人、応援する人。すべての人がそれぞれの距離で宇宙とかかわれる社会を、仲間とともにつくっていきます。',
@@ -46,7 +46,7 @@ export const leadership: LeadershipMember[] = [
     nameEn: 'Goto Kinari',
     role: '副代表 / コミュニティ事業責任者',
     area: 'コミュニティ事業',
-    image: '/images/cosmobase.png',
+    image: '/images/Kinari.jpg',
     bio: '複数の事業運営を統括するとともに、Cosmo Baseの立ち上げと運営を担当。誰もが参加できる場づくりに情熱を注ぐ。',
     career: [
       { date: '2023年4月', text: '慶應義塾大学理工学部機械工学科　入学' },
