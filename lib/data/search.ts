@@ -1,9 +1,8 @@
 import { news } from '@/lib/data/news'
-import { media } from '@/lib/data/media'
 import { projects } from '@/lib/data/projects'
 import { events } from '@/lib/data/events'
 
-export type SearchType = 'ニュース' | '読み物' | 'プロダクト' | 'イベント' | 'ページ'
+export type SearchType = 'ニュース' | 'プロダクト' | 'イベント' | 'ページ'
 
 export interface SearchDoc {
   title: string
@@ -88,14 +87,6 @@ export function buildSearchIndex(): SearchDoc[] {
       href: `/news/${a.slug}`,
       type: 'ニュース',
       keywords: `${a.title} ${a.excerpt} ${a.category} ${a.relatedArea ?? ''}`,
-      date: a.date,
-    })),
-    ...media.map<SearchDoc>((a) => ({
-      title: a.title,
-      excerpt: a.excerpt,
-      href: `/media/${a.slug}`,
-      type: '読み物',
-      keywords: `${a.title} ${a.excerpt} ${a.category} ${a.author ?? ''}`,
       date: a.date,
     })),
     ...projects.map<SearchDoc>((p) => ({

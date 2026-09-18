@@ -9,7 +9,6 @@ import { formatDate, cn } from '@/lib/utils'
 
 const typeStyles: Record<SearchType, string> = {
   ニュース: 'bg-fsif-blue/10 text-fsif-blue',
-  読み物: 'bg-amber-100 text-amber-700',
   プロダクト: 'bg-emerald-100 text-emerald-700',
   イベント: 'bg-violet-100 text-violet-700',
   ページ: 'bg-muted text-muted-foreground',
@@ -58,7 +57,7 @@ export function SearchClient() {
       <div className="mt-10">
         {!trimmed ? (
           <p className="text-sm text-muted-foreground">
-            キーワードを入力すると、ニュース・読み物・プロジェクト・イベント・ページを横断して検索します。
+            キーワードを入力すると、ニュース・プロジェクト・イベント・ページを横断して検索します。
           </p>
         ) : results.length === 0 ? (
           <div className="rounded-2xl border border-border bg-secondary p-8 text-center">
