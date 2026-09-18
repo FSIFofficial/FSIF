@@ -61,10 +61,6 @@ export const events: EventItem[] = [
     image: '/event/SBS24.jpg',
     imageAlt: '宇宙ビジネスシンポジウム2024の告知',
     href: '/activities/event/SBS24',
-    externalLinks: [
-      { label: 'シンポジウム詳細', href: 'https://fsifofficial.wixsite.com/future-space-industr/0928' },
-      { label: 'プログラム', href: 'https://fsifofficial.wixsite.com/future-space-industr/0928/program' },
-    ],
     reportPdf: {
       label: 'イベント報告書（PDF）',
       href: '/event/SBS24.pdf',

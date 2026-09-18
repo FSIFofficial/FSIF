@@ -49,8 +49,15 @@ export default function CosmoBasePage() {
         imageAlt="Cosmo Baseの活動"
       />
       <section className="border-b border-border bg-surface">
-        <div className="container-fsif flex flex-wrap gap-3 py-6">
-          <CtaLink href={officialUrl} external>
+        <div className="container-fsif flex flex-wrap items-center justify-between gap-6 py-8">
+          <Image
+            src="/CB/CosmoBase.png"
+            alt="Cosmo Base"
+            width={1658}
+            height={348}
+            className="h-12 w-auto rounded-md"
+          />
+          <CtaLink href={officialUrl} variant="secondary" external>
             Cosmo Base公式サイト
           </CtaLink>
         </div>
@@ -165,7 +172,7 @@ export default function CosmoBasePage() {
             公式サイトから、最新のイベント情報や参加方法をご確認いただけます。
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <CtaLink href={officialUrl} external>
+            <CtaLink href={officialUrl} variant="secondary" onDark external>
               Cosmo Base公式サイト
             </CtaLink>
             <CtaLink href="/join" variant="secondary" onDark>

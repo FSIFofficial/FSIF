@@ -235,16 +235,6 @@ export default function SymposiumPage() {
               </div>
             </dl>
 
-            {item.externalLinks && item.externalLinks.length > 0 && (
-              <div className="mt-6 flex flex-wrap gap-3">
-                {item.externalLinks.map((l) => (
-                  <CtaLink key={l.href} href={l.href} variant="secondary">
-                    {l.label}
-                  </CtaLink>
-                ))}
-              </div>
-            )}
-
           </Reveal>
         </div>
 
