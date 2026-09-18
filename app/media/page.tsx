@@ -38,13 +38,13 @@ export default function MediaPage() {
       <section className="bg-surface py-16 md:py-20">
         <div className="container-fsif">
           <Link href={`/media/${featured.slug}`} className="group grid gap-8 lg:grid-cols-2 lg:items-center">
-            <div className="relative aspect-[16/10] overflow-hidden rounded-xl bg-pale-blue">
+            <div className="relative aspect-[16/10] overflow-hidden rounded-xl bg-white">
               <Image
                 src={featured.thumbnail || '/placeholder.svg'}
                 alt={featured.thumbnailAlt}
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                className="object-contain transition-transform duration-500 group-hover:scale-105"
               />
               <span className="absolute left-4 top-4 rounded-sm bg-fsif-blue px-2.5 py-1 font-mono text-[0.65rem] font-medium tracking-wide text-primary-foreground">
                 FEATURED STORY

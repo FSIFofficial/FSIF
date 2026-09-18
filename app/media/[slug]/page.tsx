@@ -77,14 +77,14 @@ export default async function MediaDetailPage({ params }: { params: Promise<{ sl
         </header>
 
         <div className="mx-auto mt-10 max-w-4xl">
-          <div className="relative aspect-[16/9] overflow-hidden rounded-xl bg-pale-blue">
+          <div className="relative aspect-[16/9] overflow-hidden rounded-xl bg-white">
             <Image
               src={item.thumbnail || '/placeholder.svg'}
               alt={item.thumbnailAlt}
               fill
               priority
               sizes="(max-width: 896px) 100vw, 896px"
-              className="object-cover"
+              className="object-contain"
             />
           </div>
         </div>
