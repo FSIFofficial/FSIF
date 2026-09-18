@@ -59,7 +59,6 @@ export const news: NewsItem[] = [
         ],
       }
     ],
-    externalUrl: { label: '詳細・申込はこちら', href: 'https://fsifofficial.wixsite.com/future-space-industr/0928' },
   },
   {
     slug: 'isio',
@@ -84,7 +83,6 @@ export const news: NewsItem[] = [
         ],
       }
     ],
-    externalUrl: { label: '詳しくはこちら', href: 'https://fsifofficial.wixsite.com/future-space-industr/news/isio' },
   },
   {
     slug: 'cbastrokit',
@@ -170,7 +168,6 @@ export const news: NewsItem[] = [
         ],
       }
     ],
-    externalUrl: { label: '詳しくはこちら', href: 'https://fsifofficial.wixsite.com/future-space-industr/news/jssw' },
   },
   {
     slug: 'mvvp',
@@ -216,7 +213,6 @@ export const news: NewsItem[] = [
         ],
       }
     ],
-    externalUrl: { label: '詳しくはこちら', href: 'https://fsifofficial.wixsite.com/future-space-industr/news/mvvp' },
   },
   {
     slug: 'cbop',
@@ -302,7 +298,6 @@ export const news: NewsItem[] = [
         ],
       }
     ],
-    externalUrl: { label: '詳しくはこちら', href: 'https://fsifofficial.wixsite.com/future-space-industr/news/mono26' },
   },
   {
     slug: 'sgsw25',
@@ -322,7 +317,6 @@ export const news: NewsItem[] = [
         ],
       }
     ],
-    externalUrl: { label: '詳しくはこちら', href: 'https://fsifofficial.wixsite.com/future-space-industr/news/sgsw25' },
   },
   {
     slug: 'spaceuniv',
@@ -564,7 +558,6 @@ export const news: NewsItem[] = [
         imageAlt: 'One World, One Planet. 学生活動大使 日本地図マップ',
       },
     ],
-    externalUrl: { label: '詳しくはこちら', href: 'https://fsifofficial.wixsite.com/future-space-industr/news/owop' },
   },
   {
     slug: 'newfacesmonth11',
@@ -631,7 +624,6 @@ export const news: NewsItem[] = [
         ],
       }
     ],
-    externalUrl: { label: '詳しくはこちら', href: 'https://fsifofficial.wixsite.com/future-space-industr/news/karura' },
   },
   {
     slug: 'cbisio',
@@ -737,7 +729,6 @@ export const news: NewsItem[] = [
         ],
       }
     ],
-    externalUrl: { label: '詳細はこちら', href: 'https://fsifofficial.wixsite.com/future-space-industr/0928' },
     relatedLink: { label: '開催実績（報告書）を見る', href: '/activities/event/SBS24' },
   },
   {
