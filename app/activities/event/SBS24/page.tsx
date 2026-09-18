@@ -7,6 +7,7 @@ import { Reveal } from '@/components/ui/reveal'
 import { events } from '@/lib/data/events'
 import { pageOpenGraph } from '@/lib/site-url'
 import { withBasePath } from '@/lib/utils'
+import { PdfViewer } from '@/components/activities/pdf-viewer'
 
 const item = events.find((e) => e.slug === 'SBS24')!
 
@@ -256,15 +257,11 @@ export default function SymposiumPage() {
                   ダウンロード
                 </a>
               </div>
-              <div className="mx-auto w-full max-w-xl overflow-hidden rounded-lg border border-border bg-white shadow-lg">
-                <div className="aspect-[210/297] w-full">
-                  <iframe
-                    src={`${withBasePath(item.reportPdf.href)}#toolbar=0&navpanes=0`}
-                    title={item.reportPdf.label}
-                    className="h-full w-full"
-                  />
-                </div>
-              </div>
+              <PdfViewer
+                src={item.reportPdf.href}
+                label={item.reportPdf.label}
+                downloadName={item.reportPdf.downloadName}
+              />
             </Reveal>
           </div>
         )}
