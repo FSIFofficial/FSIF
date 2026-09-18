@@ -557,7 +557,12 @@ export const news: NewsItem[] = [
           'プレスリリース',
           'https://prtimes.jp/main/html/rd/p/000000001.000155638.html',
         ],
-      }
+      },
+      {
+        paragraphs: [],
+        image: '/news/OWOP日本地図マップ _202510ver.png',
+        imageAlt: 'One World, One Planet. 学生活動大使 日本地図マップ',
+      },
     ],
     externalUrl: { label: '詳しくはこちら', href: 'https://fsifofficial.wixsite.com/future-space-industr/news/owop' },
   },
