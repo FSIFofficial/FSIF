@@ -9,7 +9,7 @@ export function StatsNumbers() {
       <div className="container-fsif">
         <SectionHeading labelEn="FSIF IN NUMBERS" title="数字で見るFSIF" align="center" className="mx-auto max-w-2xl" />
 
-        <dl className="mt-14 grid grid-cols-2 gap-x-6 gap-y-12 md:grid-cols-5">
+        <dl className="mt-14 grid grid-cols-2 gap-x-6 gap-y-12 md:grid-cols-4">
           {homeStats.map((stat, i) => (
             <Reveal
               key={stat.labelEn}

@@ -110,7 +110,7 @@ export default function AboutPage() {
       <section className="bg-navy py-16 text-navy-foreground md:py-20">
         <div className="container-fsif">
           <SectionHeading labelEn="FSIF IN NUMBERS" title="数字で見るFSIF" onDark />
-          <dl className="mt-10 grid grid-cols-2 gap-8 md:grid-cols-5">
+          <dl className="mt-10 grid grid-cols-2 gap-8 md:grid-cols-4">
             {homeStats.map((s) => (
               <div key={s.labelEn} className="border-t-2 border-accent-blue pt-4">
                 <dd className="font-mono text-3xl font-bold text-white md:text-4xl">

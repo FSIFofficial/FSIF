@@ -85,10 +85,9 @@ export const philosophies: Philosophy[] = [
 
 export const homeStats: Stat[] = [
   { value: 2023, suffix: '', label: '設立', labelEn: 'FOUNDED', noSeparator: true },
-  { value: 100, suffix: '+', label: '接点を持った企業・団体', labelEn: 'ORGANIZATIONS' },
-  { value: 20, suffix: '+', label: 'イベント・プロジェクト', labelEn: 'PROJECTS & EVENTS' },
-  { value: 1700, suffix: '+', label: 'コンテンツ利用者数', labelEn: 'CONTENT USERS' },
-  { value: 4, suffix: '', label: '主要事業領域', labelEn: 'BUSINESS AREAS' },
+  { value: 10, suffix: '+', label: '他イベントへの参加回数', labelEn: 'EVENT PARTICIPATIONS' },
+  { value: 1500, suffix: '+', label: 'コンテンツ利用者数', labelEn: 'CONTENT USERS' },
+  { value: 9, suffix: '', label: 'メンバー数', labelEn: 'MEMBERS' },
 ]
 
 export const activities: Activity[] = [
