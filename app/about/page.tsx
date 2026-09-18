@@ -109,7 +109,7 @@ export default function AboutPage() {
             {homeStats.map((s) => (
               <div key={s.labelEn} className="border-t-2 border-accent-blue pt-4">
                 <dd className="font-mono text-3xl font-bold text-white md:text-4xl">
-                  <CountUp value={s.value} suffix={s.suffix} />
+                  <CountUp value={s.value} suffix={s.suffix} noSeparator={s.noSeparator} />
                 </dd>
                 <dt className="mt-2 text-sm text-navy-foreground/70">{s.label}</dt>
               </div>

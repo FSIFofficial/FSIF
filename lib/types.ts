@@ -203,4 +203,6 @@ export interface Stat {
   suffix: string
   label: string
   labelEn: string
+  /** Set for values like a year that shouldn't get a thousands separator. */
+  noSeparator?: boolean
 }

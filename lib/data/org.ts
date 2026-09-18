@@ -68,7 +68,7 @@ export const history: HistoryEntry[] = [
   },
   {
     year: '2023',
-    date: '2023.09',
+    date: '2023.12',
     title: 'ワークショップイベントを初開催',
     description: '宇宙の店にてワークショップ形式のイベントを初開催。',
     image: '/images/workshop.png',
@@ -81,6 +81,14 @@ export const history: HistoryEntry[] = [
     description: '第1回シンポジウムを開催。宇宙産業を語り合う場のはじまり。',
     image: '/images/SBS24.png',
     imageAlt: '宇宙ビジネスシンポジウム2024の様子',
+  },
+  {
+    year: '2025',
+    date: '2025.10',
+    title: '学生活動大使に選出',
+    description: '大阪・関西万博「One World, One Planet.」学生共感企画実行委員会より、スペース学生活動大使に任命。',
+    image: '/news/学生活動大使_認定証54.png',
+    imageAlt: 'スペース学生活動大使 認定証',
   },
   {
     year: '2026',
@@ -97,14 +105,6 @@ export const history: HistoryEntry[] = [
     description: '組織運営の課題を解決するプラットフォーム「Orbit」の開発に着手。',
     image: '/images/orbit-team.png',
     imageAlt: 'Orbit開発',
-  },
-  {
-    year: '2026',
-    date: '2026.08',
-    title: '全日本学生ものづくりEXPO 出展',
-    description: 'プロダクトとコミュニティの取り組みを、全国の学生に向けて紹介。',
-    image: '/images/booth.png',
-    imageAlt: 'EXPO出展',
   },
 ]
 
