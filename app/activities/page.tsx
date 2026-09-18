@@ -1,13 +1,18 @@
 import type { Metadata } from 'next'
+import { pageOpenGraph } from '@/lib/site-url'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { PageHero } from '@/components/shared/page-hero'
 import { activities } from '@/lib/data/home'
 
+const title = '事業 / Activities'
+const description = 'コミュニティ、ワーキンググループ、イベント、シンクタンク。FSIFの4つの事業をご紹介します。'
+
 export const metadata: Metadata = {
-  title: '事業 / Activities',
-  description: 'コミュニティ、ワーキンググループ、イベント、シンクタンク。FSIFの4つの事業をご紹介します。',
+  title,
+  description,
+  openGraph: pageOpenGraph(title, description),
 }
 
 export default function ActivitiesPage() {

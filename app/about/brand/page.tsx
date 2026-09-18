@@ -1,12 +1,17 @@
 import type { Metadata } from 'next'
+import { pageOpenGraph } from '@/lib/site-url'
 import { Download } from 'lucide-react'
 import { PageHero } from '@/components/shared/page-hero'
 import { SectionHeading } from '@/components/ui/section-heading'
 import { Logo } from '@/components/layout/logo'
 
+const title = 'ブランド'
+const description = 'FSIFのブランドコンセプト、名称の意味、ロゴ、ブランドカラー、書体、使用ガイドラインと素材ダウンロード。'
+
 export const metadata: Metadata = {
-  title: 'ブランド',
-  description: 'FSIFのブランドコンセプト、名称の意味、ロゴ、ブランドカラー、書体、使用ガイドラインと素材ダウンロード。',
+  title,
+  description,
+  openGraph: pageOpenGraph(title, description),
 }
 
 const colors = [

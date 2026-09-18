@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { pageOpenGraph } from '@/lib/site-url'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { PageHero } from '@/components/shared/page-hero'
@@ -7,9 +8,13 @@ import { CtaLink } from '@/components/ui/cta-link'
 import { media } from '@/lib/data/media'
 import { formatDate } from '@/lib/utils'
 
+const title = 'シンクタンク事業'
+const description = '宇宙産業の動向を調査・分析し、レポートや提言として社会に発信するFSIFのシンクタンク事業。'
+
 export const metadata: Metadata = {
-  title: 'シンクタンク事業',
-  description: '宇宙産業の動向を調査・分析し、レポートや提言として社会に発信するFSIFのシンクタンク事業。',
+  title,
+  description,
+  openGraph: pageOpenGraph(title, description),
 }
 
 const outputs = [

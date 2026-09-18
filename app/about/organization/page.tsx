@@ -1,11 +1,16 @@
 import type { Metadata } from 'next'
+import { pageOpenGraph } from '@/lib/site-url'
 import Link from 'next/link'
 import { PageHero } from '@/components/shared/page-hero'
 import { activities } from '@/lib/data/home'
 
+const title = '組織図'
+const description = '代表から経営・執行、4つの事業、そしてプロダクトまで。FSIFの組織体制をご紹介します。'
+
 export const metadata: Metadata = {
-  title: '組織図',
-  description: '代表から経営・執行、4つの事業、そしてプロダクトまで。FSIFの組織体制をご紹介します。',
+  title,
+  description,
+  openGraph: pageOpenGraph(title, description),
 }
 
 const projectsByArea: Record<string, string[]> = {

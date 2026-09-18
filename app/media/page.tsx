@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { pageOpenGraph } from '@/lib/site-url'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Download, Eye } from 'lucide-react'
@@ -8,9 +9,13 @@ import { SectionHeading } from '@/components/ui/section-heading'
 import { MediaExplorer } from '@/components/media/media-explorer'
 import { formatDate } from '@/lib/utils'
 
+const title = '読み物 / MEDIA'
+const description = 'FSIFが発信する読み物。インタビュー、コラム、レポート、リサーチ、プロジェクトストーリーをお届けします。'
+
 export const metadata: Metadata = {
-  title: '読み物 / MEDIA',
-  description: 'FSIFが発信する読み物。インタビュー、コラム、レポート、リサーチ、プロジェクトストーリーをお届けします。',
+  title,
+  description,
+  openGraph: pageOpenGraph(title, description),
 }
 
 export default function MediaPage() {

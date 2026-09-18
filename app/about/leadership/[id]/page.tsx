@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { PageHero } from '@/components/shared/page-hero'
 import { CtaLink } from '@/components/ui/cta-link'
 import { leadership } from '@/lib/data/org'
+import { pageOpenGraph } from '@/lib/site-url'
 
 function getMemberById(id: string) {
   return leadership.find((m) => m.id === id)
@@ -21,9 +22,11 @@ export async function generateMetadata({
   const { id } = await params
   const member = getMemberById(id)
   if (!member) return { title: 'メンバーが見つかりません' }
+  const title = `${member.name} | 経営・執行メンバー`
   return {
-    title: `${member.name} | 経営・執行メンバー`,
+    title,
     description: member.bio,
+    openGraph: pageOpenGraph(title, member.bio, member.image),
   }
 }
 

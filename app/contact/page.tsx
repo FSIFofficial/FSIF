@@ -1,14 +1,19 @@
 import type { Metadata } from 'next'
+import { pageOpenGraph } from '@/lib/site-url'
 import { PageHero } from '@/components/shared/page-hero'
 import { Reveal } from '@/components/ui/reveal'
 import { ContactForm } from '@/components/contact/contact-form'
 import { socialLinks } from '@/lib/data/site'
 import { Mail, MessageSquare, Users } from 'lucide-react'
 
+const title = 'お問い合わせ'
+const description =
+  'FSIFへのお問い合わせ窓口。参加・エントリー、企業連携、取材、Orbit導入、登壇・協賛など、お気軽にご相談ください。'
+
 export const metadata: Metadata = {
-  title: 'お問い合わせ | FSIF',
-  description:
-    'FSIFへのお問い合わせ窓口。参加・エントリー、企業連携、取材、Orbit導入、登壇・協賛など、お気軽にご相談ください。',
+  title,
+  description,
+  openGraph: pageOpenGraph(title, description),
 }
 
 const channels = [

@@ -5,11 +5,16 @@ import { SectionHeading } from '@/components/ui/section-heading'
 import { Reveal } from '@/components/ui/reveal'
 import { CtaLink } from '@/components/ui/cta-link'
 import { getProjectBySlug, orbitProblems, orbitFeatures } from '@/lib/data/projects'
+import { pageOpenGraph } from '@/lib/site-url'
+
+const title = 'Orbit'
+const description =
+  'タスクを打ち上げ、組織を軌道に乗せる。タスク管理・人材管理・人材育成をつなぐ、FSIF発の自主開発ツール「Orbit」。'
 
 export const metadata: Metadata = {
-  title: 'Orbit',
-  description:
-    'タスクを打ち上げ、組織を軌道に乗せる。タスク管理・人材管理・人材育成をつなぐ、FSIF発の自主開発ツール「Orbit」。',
+  title,
+  description,
+  openGraph: pageOpenGraph(title, description, '/images/orbit-team.png'),
 }
 
 const axes = [

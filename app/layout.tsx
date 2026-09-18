@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from 'next'
 import { Geist, Geist_Mono, Noto_Sans_JP } from 'next/font/google'
 import { SiteHeader } from '@/components/layout/site-header'
 import { SiteFooter } from '@/components/layout/site-footer'
+import { SITE_URL, absoluteUrl } from '@/lib/site-url'
 import './globals.css'
 
 const geistSans = Geist({
@@ -25,10 +26,10 @@ const notoSansJP = Noto_Sans_JP({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://fsif.example.com'),
+  metadataBase: new URL(`${SITE_URL}/`),
   title: {
     default: '未来宇宙産業フォーラム FSIF | 宇宙を、みんなのものにする。',
-    template: '%s | FSIF 未来宇宙産業フォーラム',
+    template: '%s | 未来宇宙産業フォーラム',
   },
   description:
     '未来宇宙産業フォーラム（Future Space Industry Forum / FSIF）は、すべての人に宇宙とかかわる選択肢をつくる組織です。コミュニティ、ワーキンググループ、イベント、シンクタンクの4事業とプロダクト開発を通じて宇宙をみんなのものにします。',
@@ -39,7 +40,7 @@ export const metadata: Metadata = {
     siteName: 'FSIF 未来宇宙産業フォーラム',
     title: '未来宇宙産業フォーラム FSIF',
     description: '宇宙を、みんなのものにする。すべての人に、宇宙とかかわる選択肢を。',
-    images: ['/images/member.png'],
+    images: [absoluteUrl('/FSIF_logo.png')],
   },
 }
 

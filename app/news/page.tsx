@@ -1,11 +1,16 @@
 import { Suspense } from 'react'
 import type { Metadata } from 'next'
+import { pageOpenGraph } from '@/lib/site-url'
 import { PageHero } from '@/components/shared/page-hero'
 import { NewsExplorer } from '@/components/news/news-explorer'
 
+const title = 'ニュース'
+const description = 'FSIF（未来宇宙産業フォーラム）の最新ニュース、プレスリリース、イベント情報、パートナーシップのお知らせ。'
+
 export const metadata: Metadata = {
-  title: 'ニュース',
-  description: 'FSIF（未来宇宙産業フォーラム）の最新ニュース、プレスリリース、イベント情報、パートナーシップのお知らせ。',
+  title,
+  description,
+  openGraph: pageOpenGraph(title, description),
 }
 
 export default function NewsPage() {

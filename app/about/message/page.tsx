@@ -3,13 +3,18 @@ import Image from 'next/image'
 import { PageHero } from '@/components/shared/page-hero'
 import { leadership } from '@/lib/data/org'
 import { socialLinks } from '@/lib/data/site'
-
-export const metadata: Metadata = {
-  title: '代表メッセージ',
-  description: 'FSIF代表からのメッセージ。宇宙とのかかわり方、肯定を土台とした組織づくりについて。',
-}
+import { pageOpenGraph } from '@/lib/site-url'
 
 const rep = leadership[0]
+
+const title = '代表メッセージ'
+const description = 'FSIF代表からのメッセージ。宇宙とのかかわり方、肯定を土台とした組織づくりについて。'
+
+export const metadata: Metadata = {
+  title,
+  description,
+  openGraph: pageOpenGraph(title, description, rep.image),
+}
 
 const paragraphs = [
   '「宇宙産業が持続可能な産業へと成長するためには、宇宙を利用する非宇宙業界を、いかに巻き込んでいけるかが重要である。」という思いから、未来宇宙産業フォーラムは始まりました。',
