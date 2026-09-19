@@ -35,6 +35,8 @@ jobs:
 
       - name: Build
         run: pnpm run build
+        env:
+          COSMOBASE_PARTNERS_CSV_URL: ${{ secrets.COSMOBASE_PARTNERS_CSV_URL }}
 
       - name: Add .nojekyll
         run: touch out/.nojekyll

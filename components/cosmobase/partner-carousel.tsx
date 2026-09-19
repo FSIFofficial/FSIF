@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
-import { getPublishedPartners, cosmoPartnerCount } from '@/lib/data/cosmobase'
+import type { CosmoPartner } from '@/lib/data/cosmobase-partners'
 
 /**
  * Cosmo Base partner marquee: right-to-left, infinite, pausable on hover/focus,
@@ -9,8 +9,7 @@ import { getPublishedPartners, cosmoPartnerCount } from '@/lib/data/cosmobase'
  * so screen readers and Tab don't hit the same links twice, and always links to the
  * static partners list for full access.
  */
-export function CosmoPartnerCarousel() {
-  const partners = getPublishedPartners()
+export function CosmoPartnerCarousel({ partners }: { partners: CosmoPartner[] }) {
   if (partners.length === 0) return null
 
   const Item = ({ p, ariaHidden }: { p: (typeof partners)[number]; ariaHidden?: boolean }) => {
@@ -63,7 +62,7 @@ export function CosmoPartnerCarousel() {
       </div>
       <div className="mt-8 flex flex-wrap items-center justify-between gap-3">
         <p className="text-sm text-muted-foreground">
-          公開中のパートナー <span className="font-mono font-bold text-foreground">{cosmoPartnerCount}</span> 団体（仮素材を含む）
+          公開中のパートナー <span className="font-mono font-bold text-foreground">{partners.length}</span> 団体
         </p>
         <Link
           href="/activities/community/cosmobase/partners"

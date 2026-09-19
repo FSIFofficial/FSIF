@@ -3,18 +3,24 @@
 import { useMemo, useState } from 'react'
 import Image from 'next/image'
 import { ArrowUpRight } from 'lucide-react'
-import { getPublishedPartners, cosmoPartnerTypes, type CosmoPartnerType } from '@/lib/data/cosmobase'
+import type { CosmoPartner } from '@/lib/data/cosmobase-partners'
 import { cn } from '@/lib/utils'
 
-export function CosmoPartnersList() {
-  const all = useMemo(() => getPublishedPartners(), [])
-  const [filter, setFilter] = useState<CosmoPartnerType | 'all'>('all')
+export function CosmoPartnersList({ partners: all }: { partners: CosmoPartner[] }) {
+  const [filter, setFilter] = useState<string | 'all'>('all')
 
-  // Only show category chips that actually have partners.
-  const availableTypes = useMemo(
-    () => cosmoPartnerTypes.filter((t) => all.some((p) => p.type === t)),
-    [all],
-  )
+  // Only show category chips that actually have partners, in first-seen order.
+  const availableTypes = useMemo(() => {
+    const seen = new Set<string>()
+    const types: string[] = []
+    all.forEach((p) => {
+      if (p.type && !seen.has(p.type)) {
+        seen.add(p.type)
+        types.push(p.type)
+      }
+    })
+    return types
+  }, [all])
 
   const filtered = filter === 'all' ? all : all.filter((p) => p.type === filter)
 
