@@ -205,18 +205,18 @@ export function PdfViewer({
         onTouchStart={onTouchStart}
         onTouchEnd={onTouchEnd}
         className={cn(
-          'relative flex items-center justify-center overflow-auto bg-pale-blue/30 p-4',
+          'relative flex overflow-auto bg-pale-blue/30 p-4',
           isFullscreen ? 'flex-1' : 'min-h-[320px]',
         )}
       >
         {status === 'loading' && (
-          <div className="flex flex-col items-center gap-2 py-16 text-muted-foreground">
+          <div className="m-auto flex flex-col items-center gap-2 py-16 text-muted-foreground">
             <Loader2 className="size-6 animate-spin" aria-hidden />
             <p className="text-xs">読み込み中…</p>
           </div>
         )}
         {status === 'error' && (
-          <div className="flex flex-col items-center gap-3 py-16 text-center text-muted-foreground">
+          <div className="m-auto flex flex-col items-center gap-3 py-16 text-center text-muted-foreground">
             <p className="text-sm">プレビューを表示できませんでした。</p>
             <a
               href={fullHref}
@@ -228,7 +228,7 @@ export function PdfViewer({
             </a>
           </div>
         )}
-        <canvas ref={canvasRef} className={status === 'ready' ? 'rounded-md shadow-sm' : 'hidden'} />
+        <canvas ref={canvasRef} className={status === 'ready' ? 'm-auto rounded-md shadow-sm' : 'hidden'} />
       </div>
 
       {status === 'ready' && (
@@ -244,7 +244,7 @@ export function PdfViewer({
               >
                 <ChevronLeft className="size-5" aria-hidden />
               </button>
-              <span className="min-w-[4.5rem] text-center font-mono text-xs text-muted-foreground">
+              <span className="w-[4.5rem] shrink-0 text-center font-mono text-xs tabular-nums text-muted-foreground">
                 {pageNum} / {numPages}
               </span>
               <button
@@ -277,7 +277,7 @@ export function PdfViewer({
               type="button"
               onClick={resetZoom}
               aria-label="拡大率をリセット"
-              className="min-w-[3.5rem] text-center font-mono text-xs text-muted-foreground transition-colors hover:text-fsif-blue"
+              className="w-14 shrink-0 text-center font-mono text-xs tabular-nums text-muted-foreground transition-colors hover:text-fsif-blue"
             >
               {Math.round(zoom * 100)}%
             </button>
