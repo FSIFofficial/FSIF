@@ -17,7 +17,7 @@ export interface CosmoPartner {
   furigana?: string
   /** 団体種別（例: Corporate Partner）。シート上の自由記述。 */
   type: string
-  /** ロゴ画像パス。シートの logo 列に .png を付与し /CB/ 配下を参照する。未設定なら null。 */
+  /** ロゴ画像パス。シートの logo 列の値（例: /CosmoBase/AstroKIT.png）をそのまま使う。未設定なら null。 */
   logo: string | null
   description: string
   detailedDescription?: string
@@ -97,7 +97,7 @@ function rowToPartner(row: Record<string, string>): CosmoPartner | null {
     name,
     furigana: row.furigana?.trim() || undefined,
     type: row.type?.trim() || '',
-    logo: row.logo?.trim() ? `/CB/${row.logo.trim()}.png` : null,
+    logo: row.logo?.trim() || null,
     description: row.description?.trim() || '',
     detailedDescription: row.detailedDescription?.trim() || undefined,
     url: row.website?.trim() || null,
