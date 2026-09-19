@@ -7,6 +7,7 @@ import { CtaLink } from '@/components/ui/cta-link'
 import { NewsCard } from '@/components/shared/news-card'
 import { CosmoContentCards } from '@/components/cosmobase/content-cards'
 import { CosmoPartnerCarousel } from '@/components/cosmobase/partner-carousel'
+import { fetchCosmoPartners } from '@/lib/data/cosmobase-partners'
 import { news } from '@/lib/data/news'
 import { externalUrls } from '@/lib/data/site'
 
@@ -30,8 +31,9 @@ const relatedNews = news
   .filter((n) => n.relatedArea === 'community' || n.relatedTag === 'cosmobase')
   .slice(0, 3)
 
-export default function CosmoBasePage() {
+export default async function CosmoBasePage() {
   const officialUrl = externalUrls.cosmoBaseOfficial
+  const partners = await fetchCosmoPartners()
 
   return (
     <>
@@ -123,10 +125,10 @@ export default function CosmoBasePage() {
             <SectionHeading labelEn="ACTIVITY" title="コミュニティの広がり" />
             <dl className="mt-8 grid grid-cols-2 gap-6">
               {[
-                { v: '1,000+', l: 'コンテンツ総回答者' },
-                { v: '30+', l: '開催イベント' },
-                { v: '80+', l: '参加メンバー' },
-                { v: '10+', l: '連携パートナー' },
+                { v: '1,500+', l: 'コンテンツ利用者数' },
+                { v: '10+', l: '開催イベント' },
+                { v: '150+', l: '参加者数' },
+                { v: String(partners.length), l: 'パートナー数' },
               ].map((s) => (
                 <div key={s.l} className="border-t-2 border-fsif-blue pt-4">
                   <dd className="font-mono text-3xl font-bold text-navy">{s.v}</dd>
@@ -134,7 +136,6 @@ export default function CosmoBasePage() {
                 </div>
               ))}
             </dl>
-            <p className="mt-6 text-xs text-muted-foreground">※ 数値はプロトタイプ用のモックデータです。実データへの差し替えを前提としています。</p>
           </div>
         </div>
       </section>
@@ -144,7 +145,7 @@ export default function CosmoBasePage() {
         <div className="container-fsif">
           <SectionHeading labelEn="PARTNERS" title="Cosmo Baseを支えるパートナー" />
           <div className="mt-10">
-            <CosmoPartnerCarousel />
+            <CosmoPartnerCarousel partners={partners} />
           </div>
         </div>
       </section>

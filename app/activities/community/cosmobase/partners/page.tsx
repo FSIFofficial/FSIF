@@ -3,6 +3,7 @@ import { pageOpenGraph } from '@/lib/site-url'
 import { PageHero } from '@/components/shared/page-hero'
 import { CtaLink } from '@/components/ui/cta-link'
 import { CosmoPartnersList } from '@/components/cosmobase/partners-list'
+import { fetchCosmoPartners } from '@/lib/data/cosmobase-partners'
 
 const title = 'Cosmo Base パートナー一覧'
 const description = 'Cosmo Baseを支える企業・団体・学生団体・研究機関などのパートナー一覧。'
@@ -13,7 +14,8 @@ export const metadata: Metadata = {
   openGraph: pageOpenGraph(title, description),
 }
 
-export default function CosmoPartnersPage() {
+export default async function CosmoPartnersPage() {
+  const partners = await fetchCosmoPartners()
   return (
     <>
       <PageHero
@@ -30,10 +32,7 @@ export default function CosmoPartnersPage() {
 
       <section className="bg-surface py-16 md:py-20">
         <div className="container-fsif">
-          <p className="mb-8 rounded-lg border border-dashed border-border bg-pale-blue/40 px-4 py-3 text-sm text-muted-foreground">
-            ※ 現在表示されているパートナーは実データ確認前の仮素材です。公開前に正式なロゴ・名称・URLへ差し替えます。
-          </p>
-          <CosmoPartnersList />
+          <CosmoPartnersList partners={partners} />
         </div>
       </section>
 
