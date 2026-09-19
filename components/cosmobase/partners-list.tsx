@@ -87,10 +87,10 @@ export function CosmoPartnersList({ partners: all }: { partners: CosmoPartner[] 
         <ul className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {filtered.map((p) => (
             <li key={p.id} className="flex flex-col rounded-xl border border-border bg-surface p-6">
-              <div className="flex h-20 items-center justify-center rounded-lg bg-pale-blue p-4">
+              <div className="flex h-32 items-center justify-center rounded-lg bg-pale-blue p-2">
                 {p.logo ? (
                   <div className="relative h-full w-full">
-                    <Image src={p.logo} alt={`${p.name} ロゴ`} fill className="object-contain" sizes="200px" />
+                    <Image src={p.logo} alt={`${p.name} ロゴ`} fill className="object-contain" sizes="280px" />
                   </div>
                 ) : (
                   <span className="text-center font-mono text-sm font-medium text-muted-foreground">{p.name}</span>
