@@ -110,7 +110,7 @@ export const history: HistoryEntry[] = [
 
 export const partners: Partner[] = [
   { name: 'みんなの夢AWARD ドリームパートナー', logo: null, href: '/contact' },
-  { name: 'iSIO 学生団体会員', logo: '/partners/isio.png', href: '/contact' },
+  { name: 'iSIO 学生団体会員', logo: '/partners/iSIO_SPM.png', href: '/contact' },
   { name: '学生活動大使(スペース大使)', logo: '/partners/space-ambassador.png', href: '/contact' },
   { name: '学生掲示板認定団体', logo: null, href: '/contact' },
   { name: 'KARURAプロジェクト スチューデントパートナー', logo: '/partners/karura.png', href: '/contact' },
