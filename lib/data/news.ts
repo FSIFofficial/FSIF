@@ -258,8 +258,7 @@ export const news: NewsItem[] = [
     excerpt: '「2人半年で10万行」を支えた生成AI活用によるデジタルコンテンツ開発プロセスを公開',
     thumbnail: '/news/mono26.png',
     thumbnailAlt: '全日本学生ものづくりEXPOのブース',
-    relatedArea: 'community',
-    relatedTag: 'cosmobase',
+    relatedArea: 'event',
     lead: '「2人半年で10万行」を支えた生成AI活用によるデジタルコンテンツ開発プロセスを公開',
     body: [
       {
