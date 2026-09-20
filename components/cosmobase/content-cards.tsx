@@ -50,19 +50,25 @@ export function CosmoContentCards() {
           </>
         )
 
+        const anchorStyle = { scrollMarginTop: 'calc(var(--header-h) + 1rem)' }
+
         return (
           <Reveal key={c.id} delay={i * 60}>
             {hasUrl ? (
               <a
+                id={c.id}
                 href={c.url!}
                 target="_blank"
                 rel="noopener noreferrer"
+                style={anchorStyle}
                 className="group flex h-full flex-col rounded-xl border border-border bg-surface p-6 transition-colors hover:border-fsif-blue/40"
               >
                 {CardInner}
               </a>
             ) : (
-              <div className="flex h-full flex-col rounded-xl border border-border bg-surface p-6">{CardInner}</div>
+              <div id={c.id} style={anchorStyle} className="flex h-full flex-col rounded-xl border border-border bg-surface p-6">
+                {CardInner}
+              </div>
             )}
           </Reveal>
         )

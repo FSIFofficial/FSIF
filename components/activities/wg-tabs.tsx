@@ -47,7 +47,12 @@ export function WgTabs() {
       ) : (
         <ul className="mt-8 grid gap-5 md:grid-cols-2">
           {items.map((w) => (
-            <li key={w.name} className="flex flex-col rounded-xl border border-border bg-surface p-6">
+            <li
+              key={w.id}
+              id={w.id}
+              style={{ scrollMarginTop: 'calc(var(--header-h) + 1rem)' }}
+              className="flex flex-col rounded-xl border border-border bg-surface p-6"
+            >
               <div className="flex items-start justify-between gap-4">
                 <h3 className="text-lg font-bold text-foreground">{w.name}</h3>
                 <span className={cn('shrink-0 rounded-full px-3 py-1 text-xs font-medium', statusColor[w.status])}>

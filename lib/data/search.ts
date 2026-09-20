@@ -1,6 +1,10 @@
 import { news } from '@/lib/data/news'
 import { projects } from '@/lib/data/projects'
 import { events } from '@/lib/data/events'
+import { getPublishedContents } from '@/lib/data/cosmobase'
+import { workingGroups } from '@/lib/data/workinggroups'
+import { jobPositions } from '@/lib/data/join'
+import { leadership } from '@/lib/data/org'
 
 export type SearchType = 'ニュース' | 'プロダクト' | 'イベント' | 'ページ'
 
@@ -125,6 +129,34 @@ export function buildSearchIndex(): SearchDoc[] {
       keywords: `${e.title} ${e.summary} ${e.type} ${e.venue}`,
       date: e.date,
     })),
+    ...getPublishedContents().map<SearchDoc>((c) => ({
+      title: c.name,
+      excerpt: c.description,
+      href: `/activities/community/cosmobase#${c.id}`,
+      type: 'ページ',
+      keywords: `${c.name} ${c.description} ${c.category} cosmo base コスモベース`,
+    })),
+    ...workingGroups.map<SearchDoc>((w) => ({
+      title: w.name,
+      excerpt: w.theme,
+      href: `/activities/working-group#${w.id}`,
+      type: 'ページ',
+      keywords: `${w.name} ${w.theme} ${w.discussion} ワーキンググループ WG`,
+    })),
+    ...jobPositions.map<SearchDoc>((j) => ({
+      title: j.title,
+      excerpt: j.description,
+      href: `/join#${j.slug}`,
+      type: 'ページ',
+      keywords: `${j.title} ${j.category} ${j.description} 募集 採用 join 参加`,
+    })),
+    ...leadership.map<SearchDoc>((m) => ({
+      title: m.name,
+      excerpt: m.bio,
+      href: `/about/leadership/${m.id}`,
+      type: 'ページ',
+      keywords: `${m.name} ${m.nameEn} ${m.role} ${m.area} 経営 執行 メンバー`,
+    })),
     ...staticPages,
   ]
 }
@@ -136,8 +168,14 @@ export function searchDocs(query: string): SearchDoc[] {
   const index = buildSearchIndex()
   return index
     .map((doc) => {
-      const haystack = `${doc.title} ${doc.keywords}`.toLowerCase()
-      const score = terms.reduce((acc, t) => (haystack.includes(t) ? acc + 1 : acc), 0)
+      const title = doc.title.toLowerCase()
+      const keywords = doc.keywords.toLowerCase()
+      // Title matches rank a doc higher than a hit found only in its keywords.
+      const score = terms.reduce((acc, t) => {
+        if (title.includes(t)) return acc + 3
+        if (keywords.includes(t)) return acc + 1
+        return acc
+      }, 0)
       return { doc, score }
     })
     .filter((r) => r.score > 0)
