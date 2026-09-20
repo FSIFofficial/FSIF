@@ -135,8 +135,8 @@ export const footerSitemap = [
 ]
 
 export const legalLinks = [
-  { label: 'Privacy Policy', href: '/about/brand' },
-  { label: 'Terms', href: '/about/brand' },
-  { label: 'Social Media Policy', href: '/about/brand' },
+  { label: 'Privacy Policy', href: '/privacy-policy' },
+  { label: 'Terms', href: '/terms' },
+  { label: 'Social Media Policy', href: '/social-media-policy' },
   { label: 'Brand', href: '/about/brand' },
 ]

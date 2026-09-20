@@ -77,6 +77,27 @@ const staticPages: SearchDoc[] = [
     type: 'ページ',
     keywords: 'product プロダクト orbit オービット タスク管理',
   },
+  {
+    title: 'プライバシーポリシー',
+    excerpt: 'FSIFにおける個人情報の取り扱いについて。',
+    href: '/privacy-policy',
+    type: 'ページ',
+    keywords: 'privacy policy プライバシーポリシー 個人情報',
+  },
+  {
+    title: '利用規約',
+    excerpt: '本サイトおよび関連サービスの利用規約。',
+    href: '/terms',
+    type: 'ページ',
+    keywords: 'terms 利用規約 規約',
+  },
+  {
+    title: 'ソーシャルメディアポリシー',
+    excerpt: 'FSIF公式ソーシャルメディアアカウントの運用方針について。',
+    href: '/social-media-policy',
+    type: 'ページ',
+    keywords: 'social media policy ソーシャルメディアポリシー sns 運用方針',
+  },
 ]
 
 export function buildSearchIndex(): SearchDoc[] {

@@ -29,8 +29,7 @@ export function CosmoContentCards() {
               )}
             </div>
             <div className="mt-5 flex flex-1 flex-col">
-              <span className="section-label text-muted-foreground">{c.category}</span>
-              <h3 className="mt-1.5 text-lg font-bold text-foreground">{c.name}</h3>
+              <h3 className="text-lg font-bold text-foreground">{c.name}</h3>
               <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{c.description}</p>
               <span
                 className={cn(
