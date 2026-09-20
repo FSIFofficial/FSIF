@@ -37,15 +37,6 @@ export const heroSlides: HeroSlide[] = [
     image: '/images/orbit-team.png',
     imageAlt: 'Orbitを開発・活用するチーム',
   },
-  {
-    id: 'latest',
-    eyebrow: 'LATEST ACTIVITY',
-    copy: '挑戦が、次の可能性をひらく。',
-    sub: '全日本学生ものづくりEXPOへの出展レポート。',
-    cta: { label: '活動レポートを読む', href: '/news/monozukuri-expo-report' },
-    image: '/images/booth.png',
-    imageAlt: '全日本学生ものづくりEXPOのFSIF出展ブース',
-  },
 ]
 
 export const philosophies: Philosophy[] = [
