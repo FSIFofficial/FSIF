@@ -15,10 +15,10 @@ export function CosmoPartnerCarousel({ partners }: { partners: CosmoPartner[] })
   const Item = ({ p, ariaHidden }: { p: (typeof partners)[number]; ariaHidden?: boolean }) => {
     const label = p.name
     const box = (
-      <div className="flex h-20 w-44 items-center justify-center rounded-lg border border-border bg-surface px-4">
+      <div className="flex h-28 w-52 items-center justify-center rounded-lg border border-border bg-surface p-2">
         {p.logo ? (
           <div className="relative h-full w-full">
-            <Image src={p.logo} alt={`${label} ロゴ`} fill className="object-contain" sizes="176px" />
+            <Image src={p.logo} alt={`${label} ロゴ`} fill className="object-contain" sizes="208px" />
           </div>
         ) : (
           <span className="text-center font-mono text-sm font-medium text-muted-foreground">{label}</span>
