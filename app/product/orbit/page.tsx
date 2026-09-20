@@ -59,11 +59,6 @@ export default function OrbitPage() {
             <p className="mt-4 leading-relaxed text-muted-foreground">
               Orbitは、遂行履歴・要求スキル・担当者の成長を一つの流れとして扱う、FSIF発の自主開発ツールです。FSIF自身の運営から生まれ、同じ課題を抱える組織への提供を想定しています。
             </p>
-            <div className="mt-8">
-              <CtaLink href={project.external!.href} variant="secondary" external>
-                {project.external!.label}
-              </CtaLink>
-            </div>
           </Reveal>
           <Reveal delay={100}>
             <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-border">
@@ -203,9 +198,6 @@ export default function OrbitPage() {
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <CtaLink href="/contact">導入を相談する</CtaLink>
-              <CtaLink href={project.external!.href} variant="secondary" onDark external>
-                Orbit公式ページ
-              </CtaLink>
             </div>
           </Reveal>
         </div>

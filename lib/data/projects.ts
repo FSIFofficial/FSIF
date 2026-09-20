@@ -22,7 +22,6 @@ export const projects: Project[] = [
     image: '/images/orbit-team.png',
     imageAlt: 'Orbitを開発・活用するチーム',
     href: '/product/orbit',
-    external: { label: 'Orbit公式サイト', href: '' },
     kind: 'product',
   },
   {
