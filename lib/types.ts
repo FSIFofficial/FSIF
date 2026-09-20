@@ -98,7 +98,8 @@ export interface EventItem {
 
 export interface Partner {
   name: string
-  category: '企業' | '大学' | '学生団体' | '行政・研究機関' | '一般社団法人' | ''
+  /** ロゴ画像パス。未提供なら null（名称のみ表示）。 */
+  logo: string | null
   href: string
 }
 

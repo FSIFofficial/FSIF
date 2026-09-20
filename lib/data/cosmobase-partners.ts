@@ -23,8 +23,11 @@ export interface CosmoPartner {
   detailedDescription?: string
   /** 公式サイトURL（シートの website 列）。未設定なら null。 */
   url: string | null
+  /** X (Twitter) のプロフィールURL。シートには @handle 等でもよく、正規化してフルURLにする。 */
   twitter?: string
+  /** InstagramのプロフィールURL。シートには @handle 等でもよく、正規化してフルURLにする。 */
   instagram?: string
+  /** FacebookのプロフィールURL。シートには handle 等でもよく、正規化してフルURLにする。 */
   facebook?: string
   note?: string
   otherLinks: string[]
@@ -83,6 +86,23 @@ function parseCsv(text: string): string[][] {
   return rows.filter((r) => r.some((cell) => cell.trim() !== ''))
 }
 
+const snsDomains = {
+  twitter: 'https://x.com/',
+  instagram: 'https://instagram.com/',
+  facebook: 'https://www.facebook.com/',
+} as const
+
+/**
+ * シートのSNS列（フルURLのこともあれば @handle や handle だけのこともある）を
+ * 完全なURLに正規化する。相対URL扱いされて現在ページ配下に飛ぶのを防ぐ。
+ */
+function toSnsUrl(platform: keyof typeof snsDomains, value: string | undefined): string | undefined {
+  const v = value?.trim()
+  if (!v) return undefined
+  if (/^https?:\/\//i.test(v)) return v
+  return snsDomains[platform] + v.replace(/^@/, '')
+}
+
 function rowToPartner(row: Record<string, string>): CosmoPartner | null {
   const id = row.id?.trim()
   const name = row.name?.trim()
@@ -101,9 +121,9 @@ function rowToPartner(row: Record<string, string>): CosmoPartner | null {
     description: row.description?.trim() || '',
     detailedDescription: row.detailedDescription?.trim() || undefined,
     url: row.website?.trim() || null,
-    twitter: row.twitter?.trim() || undefined,
-    instagram: row.instagram?.trim() || undefined,
-    facebook: row.facebook?.trim() || undefined,
+    twitter: toSnsUrl('twitter', row.twitter),
+    instagram: toSnsUrl('instagram', row.instagram),
+    facebook: toSnsUrl('facebook', row.facebook),
     note: row.note?.trim() || undefined,
     otherLinks,
     email: row.email?.trim() || undefined,

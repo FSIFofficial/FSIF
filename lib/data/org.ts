@@ -109,8 +109,9 @@ export const history: HistoryEntry[] = [
 ]
 
 export const partners: Partner[] = [
-  { name: 'KARURA Project', category: '学生団体', href: '/contact' },
-  { name: 'iSIO', category: '一般社団法人', href: '/contact' },
-  { name: 'Union', category: '学生団体', href: '/contact' },
-  { name: 'なんだっけ？', category: '', href: '/contact' },
+  { name: 'みんなの夢AWARD ドリームパートナー', logo: null, href: '/contact' },
+  { name: 'iSIO 学生団体会員', logo: '/partners/iSIO_SPM.png', href: '/contact' },
+  { name: '学生活動大使(スペース大使)', logo: '/partners/space-ambassador.png', href: '/contact' },
+  { name: '学生掲示板認定団体', logo: null, href: '/contact' },
+  { name: 'KARURAプロジェクト スチューデントパートナー', logo: '/partners/karura.png', href: '/contact' },
 ]

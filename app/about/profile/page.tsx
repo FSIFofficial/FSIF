@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { pageOpenGraph } from '@/lib/site-url'
 import { PageHero } from '@/components/shared/page-hero'
 import { profile, partners } from '@/lib/data/org'
@@ -13,8 +14,6 @@ export const metadata: Metadata = {
   description,
   openGraph: pageOpenGraph(title, description),
 }
-
-const partnerGroups = ['企業', '大学', '行政・研究機関', '学生団体'] as const
 
 export default function ProfilePage() {
   return (
@@ -45,27 +44,25 @@ export default function ProfilePage() {
             <SectionHeading labelEn="PARTNERS" title="パートナー一覧" />
             <CtaLink href="/contact" variant="text" className="pb-1">連携について相談する</CtaLink>
           </div>
-          <div className="mt-10 space-y-10">
-            {partnerGroups.map((group) => {
-              const groupPartners = partners.filter((p) => p.category === group)
-              if (!groupPartners.length) return null
-              return (
-                <div key={group}>
-                  <h3 className="section-label mb-4 text-muted-foreground">{group}</h3>
-                  <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
-                    {groupPartners.map((p) => (
-                      <li
-                        key={p.name}
-                        className="flex h-20 items-center justify-center rounded-lg border border-border bg-surface px-4 text-center font-mono text-sm text-muted-foreground"
-                      >
-                        {p.name}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )
-            })}
-          </div>
+          <ul className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+            {partners.map((p) => (
+              <li
+                key={p.name}
+                className="flex flex-col items-center gap-3 rounded-lg border border-border bg-surface p-4 text-center"
+              >
+                {p.logo ? (
+                  <div className="relative h-16 w-full">
+                    <Image src={p.logo} alt={`${p.name} ロゴ`} fill className="object-contain" sizes="200px" />
+                  </div>
+                ) : (
+                  <div className="flex h-16 w-full items-center justify-center">
+                    <span className="font-mono text-xs font-medium text-muted-foreground">{p.name}</span>
+                  </div>
+                )}
+                {p.logo && <span className="text-xs text-muted-foreground">{p.name}</span>}
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
     </>
