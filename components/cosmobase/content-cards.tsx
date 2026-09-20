@@ -19,7 +19,7 @@ export function CosmoContentCards() {
         const hasUrl = Boolean(c.url)
         const CardInner = (
           <>
-            <div className="flex h-24 items-center justify-center rounded-lg bg-pale-blue p-4">
+            <div className="flex h-24 items-center justify-center rounded-lg bg-[#000033] p-4">
               {c.logo ? (
                 <div className="relative h-full w-full">
                   <Image src={c.logo} alt={`${c.name} ロゴ`} fill className="object-contain" sizes="240px" />
