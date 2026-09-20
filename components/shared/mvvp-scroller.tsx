@@ -32,6 +32,7 @@ export function MvvpScroller({ items, theme = 'dark', eyebrow = 'PHILOSOPHY / ç§
   const [active, setActive] = useState(0)
   const refs = useRef<(HTMLDivElement | null)[]>([])
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([])
+  const tabListRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -56,9 +57,19 @@ export function MvvpScroller({ items, theme = 'dark', eyebrow = 'PHILOSOPHY / ç§
     return () => observer.disconnect()
   }, [])
 
-  // Keep the active mobile tab within view (horizontal only).
+  // Keep the active mobile tab within view. Scrolls the tab strip's own
+  // scrollLeft directly (never scrollIntoView) so this never touches page
+  // scroll â€” critical here, since on the homepage this section sits far
+  // below the fold and scrollIntoView's block axis would drag the whole
+  // page down to it on mount.
   useEffect(() => {
-    tabRefs.current[active]?.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' })
+    const container = tabListRef.current
+    const tab = tabRefs.current[active]
+    if (!container || !tab) return
+    const reduced =
+      typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const target = tab.offsetLeft - container.clientWidth / 2 + tab.clientWidth / 2
+    container.scrollTo({ left: target, behavior: reduced ? 'auto' : 'smooth' })
   }, [active])
 
   const scrollTo = useCallback((i: number) => {
@@ -107,7 +118,7 @@ export function MvvpScroller({ items, theme = 'dark', eyebrow = 'PHILOSOPHY / ç§
       <div className={cn('sticky z-30 border-b backdrop-blur lg:hidden', t.tabBar)} style={{ top: 'var(--header-h)' }}>
         <div className="container-fsif py-3">
           <p className={cn('section-label mb-2', t.eyebrow)}>{eyebrow}</p>
-          <div className="flex gap-2 overflow-x-auto pb-1" role="tablist" aria-label="ç†å¿µ">
+          <div ref={tabListRef} className="flex gap-2 overflow-x-auto pb-1" role="tablist" aria-label="ç†å¿µ">
             {items.map((p, i) => (
               <button
                 key={p.key}
