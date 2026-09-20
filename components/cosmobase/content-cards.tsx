@@ -7,8 +7,8 @@ import { cn } from '@/lib/utils'
 /**
  * Logo-led content cards. When a logo is provided it is the hero of the card
  * (object-contain, uniform box). When missing, a neutral name placeholder is shown
- * instead of a generic icon. Cards without a confirmed URL show a "準備中" status
- * rather than a dead "詳細を見る" link.
+ * instead of a generic icon. Cards without a confirmed URL show their status
+ * (提供中/準備中) rather than a dead "詳細を見る" link.
  */
 export function CosmoContentCards() {
   const contents = getPublishedContents()
@@ -19,7 +19,7 @@ export function CosmoContentCards() {
         const hasUrl = Boolean(c.url)
         const CardInner = (
           <>
-            <div className="flex h-24 items-center justify-center rounded-lg bg-pale-blue p-4">
+            <div className="flex h-24 items-center justify-center rounded-lg bg-[#000033] p-4">
               {c.logo ? (
                 <div className="relative h-full w-full">
                   <Image src={c.logo} alt={`${c.name} ロゴ`} fill className="object-contain" sizes="240px" />
@@ -44,7 +44,7 @@ export function CosmoContentCards() {
                     <ArrowUpRight className="size-4" />
                   </>
                 ) : (
-                  <span className="rounded-full bg-pale-blue px-2.5 py-0.5 text-xs text-fsif-blue">準備中</span>
+                  <span className="rounded-full bg-pale-blue px-2.5 py-0.5 text-xs text-fsif-blue">{c.status}</span>
                 )}
               </span>
             </div>

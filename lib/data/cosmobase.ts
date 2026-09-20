@@ -14,7 +14,7 @@ export interface CosmoContent {
   category: string
   /** 確認済みの遷移先。未設定なら null で「準備中」を表示する。 */
   url: string | null
-  status: '公開中' | '準備中'
+  status: '提供中' | '準備中'
   sortOrder: number
   published: boolean
 }
@@ -27,7 +27,7 @@ export const cosmoContents: CosmoContent[] = [
     logo: '/CosmoBase/CBquiz.png',
     category: 'クイズ',
     url: null,
-    status: '公開中',
+    status: '提供中',
     sortOrder: 1,
     published: true,
   },
@@ -38,7 +38,7 @@ export const cosmoContents: CosmoContent[] = [
     logo: '/CosmoBase/CBnews.png',
     category: 'ニュース',
     url: null,
-    status: '公開中',
+    status: '提供中',
     sortOrder: 2,
     published: true,
   },
@@ -49,7 +49,7 @@ export const cosmoContents: CosmoContent[] = [
     logo: '/CosmoBase/CBtype.png',
     category: '診断',
     url: null,
-    status: '公開中',
+    status: '提供中',
     sortOrder: 3,
     published: true,
   },
@@ -60,7 +60,7 @@ export const cosmoContents: CosmoContent[] = [
     logo: '/CosmoBase/CBshittoku.png',
     category: 'イベント',
     url: null,
-    status: '公開中',
+    status: '提供中',
     sortOrder: 5,
     published: true,
   },
@@ -71,7 +71,7 @@ export const cosmoContents: CosmoContent[] = [
     logo: '/CosmoBase/CBoshiete.png',
     category: '',
     url: null,
-    status: '公開中',
+    status: '提供中',
     sortOrder: 6,
     published: true,
   },
@@ -82,7 +82,7 @@ export const cosmoContents: CosmoContent[] = [
     logo: '/CosmoBase/CBittoide.png',
     category: 'イベント',
     url: null,
-    status: '公開中',
+    status: '提供中',
     sortOrder: 7,
     published: true,
   },
@@ -93,7 +93,7 @@ export const cosmoContents: CosmoContent[] = [
     logo: '/CosmoBase/CBMD.png',
     category: 'イベント',
     url: null,
-    status: '公開中',
+    status: '提供中',
     sortOrder: 8,
     published: true,
   },
@@ -104,7 +104,7 @@ export const cosmoContents: CosmoContent[] = [
     logo: '/CosmoBase/CBED.png',
     category: 'イベント',
     url: null,
-    status: '公開中',
+    status: '提供中',
     sortOrder: 8,
     published: true,
   },
@@ -126,7 +126,7 @@ export const cosmoContents: CosmoContent[] = [
     logo: '/CosmoBase/CBL.png',
     category: '資料',
     url: null,
-    status: '公開中',
+    status: '提供中',
     sortOrder: 10,
     published: true,
   },
@@ -137,7 +137,7 @@ export const cosmoContents: CosmoContent[] = [
     logo: '/CosmoBase/CosmoMatch.png',
     category: 'マッチング',
     url: null,
-    status: '公開中',
+    status: '提供中',
     sortOrder: 4,
     published: true,
   },
@@ -152,17 +152,18 @@ export const cosmoContents: CosmoContent[] = [
     sortOrder: 11,
     published: true,
   },
-  {
-    id: 'CBM',
-    name: 'Cosmo Base Media',
-    description: '宇宙系の記事やレポートを届けるメディア。',
-    logo: null,
-    category: 'メディア',
-    url: null,
-    status: '公開中',
-    sortOrder: 12,
-    published: true,
-  },
+  // ロゴ未確定のため一時的に非表示（コメントアウト）。
+  // {
+  //   id: 'CBM',
+  //   name: 'Cosmo Base Media',
+  //   description: '宇宙系の記事やレポートを届けるメディア。',
+  //   logo: null,
+  //   category: 'メディア',
+  //   url: null,
+  //   status: '提供中',
+  //   sortOrder: 12,
+  //   published: true,
+  // },
 ]
 
 export function getPublishedContents(): CosmoContent[] {
