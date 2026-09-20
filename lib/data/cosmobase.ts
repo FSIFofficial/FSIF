@@ -133,7 +133,8 @@ export const cosmoContents: CosmoContent[] = [
   {
     id: 'match',
     name: 'Cosmo Match',
-    description: '',
+    description:
+      '自分の感覚で宇宙テーマとの相性がわかる参加型診断コンテンツ。知識ではなく直感的な質問から、あなたの"推し"となるロケットや星座と出会えます。',
     logo: '/CosmoBase/CosmoMatch.png',
     category: 'マッチング',
     url: null,
