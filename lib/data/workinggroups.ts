@@ -5,6 +5,8 @@
  * 架空の報告書を成果物として載せない。
  */
 export interface WorkingGroup {
+  /** URLアンカー等に使う一意なキー。 */
+  id: string
   name: string
   status: '議論中' | '募集中' | '終了'
   theme: string
@@ -20,6 +22,7 @@ export interface WorkingGroup {
 
 export const workingGroups: WorkingGroup[] = [
   {
+    id: 'wg-education',
     name: '宇宙×教育 WG',
     status: '議論中',
     theme: '学生団体の教育活動に宇宙をどう取り入れるか',
@@ -30,6 +33,7 @@ export const workingGroups: WorkingGroup[] = [
     deliverable: '議論中',
   },
   {
+    id: 'wg-monozukuri',
     name: '宇宙×ものづくり WG',
     status: '議論中',
     theme: '学生のものづくり活動と宇宙利用の接点を探る',
@@ -40,6 +44,7 @@ export const workingGroups: WorkingGroup[] = [
     deliverable: '議論中',
   },
   {
+    id: 'wg-community-disaster',
     name: '宇宙×地域・防災 WG',
     status: '募集中',
     theme: '地域活動・防災に宇宙データや衛星利用をどう役立てるか',
@@ -50,6 +55,7 @@ export const workingGroups: WorkingGroup[] = [
     deliverable: '議論中',
   },
   {
+    id: 'wg-student-activity',
     name: '宇宙×学生活動 WG',
     status: '終了',
     theme: '学生団体の運営・広報に宇宙のテーマをどう組み込むか',

@@ -103,7 +103,11 @@ export default function JoinPage() {
           <div className="mt-10 grid gap-5 md:grid-cols-2">
             {jobPositions.map((job, i) => (
               <Reveal key={job.slug} delay={i * 50}>
-                <article className="flex h-full flex-col rounded-2xl border border-border bg-background p-6">
+                <article
+                  id={job.slug}
+                  style={{ scrollMarginTop: 'calc(var(--header-h) + 1rem)' }}
+                  className="flex h-full flex-col rounded-2xl border border-border bg-background p-6"
+                >
                   <div className="flex items-start justify-between gap-4">
                     <div>
                       <span className="text-xs font-medium text-fsif-blue">{job.category}</span>
