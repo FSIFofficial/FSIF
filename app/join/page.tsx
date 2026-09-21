@@ -9,7 +9,7 @@ import { Accordion } from '@/components/ui/accordion'
 import {
   canDoAreas,
   jobPositions,
-  memberStories,
+  // memberStories,
   joinFaqs,
   joinFlow,
 } from '@/lib/data/join'
@@ -49,7 +49,7 @@ export default function JoinPage() {
               専攻も、立場も、経験も問いません。
             </h2>
             <p className="mt-4 leading-relaxed text-white/70">
-              文系・理系、学生・社会人、宇宙が専門でなくても大丈夫。FSIFには多様なバックグラウンドの仲間が集い、それぞれの得意を持ち寄って活動しています。大切なのは「関わってみたい」という気持ちです。
+              文系・理系、学年、宇宙が専門でなくても大丈夫。FSIFには多様なバックグラウンドの学生が集い、それぞれの得意を持ち寄って活動しています。大切なのは「関わってみたい」という気持ちです。
             </p>
             <div className="mt-8">
               <CtaLink href="/contact">エントリーする</CtaLink>
@@ -160,7 +160,7 @@ export default function JoinPage() {
         </div>
       </section>
 
-      {/* Member stories */}
+      {/* Member stories
       <section className="border-b border-border bg-background">
         <div className="mx-auto max-w-6xl px-4 py-16 md:py-24">
           <SectionHeading
@@ -196,6 +196,7 @@ export default function JoinPage() {
           </div>
         </div>
       </section>
+      */}
 
       {/* Flow */}
       <section className="border-b border-border bg-secondary">
