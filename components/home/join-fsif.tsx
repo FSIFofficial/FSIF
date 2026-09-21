@@ -13,9 +13,8 @@ export function JoinFsif() {
           <Reveal className="order-2 lg:order-1">
             <SectionHeading labelEn="JOIN FSIF" title="宇宙をみんなのものにする仲間を募集しています。" />
             <p className="mt-6 leading-[1.9] text-muted-foreground">
-              専攻も経験も問いません。FSIFは肯定を土台に、一人ひとりが主体的に挑戦できる組織です。
+              専攻も学年も問いません。FSIFは肯定を土台に、一人ひとりが主体的に挑戦できる学生組織です。
               イベント企画からデザイン、開発、調査研究まで、あなたの関心を活かせる場所がきっと見つかります。
-              学生を中心に、社会人や専門家も加わり、立場を越えて活動しています。
             </p>
             <ul className="mt-6 flex flex-wrap gap-2">
               {roleTags.map((tag) => (
