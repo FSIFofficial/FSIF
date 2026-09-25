@@ -4,7 +4,7 @@ import { useMemo, useState } from 'react'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 import { Search as SearchIcon, ArrowRight } from 'lucide-react'
-import { searchDocs, type SearchType } from '@/lib/data/search'
+import { searchDocs, type SearchType, type SearchDoc } from '@/lib/data/search'
 import { formatDate, cn } from '@/lib/utils'
 
 const typeStyles: Record<SearchType, string> = {
@@ -16,10 +16,10 @@ const typeStyles: Record<SearchType, string> = {
 
 const suggestions = ['Orbit', 'シンポジウム', 'コミュニティ', '参加', '理念']
 
-export function SearchClient() {
+export function SearchClient({ index }: { index: SearchDoc[] }) {
   const searchParams = useSearchParams()
   const [query, setQuery] = useState(searchParams.get('q') ?? '')
-  const results = useMemo(() => searchDocs(query), [query])
+  const results = useMemo(() => searchDocs(query, index), [query, index])
   const trimmed = query.trim()
 
   return (

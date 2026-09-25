@@ -11,6 +11,8 @@
  * otherLink3, email, category, established, activities, achievements, newsLink
  */
 
+import { fetchSheetCsv } from '@/lib/data/csv'
+
 export interface CosmoPartner {
   id: string
   name: string
@@ -37,53 +39,6 @@ export interface CosmoPartner {
   activities?: string
   achievements?: string
   newsLink?: string
-}
-
-/** 標準的なCSV（ダブルクォート・カンマ・改行を含むフィールドに対応）を行ごとの配列に変換する。 */
-function parseCsv(text: string): string[][] {
-  const rows: string[][] = []
-  let row: string[] = []
-  let field = ''
-  let inQuotes = false
-
-  const pushField = () => {
-    row.push(field)
-    field = ''
-  }
-  const pushRow = () => {
-    pushField()
-    rows.push(row)
-    row = []
-  }
-
-  for (let i = 0; i < text.length; i++) {
-    const c = text[i]
-    if (inQuotes) {
-      if (c === '"') {
-        if (text[i + 1] === '"') {
-          field += '"'
-          i++
-        } else {
-          inQuotes = false
-        }
-      } else {
-        field += c
-      }
-    } else if (c === '"') {
-      inQuotes = true
-    } else if (c === ',') {
-      pushField()
-    } else if (c === '\r') {
-      // skip; \n (or \r\n) ends the row
-    } else if (c === '\n') {
-      pushRow()
-    } else {
-      field += c
-    }
-  }
-  if (field.length > 0 || row.length > 0) pushRow()
-
-  return rows.filter((r) => r.some((cell) => cell.trim() !== ''))
 }
 
 const snsDomains = {
@@ -135,32 +90,10 @@ function rowToPartner(row: Record<string, string>): CosmoPartner | null {
   }
 }
 
-function parsePartnersCsv(csv: string): CosmoPartner[] {
-  const rows = parseCsv(csv)
-  if (rows.length < 2) return []
-  const header = rows[0].map((h) => h.trim())
-  return rows
-    .slice(1)
-    .map((cells) => {
-      const record: Record<string, string> = {}
-      header.forEach((key, i) => {
-        record[key] = cells[i] ?? ''
-      })
-      return rowToPartner(record)
-    })
-    .filter((p): p is CosmoPartner => p !== null)
-}
-
 /** ビルド時にシートからパートナー一覧を取得する。未設定・取得失敗時は空配列。 */
 export async function fetchCosmoPartners(): Promise<CosmoPartner[]> {
-  const url = process.env.COSMOBASE_PARTNERS_CSV_URL
-  if (!url) return []
-  try {
-    const res = await fetch(url)
-    if (!res.ok) return []
-    const csv = await res.text()
-    return parsePartnersCsv(csv)
-  } catch {
-    return []
-  }
+  const records = await fetchSheetCsv(process.env.COSMOBASE_PARTNERS_CSV_URL)
+  return records
+    .map(rowToPartner)
+    .filter((p): p is CosmoPartner => p !== null)
 }

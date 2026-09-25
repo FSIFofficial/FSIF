@@ -3,6 +3,8 @@ import { pageOpenGraph } from '@/lib/site-url'
 import { Suspense } from 'react'
 import { PageHero } from '@/components/shared/page-hero'
 import { SearchClient } from '@/components/search/search-client'
+import { buildSearchIndex } from '@/lib/data/search'
+import { fetchNews } from '@/lib/data/news'
 
 const title = 'サイト内検索'
 const description = 'FSIFサイト内のニュース・プロジェクト・イベント・ページを横断検索します。'
@@ -13,7 +15,10 @@ export const metadata: Metadata = {
   openGraph: pageOpenGraph(title, description),
 }
 
-export default function SearchPage() {
+export default async function SearchPage() {
+  const news = await fetchNews()
+  const index = buildSearchIndex(news)
+
   return (
     <>
       <PageHero
@@ -25,7 +30,7 @@ export default function SearchPage() {
       <section className="bg-background">
         <div className="mx-auto max-w-3xl px-4 py-16 md:py-20">
           <Suspense>
-            <SearchClient />
+            <SearchClient index={index} />
           </Suspense>
         </div>
       </section>

@@ -1,15 +1,14 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { getFeaturedNews, getLatestNews } from '@/lib/data/news'
+import type { NewsItem } from '@/lib/types'
 import { SectionHeading } from '@/components/ui/section-heading'
 import { CtaLink } from '@/components/ui/cta-link'
 import { CategoryTag, NewsRow } from '@/components/shared/news-card'
 import { Reveal } from '@/components/ui/reveal'
 import { formatDate } from '@/lib/utils'
 
-export function LatestNews() {
-  const featured = getFeaturedNews()
-  const rest = getLatestNews(6)
+export function LatestNews({ featured, rest }: { featured?: NewsItem; rest: NewsItem[] }) {
+  if (!featured) return null
 
   return (
     <section className="bg-background py-20 md:py-28">

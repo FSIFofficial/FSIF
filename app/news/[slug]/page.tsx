@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import { Download } from 'lucide-react'
-import { news, getNewsBySlug, getRelatedNews } from '@/lib/data/news'
+import { fetchNews, getNewsBySlug, getRelatedNews } from '@/lib/data/news'
 import { Breadcrumbs } from '@/components/shared/page-hero'
 import { CategoryTag, NewsCard } from '@/components/shared/news-card'
 import { ArticleShare } from '@/components/shared/article-share'
@@ -12,7 +12,13 @@ import { SectionHeading } from '@/components/ui/section-heading'
 import { formatDateJa, withBasePath } from '@/lib/utils'
 import { pageOpenGraph } from '@/lib/site-url'
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
+  const news = await fetchNews()
+  if (news.length === 0) {
+    // NEWS_CSV_URL 未設定時（ローカル開発など）。output: 'export' は
+    // 動的ルートに最低1件のパスを要求するため、404になるダミーを1件返す。
+    return [{ slug: '_no-news-configured' }]
+  }
   return news.map((n) => ({ slug: n.slug }))
 }
 
@@ -22,7 +28,8 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>
 }): Promise<Metadata> {
   const { slug } = await params
-  const item = getNewsBySlug(slug)
+  const news = await fetchNews()
+  const item = getNewsBySlug(news, slug)
   if (!item) return { title: 'ニュースが見つかりません' }
   return {
     title: item.title,
@@ -33,10 +40,11 @@ export async function generateMetadata({
 
 export default async function NewsDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
-  const item = getNewsBySlug(slug)
+  const news = await fetchNews()
+  const item = getNewsBySlug(news, slug)
   if (!item) notFound()
 
-  const related = getRelatedNews(slug, 3)
+  const related = getRelatedNews(news, slug, 3)
 
   const jsonLd = {
     '@context': 'https://schema.org',

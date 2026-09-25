@@ -3,25 +3,28 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
-import { importantNews } from '@/lib/data/news'
+import type { NewsItem } from '@/lib/types'
 import { CategoryTag } from '@/components/shared/news-card'
 import { formatDate } from '@/lib/utils'
 
-export function ImportantNews() {
+export function ImportantNews({ items }: { items: NewsItem[] }) {
   const [index, setIndex] = useState(0)
-  const total = importantNews.length
+  const total = items.length
 
   useEffect(() => {
+    if (total < 2) return
     const t = setInterval(() => setIndex((v) => (v + 1) % total), 5000)
     return () => clearInterval(t)
   }, [total])
+
+  if (total === 0) return null
 
   return (
     <section aria-label="重要なお知らせ" className="border-b border-border bg-surface">
       <div className="container-wide flex flex-col gap-2 py-3 sm:flex-row sm:items-center sm:gap-6">
         <span className="section-label shrink-0 text-fsif-blue">IMPORTANT NEWS</span>
         <div className="relative min-h-[3rem] flex-1 sm:min-h-0">
-          {importantNews.map((item, i) => (
+          {items.map((item, i) => (
             <Link
               key={item.slug}
               href={`/news/${item.slug}`}
@@ -42,7 +45,7 @@ export function ImportantNews() {
           ))}
         </div>
         <div className="hidden items-center gap-1.5 sm:flex" aria-hidden="true">
-          {importantNews.map((item, i) => (
+          {items.map((item, i) => (
             <button
               key={item.slug}
               onClick={() => setIndex(i)}
