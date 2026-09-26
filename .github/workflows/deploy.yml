@@ -38,6 +38,10 @@ jobs:
         env:
           COSMOBASE_PARTNERS_CSV_URL: ${{ secrets.COSMOBASE_PARTNERS_CSV_URL }}
           NEWS_CSV_URL: ${{ secrets.NEWS_CSV_URL }}
+          EVENTS_CSV_URL: ${{ secrets.EVENTS_CSV_URL }}
+          JOB_POSITIONS_CSV_URL: ${{ secrets.JOB_POSITIONS_CSV_URL }}
+          COSMOBASE_CONTENTS_CSV_URL: ${{ secrets.COSMOBASE_CONTENTS_CSV_URL }}
+          WORKING_GROUPS_CSV_URL: ${{ secrets.WORKING_GROUPS_CSV_URL }}
 
       - name: Add .nojekyll
         run: touch out/.nojekyll

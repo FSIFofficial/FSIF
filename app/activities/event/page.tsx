@@ -6,7 +6,7 @@ import { ArrowRight } from 'lucide-react'
 import { PageHero } from '@/components/shared/page-hero'
 import { SectionHeading } from '@/components/ui/section-heading'
 import { EventFilter } from '@/components/activities/event-filter'
-import { symposium2024 } from '@/lib/data/events'
+import { symposium2024, fetchEvents } from '@/lib/data/events'
 
 const title = 'イベント事業'
 const description = '立場と分野を越えた出会いと共創が始まる場を企画・運営するFSIFのイベント事業。'
@@ -19,7 +19,9 @@ export const metadata: Metadata = {
 
 const symposiumHref = '/activities/event/SBS24'
 
-export default function EventPage() {
+export default async function EventPage() {
+  const events = await fetchEvents()
+
   return (
     <>
       <PageHero
@@ -97,7 +99,7 @@ export default function EventPage() {
           <SectionHeading labelEn="PAST EVENTS" title="過去の開催イベントとその報告書" />
           <p className="mt-4 text-sm text-muted-foreground">種別で絞り込めます。</p>
           <div className="mt-8">
-            <EventFilter />
+            <EventFilter events={events} />
           </div>
         </div>
       </section>

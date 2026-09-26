@@ -4,7 +4,7 @@ import { PageHero } from '@/components/shared/page-hero'
 import { SectionHeading } from '@/components/ui/section-heading'
 import { CtaLink } from '@/components/ui/cta-link'
 import { WgTabs } from '@/components/activities/wg-tabs'
-import { wgThemeExamples } from '@/lib/data/workinggroups'
+import { wgThemeExamples, fetchWorkingGroups } from '@/lib/data/workinggroups'
 
 const title = 'ワーキンググループ事業'
 const description =
@@ -16,7 +16,9 @@ export const metadata: Metadata = {
   openGraph: pageOpenGraph(title, description),
 }
 
-export default function WorkingGroupPage() {
+export default async function WorkingGroupPage() {
+  const workingGroups = await fetchWorkingGroups()
+
   return (
     <>
       <PageHero
@@ -94,7 +96,7 @@ export default function WorkingGroupPage() {
             description="議論中・募集中・終了のステータスで絞り込めます。各WGの参加団体・議論内容・成果物を掲載しています。"
           />
           <div className="mt-8">
-            <WgTabs />
+            <WgTabs workingGroups={workingGroups} />
           </div>
         </div>
       </section>

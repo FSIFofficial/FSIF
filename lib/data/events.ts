@@ -1,182 +1,67 @@
 import type { EventItem } from '@/lib/types'
+import { fetchSheetCsv } from '@/lib/data/csv'
 
 export const eventTypes = ['主催', '共催', '運営支援', '出展', '登壇', 'ワークショップ'] as const
 
-export const events: EventItem[] = [
-  {
-    slug: 'YOXO26',
-    title: 'YOXO FESTIVAL 2026',
-    subtitle: 'G-10 iSIO 宇宙学生団体による展示',
-    reportType: 'ブース出展報告書',
-    publishedDate: '2026-02-25',
-    date: '2026-01-31',
-    eventDateDisplay: '2026年1月31日、2月1日',
-    venue: 'みなとみらい駅 みらいチューブ',
-    content: 'ブース出展',
-    type: '出展',
-    summary: 'iSIOメンバーによる宇宙学生団体の展示ブースを出展しました。',
-    image: '/event/YOXO26.png',
-    imageAlt: 'YOXO FESTIVAL 2026 出展の告知',
-    href: '/activities/event/YOXO26',
-    reportPdf: {
-      label: 'ブース出展報告書（PDF）',
-      href: '/event/YOXO FESTIVAL 2026 報告書.pdf',
-      downloadName: 'YOXO FESTIVAL 2026報告書.pdf',
-    },
-  },
-  {
-    slug: 'FSID3',
-    title: '未来宇宙産業DAY DAY3',
-    subtitle: '～趣味が織りなす宇宙の物語～',
-    reportType: 'イベント報告書',
-    publishedDate: '2025-10-29',
-    date: '2024-12-20',
-    eventDateDisplay: '2024年12月20日',
-    venue: '宇宙の店浜松町本店',
-    content: 'ワークショップ',
-    type: 'ワークショップ',
-    summary: '「趣味が織りなす宇宙の物語」をテーマにしたワークショップを開催しました。',
-    image: '/event/FSID3.jpg',
-    imageAlt: '未来宇宙産業DAY DAY3の告知',
-    href: '/activities/event/FSID3',
-    reportPdf: {
-      label: 'イベント報告書（PDF）',
-      href: '/event/FSID3.pdf',
-      downloadName: '未来宇宙産業DAY DAY3報告書.pdf',
-    },
-  },
-  {
-    slug: 'SBS24',
-    title: '宇宙ビジネスシンポジウム2024',
-    subtitle: '～宇宙産業の新たな夜明け～',
-    reportType: 'イベント報告書',
-    publishedDate: '2025-11-01',
-    date: '2024-09-28',
-    eventDateDisplay: '2024年9月28日、29日',
-    venue: 'ふれあい貸し会議室五反田No79',
-    venueDisplay: 'ふれあい貸し会議室五反田No79 ＋ オンライン',
-    content: '講演、パネルディスカッション',
-    type: '主催',
-    summary: '企業・研究機関・大学・学生が集い、宇宙産業の未来を語り合いました。',
-    image: '/event/SBS24.jpg',
-    imageAlt: '宇宙ビジネスシンポジウム2024の告知',
-    href: '/activities/event/SBS24',
-    reportPdf: {
-      label: 'イベント報告書（PDF）',
-      href: '/event/SBS24.pdf',
-      downloadName: '宇宙ビジネスシンポジウム2024報告書.pdf',
-    },
-  },
-  {
-    slug: 'J3',
-    title: '常設活動#003',
-    subtitle: '神奈川大学宇宙ロケット部新入部員交流会',
-    reportType: '常設活動報告書',
-    publishedDate: '2025-02-06',
-    date: '2024-05-19',
-    eventDateDisplay: '2024年5月19日',
-    venue: '神奈川大学',
-    content: 'ワークショップ',
-    type: 'ワークショップ',
-    summary: '神奈川大学宇宙ロケット部の新入部員交流会を実施しました。',
-    image: '/event/J3.jpg',
-    imageAlt: '神奈川大学宇宙ロケット部新入部員交流会の告知',
-    href: '/activities/event/J3',
-    reportPdf: {
-      label: '常設活動報告書（PDF）',
-      href: '/event/J3報告書.pdf',
-      downloadName: '常設活動#003報告書.pdf',
-    },
-  },
-  {
-    slug: 'FSID2',
-    title: '未来宇宙産業DAY DAY2',
-    subtitle: '～趣味の世界を宇宙へ～',
-    reportType: 'イベント報告書',
-    publishedDate: '2024-07-04',
-    date: '2024-05-04',
-    eventDateDisplay: '2024年5月4日',
-    venue: '宇宙の店浜松町本店',
-    content: 'ワークショップ',
-    type: 'ワークショップ',
-    summary: '「趣味の世界を宇宙へ」をテーマにしたワークショップを開催しました。',
-    image: '/event/FSID2.jpg',
-    imageAlt: '未来宇宙産業DAY DAY2の告知',
-    href: '/activities/event/FSID2',
-    reportPdf: {
-      label: 'イベント報告書（PDF）',
-      href: '/event/FSID2報告書.pdf',
-      downloadName: '未来宇宙産業DAY DAY2報告書.pdf',
-    },
-  },
-  {
-    slug: 'FSID1',
-    title: '未来宇宙産業DAY',
-    subtitle: '～宇宙への夢を追いかけて～',
-    reportType: 'イベント報告書',
-    publishedDate: '2024-05-20',
-    date: '2024-03-30',
-    eventDateDisplay: '2024年3月30日',
-    venue: '宇宙の店浜松町本店',
-    content: 'ワークショップ',
-    type: 'ワークショップ',
-    summary: '「宇宙への夢を追いかけて」をテーマにしたワークショップを開催しました。',
-    image: '/event/FSID1.jpg',
-    imageAlt: '未来宇宙産業DAYの告知',
-    href: '/activities/event/FSID1',
-    reportPdf: {
-      label: 'イベント報告書（PDF）',
-      href: '/event/FSID1報告書.pdf',
-      downloadName: '未来宇宙産業DAY報告書.pdf',
-    },
-  },
-  {
-    slug: 'J2',
-    title: '常設活動#002',
-    reportType: '常設活動報告書',
-    publishedDate: '2024-03-27',
-    date: '2024-03-11',
-    eventDateDisplay: '2024年3月11日',
-    venue: '交流企業様オフィス',
-    content: 'ISSの民間利用について',
-    type: '登壇',
-    summary: 'ISSの民間利用をテーマに、交流企業様のオフィスで開催しました。',
-    image: '/event/J2.png',
-    imageAlt: '常設活動#002の告知',
-    href: '/activities/event/J2',
-    reportPdf: {
-      label: '常設活動報告書（PDF）',
-      href: '/event/J2報告書.pdf',
-      downloadName: '常設活動#002報告書.pdf',
-    },
-  },
-  {
-    slug: 'FSIF0',
-    title: '趣味からつながる宇宙',
-    subtitle: '＠宇宙の店',
-    reportType: 'イベント報告書',
-    publishedDate: '2024-01-20',
-    date: '2023-12-20',
-    eventDateDisplay: '2023年12月20日',
-    venue: '宇宙の店浜松町本店',
-    content: 'ワークショップ',
-    type: 'ワークショップ',
-    summary: '趣味から宇宙へとつながるワークショップを、宇宙の店で開催しました。',
-    image: '/event/趣味からつながる宇宙.png',
-    imageAlt: '趣味からつながる宇宙の告知',
-    href: '/activities/event/FSIF0',
-    reportPdf: {
-      label: 'イベント報告書（PDF）',
-      href: '/event/趣味からつながる宇宙報告書.pdf',
-      downloadName: '趣味からつながる宇宙報告書.pdf',
-    },
-  },
-]
+/**
+ * イベント開催実績データ。運営が管理するGoogleスプレッドシート（「ウェブに公開」の
+ * CSVリンク）をビルド時に取得して生成する。シートのURLは EVENTS_CSV_URL
+ * （GitHub Actions シークレット）経由でのみ渡し、リポジトリには含めない。
+ * シート未設定時（ローカル開発でシークレット未設定など）は空配列を返す。
+ *
+ * シートのヘッダー（1行目）:
+ * slug, title, subtitle, date, type, venue, venueDisplay, summary, image,
+ * imageAlt, reportType, publishedDate, eventDateDisplay, content,
+ * reportPdfLabel, reportPdfHref, reportPdfDownloadName
+ *
+ * href は /activities/event/{slug} として自動生成するため列は不要。
+ */
+
+function rowToEventItem(row: Record<string, string>): EventItem | null {
+  const slug = row.slug?.trim()
+  const title = row.title?.trim()
+  const date = row.date?.trim()
+  const type = row.type?.trim() as EventItem['type']
+  if (!slug || !title || !date || !eventTypes.includes(type as (typeof eventTypes)[number])) return null
+
+  return {
+    slug,
+    title,
+    date,
+    type,
+    venue: row.venue?.trim() || '',
+    summary: row.summary?.trim() || '',
+    image: row.image?.trim() || '',
+    imageAlt: row.imageAlt?.trim() || '',
+    href: `/activities/event/${slug}`,
+    subtitle: row.subtitle?.trim() || undefined,
+    reportType: row.reportType?.trim() || undefined,
+    publishedDate: row.publishedDate?.trim() || undefined,
+    eventDateDisplay: row.eventDateDisplay?.trim() || undefined,
+    venueDisplay: row.venueDisplay?.trim() || undefined,
+    content: row.content?.trim() || undefined,
+    reportPdf: row.reportPdfHref?.trim()
+      ? {
+          label: row.reportPdfLabel?.trim() || '',
+          href: row.reportPdfHref.trim(),
+          downloadName: row.reportPdfDownloadName?.trim() || '',
+        }
+      : undefined,
+  }
+}
+
+/** ビルド時にシートからイベント一覧を取得する。未設定・取得失敗時は空配列。 */
+export async function fetchEvents(): Promise<EventItem[]> {
+  const records = await fetchSheetCsv(process.env.EVENTS_CSV_URL)
+  return records
+    .map(rowToEventItem)
+    .filter((e): e is EventItem => e !== null)
+}
 
 /**
  * 宇宙ビジネスシンポジウム2024（開催実績）の概要データ。
  * ホームの FeaturedEvent セクションで使用。詳細な報告内容は
- * events 配列内の対応エントリ（slug: 'SBS24'）を参照。
+ * events データ内の対応エントリ（slug: 'SBS24'）を参照。
  */
 export const symposium2024 = {
   theme: '宇宙産業の新たな夜明け',

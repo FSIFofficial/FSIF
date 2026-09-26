@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { ArrowUpRight } from 'lucide-react'
-import { getPublishedContents } from '@/lib/data/cosmobase'
+import type { CosmoContent } from '@/lib/data/cosmobase'
 import { Reveal } from '@/components/ui/reveal'
 import { cn } from '@/lib/utils'
 
@@ -10,9 +10,7 @@ import { cn } from '@/lib/utils'
  * instead of a generic icon. Cards without a confirmed URL show their status
  * (提供中/準備中) rather than a dead "詳細を見る" link.
  */
-export function CosmoContentCards() {
-  const contents = getPublishedContents()
-
+export function CosmoContentCards({ contents }: { contents: CosmoContent[] }) {
   return (
     <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
       {contents.map((c, i) => {

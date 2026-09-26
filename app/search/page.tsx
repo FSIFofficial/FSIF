@@ -5,6 +5,10 @@ import { PageHero } from '@/components/shared/page-hero'
 import { SearchClient } from '@/components/search/search-client'
 import { buildSearchIndex } from '@/lib/data/search'
 import { fetchNews } from '@/lib/data/news'
+import { fetchEvents } from '@/lib/data/events'
+import { fetchCosmoContents, getPublishedContents } from '@/lib/data/cosmobase'
+import { fetchWorkingGroups } from '@/lib/data/workinggroups'
+import { fetchJobPositions } from '@/lib/data/join'
 
 const title = 'サイト内検索'
 const description = 'FSIFサイト内のニュース・プロジェクト・イベント・ページを横断検索します。'
@@ -17,7 +21,11 @@ export const metadata: Metadata = {
 
 export default async function SearchPage() {
   const news = await fetchNews()
-  const index = buildSearchIndex(news)
+  const events = await fetchEvents()
+  const cosmoContents = getPublishedContents(await fetchCosmoContents())
+  const workingGroups = await fetchWorkingGroups()
+  const jobPositions = await fetchJobPositions()
+  const index = buildSearchIndex(news, events, cosmoContents, workingGroups, jobPositions)
 
   return (
     <>

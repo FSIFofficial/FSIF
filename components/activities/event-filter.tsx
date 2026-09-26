@@ -3,11 +3,18 @@
 import { useMemo, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { events, eventTypes } from '@/lib/data/events'
+import { eventTypes } from '@/lib/data/events'
+import type { EventItem } from '@/lib/types'
 import { formatDate } from '@/lib/utils'
 import { cn } from '@/lib/utils'
 
-export function EventFilter({ excludeSlug }: { excludeSlug?: string } = {}) {
+export function EventFilter({
+  events,
+  excludeSlug,
+}: {
+  events: EventItem[]
+  excludeSlug?: string
+}) {
   const [type, setType] = useState<string>('ALL')
 
   const items = useMemo(() => {
@@ -15,7 +22,7 @@ export function EventFilter({ excludeSlug }: { excludeSlug?: string } = {}) {
       .filter((e) => e.slug !== excludeSlug)
       .filter((e) => (type === 'ALL' ? true : e.type === type))
       .sort((a, b) => (a.date < b.date ? 1 : -1))
-  }, [type, excludeSlug])
+  }, [events, type, excludeSlug])
 
   return (
     <div>
