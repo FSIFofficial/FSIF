@@ -1,7 +1,7 @@
 'use client'
 
 import { useMemo, useState } from 'react'
-import { workingGroups, wgStatuses } from '@/lib/data/workinggroups'
+import { wgStatuses, type WorkingGroup } from '@/lib/data/workinggroups'
 import { cn } from '@/lib/utils'
 
 const statusColor: Record<string, string> = {
@@ -10,12 +10,12 @@ const statusColor: Record<string, string> = {
   終了: 'bg-pale-blue text-muted-foreground',
 }
 
-export function WgTabs() {
+export function WgTabs({ workingGroups }: { workingGroups: WorkingGroup[] }) {
   const [status, setStatus] = useState<string>('ALL')
 
   const items = useMemo(
     () => workingGroups.filter((w) => (status === 'ALL' ? true : w.status === status)),
-    [status],
+    [workingGroups, status],
   )
 
   return (

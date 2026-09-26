@@ -8,6 +8,7 @@ import { NewsCard } from '@/components/shared/news-card'
 import { CosmoContentCards } from '@/components/cosmobase/content-cards'
 import { CosmoPartnerCarousel } from '@/components/cosmobase/partner-carousel'
 import { fetchCosmoPartners } from '@/lib/data/cosmobase-partners'
+import { fetchCosmoContents, getPublishedContents } from '@/lib/data/cosmobase'
 import { fetchNews } from '@/lib/data/news'
 import { externalUrls } from '@/lib/data/site'
 
@@ -31,6 +32,7 @@ export default async function CosmoBasePage() {
   const officialUrl = externalUrls.cosmoBaseOfficial
   const partners = await fetchCosmoPartners()
   const news = await fetchNews()
+  const cosmoContents = getPublishedContents(await fetchCosmoContents())
 
   /**
    * 「関連ニュース」欄は最新2件 + 重要（featured）なものを表示する。
@@ -115,7 +117,7 @@ export default async function CosmoBasePage() {
             title="提供コンテンツ"
             description="Cosmo Baseが届ける、宇宙を身近にするコンテンツ。ロゴ・公開状況は順次更新します。"
           />
-          <CosmoContentCards />
+          <CosmoContentCards contents={cosmoContents} />
         </div>
       </section>
 

@@ -1,4 +1,5 @@
 import type { JobPosition, Faq, JobCategory } from '@/lib/types'
+import { fetchSheetCsv } from '@/lib/data/csv'
 
 export const jobCategories: JobCategory[] = [
   'イベント企画',
@@ -26,85 +27,52 @@ export const canDoAreas = [
   { title: 'PM', description: 'プロジェクトの進行と成果に責任を持つ。' },
 ]
 
-export const jobPositions: JobPosition[] = [
-  {
-    slug: 'event-planner',
-    title: 'イベント企画メンバー',
-    category: 'イベント企画',
-    status: '募集中',
-    commitment: '週3〜5時間 / オンライン中心',
-    location: 'オンライン（都内で対面あり）',
-    description: '宇宙ビジネスシンポジウムをはじめ、共創が生まれるイベントを企画・運営します。',
-    responsibilities: ['企画立案と運営', '登壇者・参加者との調整', '当日運営とふりかえり'],
-    welcome: ['人と話すのが好きな方', '段取りを考えるのが得意な方'],
-  },
-  {
-    slug: 'community-manager',
-    title: 'コミュニティ運営メンバー',
-    category: 'コミュニティ運営',
-    status: '募集中',
-    commitment: '週2〜4時間 / オンライン中心',
-    location: 'オンライン',
-    description: 'Cosmo Baseで参加者が交流しやすい場をつくり、コミュニティを育てます。',
-    responsibilities: ['ミートアップの運営', '参加者フォロー', 'コンテンツ企画'],
-    welcome: ['場づくりに関心がある方', '継続的に関われる方'],
-  },
-  {
-    slug: 'designer',
-    title: 'デザインメンバー',
-    category: 'デザイン',
-    status: '若干名',
-    commitment: '案件ベース',
-    location: 'オンライン',
-    description: '広報物やイベントビジュアル、プロダクトUIのデザインを担当します。',
-    responsibilities: ['グラフィック / UIデザイン', 'ブランドの一貫性の担保'],
-    welcome: ['FigmaなどのツールをさわれるとGOOD', '未経験でも学ぶ意欲があれば歓迎'],
-  },
-  {
-    slug: 'web-engineer',
-    title: 'Web開発メンバー',
-    category: 'Web開発',
-    status: '募集中',
-    commitment: '週3〜6時間',
-    location: 'オンライン',
-    description: '公式サイトやプロダクトOrbitの開発に携わります。',
-    responsibilities: ['フロントエンド / バックエンド開発', '機能改善と保守'],
-    welcome: ['HTML/CSS/JSの基礎がある方', 'React / Next.js経験者は歓迎'],
-  },
-  {
-    slug: 'pr-member',
-    title: '広報メンバー',
-    category: '広報',
-    status: '募集中',
-    commitment: '週2〜4時間',
-    location: 'オンライン',
-    description: 'SNSやメディアを通じて、FSIFの活動を社会に届けます。',
-    responsibilities: ['SNS運用', '記事・レポートの編集', 'メディア対応'],
-    welcome: ['文章を書くのが好きな方', 'SNS運用に関心がある方'],
-  },
-  {
-    slug: 'researcher',
-    title: '調査研究メンバー',
-    category: '調査研究',
-    status: '若干名',
-    commitment: '案件ベース',
-    location: 'オンライン',
-    description: 'シンクタンク事業で宇宙産業の動向を調査・分析し、レポートにまとめます。',
-    responsibilities: ['調査設計とデータ収集', '分析とレポート執筆'],
-    welcome: ['調べてまとめるのが得意な方', '専攻は問いません'],
-  },
-  {
-    slug: 'project-manager',
-    title: 'プロジェクトマネージャー',
-    category: 'PM',
-    status: '募集中',
-    commitment: '週4〜6時間',
-    location: 'オンライン',
-    description: '複数のメンバーをまとめ、プロジェクトを成果まで導きます。',
-    responsibilities: ['進行管理', 'メンバーのアサインと調整', '成果のふりかえり'],
-    welcome: ['リーダー経験のある方', 'Orbitを活用した運営に関心がある方'],
-  },
-]
+/**
+ * 募集ポジションデータ。運営が管理するGoogleスプレッドシート（「ウェブに公開」の
+ * CSVリンク）をビルド時に取得して生成する。シートのURLは JOB_POSITIONS_CSV_URL
+ * （GitHub Actions シークレット）経由でのみ渡し、リポジトリには含めない。
+ * シート未設定時（ローカル開発でシークレット未設定など）は空配列を返す。
+ *
+ * シートのヘッダー（1行目）:
+ * slug, title, category, status, commitment, location, description,
+ * responsibilities, welcome
+ *
+ * responsibilities・welcome列は複数項目を "|"（パイプ）区切りで入力する。
+ * 例: 企画立案と運営|登壇者・参加者との調整|当日運営とふりかえり
+ */
+
+function splitList(value: string | undefined): string[] {
+  return (value ?? '')
+    .split('|')
+    .map((s) => s.trim())
+    .filter(Boolean)
+}
+
+function rowToJobPosition(row: Record<string, string>): JobPosition | null {
+  const slug = row.slug?.trim()
+  const title = row.title?.trim()
+  if (!slug || !title) return null
+
+  return {
+    slug,
+    title,
+    category: (row.category?.trim() || 'PM') as JobCategory,
+    status: (row.status?.trim() || '募集中') as JobPosition['status'],
+    commitment: row.commitment?.trim() || '',
+    location: row.location?.trim() || '',
+    description: row.description?.trim() || '',
+    responsibilities: splitList(row.responsibilities),
+    welcome: splitList(row.welcome),
+  }
+}
+
+/** ビルド時にシートから募集ポジション一覧を取得する。未設定・取得失敗時は空配列。 */
+export async function fetchJobPositions(): Promise<JobPosition[]> {
+  const records = await fetchSheetCsv(process.env.JOB_POSITIONS_CSV_URL)
+  return records
+    .map(rowToJobPosition)
+    .filter((j): j is JobPosition => j !== null)
+}
 
 export const memberStories = [
   {
@@ -173,7 +141,3 @@ export const joinFlow = [
   { step: '03', title: 'オリエンテーション', description: '活動の進め方やツール（Orbit）の使い方を共有します。' },
   { step: '04', title: '活動スタート', description: '興味のある事業・プロジェクトで実際の活動を始めます。' },
 ]
-
-export function getJobBySlug(slug: string): JobPosition | undefined {
-  return jobPositions.find((j) => j.slug === slug)
-}

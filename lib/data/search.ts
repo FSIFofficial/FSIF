@@ -1,9 +1,7 @@
-import type { NewsItem } from '@/lib/types'
+import type { NewsItem, EventItem, JobPosition } from '@/lib/types'
+import type { CosmoContent } from '@/lib/data/cosmobase'
+import type { WorkingGroup } from '@/lib/data/workinggroups'
 import { projects } from '@/lib/data/projects'
-import { events } from '@/lib/data/events'
-import { getPublishedContents } from '@/lib/data/cosmobase'
-import { workingGroups } from '@/lib/data/workinggroups'
-import { jobPositions } from '@/lib/data/join'
 import { leadership } from '@/lib/data/org'
 
 export type SearchType = 'ニュース' | 'プロダクト' | 'イベント' | 'ページ'
@@ -104,7 +102,13 @@ const staticPages: SearchDoc[] = [
   },
 ]
 
-export function buildSearchIndex(news: NewsItem[]): SearchDoc[] {
+export function buildSearchIndex(
+  news: NewsItem[],
+  events: EventItem[],
+  cosmoContents: CosmoContent[],
+  workingGroups: WorkingGroup[],
+  jobPositions: JobPosition[],
+): SearchDoc[] {
   return [
     ...news.map<SearchDoc>((a) => ({
       title: a.title,
@@ -129,7 +133,7 @@ export function buildSearchIndex(news: NewsItem[]): SearchDoc[] {
       keywords: `${e.title} ${e.summary} ${e.type} ${e.venue}`,
       date: e.date,
     })),
-    ...getPublishedContents().map<SearchDoc>((c) => ({
+    ...cosmoContents.map<SearchDoc>((c) => ({
       title: c.name,
       excerpt: c.description,
       href: `/activities/community/cosmobase#${c.id}`,

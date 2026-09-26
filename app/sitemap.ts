@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next'
 import { SITE_URL } from '@/lib/site-url'
 import { fetchNews } from '@/lib/data/news'
-import { events } from '@/lib/data/events'
+import { fetchEvents } from '@/lib/data/events'
 import { leadership } from '@/lib/data/org'
 
 // output: 'export' (静的サイト生成) では、メタデータルートを事前に
@@ -44,6 +44,7 @@ const staticRoutes: Array<{ path: string; priority: number; changeFrequency: Met
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const news = await fetchNews()
+  const events = await fetchEvents()
 
   const staticEntries: MetadataRoute.Sitemap = staticRoutes.map((r) => ({
     url: `${SITE_URL}${r.path}`,

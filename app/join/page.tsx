@@ -8,7 +8,7 @@ import { CtaLink } from '@/components/ui/cta-link'
 import { Accordion } from '@/components/ui/accordion'
 import {
   canDoAreas,
-  jobPositions,
+  fetchJobPositions,
   // memberStories,
   joinFaqs,
   joinFlow,
@@ -31,7 +31,9 @@ const statusStyles: Record<string, string> = {
   募集終了: 'bg-muted text-muted-foreground',
 }
 
-export default function JoinPage() {
+export default async function JoinPage() {
+  const jobPositions = await fetchJobPositions()
+
   return (
     <>
       <PageHero

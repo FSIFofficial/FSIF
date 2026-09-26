@@ -1,9 +1,4 @@
-/**
- * Cosmo Base（コミュニティ事業）データ。
- * コンテンツ・パートナーは CMS 接続を想定した型付きデータ。
- * ロゴや URL が未確認のものは status/logo を通じて「準備中」「仮素材」として扱い、
- * published: false のものは公開対象から外せる構造にしている。
- */
+import { fetchSheetCsv } from '@/lib/data/csv'
 
 export interface CosmoContent {
   id: string
@@ -19,156 +14,45 @@ export interface CosmoContent {
   published: boolean
 }
 
-export const cosmoContents: CosmoContent[] = [
-  {
-    id: 'quiz',
-    name: '毎日宇宙クイズ',
-    description: '毎日、宇宙に関するクイズをCosmo Base及びSNSで発信中。',
-    logo: '/CosmoBase/CBquiz.png',
-    category: 'クイズ',
-    url: null,
-    status: '提供中',
-    sortOrder: 1,
-    published: true,
-  },
-  {
-    id: 'news',
-    name: '週刊宇宙ニュース',
-    description: '毎週、宇宙に関するニュースをスライドにまとめて発信しています。',
-    logo: '/CosmoBase/CBnews.png',
-    category: 'ニュース',
-    url: null,
-    status: '提供中',
-    sortOrder: 2,
-    published: true,
-  },
-  {
-    id: 'type',
-    name: '宇宙タイプ診断',
-    description: '簡単な問題に回答することで自分のタイプが分かるコンテンツを提供しています。',
-    logo: '/CosmoBase/CBtype.png',
-    category: '診断',
-    url: null,
-    status: '提供中',
-    sortOrder: 3,
-    published: true,
-  },
-  {
-    id: 'shittoku',
-    name: 'Cosmo Baseで宇宙知っトク',
-    description: '毎週、水曜日19:00から座談会や、講座、トークセッションなど宇宙に関するオンラインイベントを開催しています。',
-    logo: '/CosmoBase/CBshittoku.png',
-    category: 'イベント',
-    url: null,
-    status: '提供中',
-    sortOrder: 5,
-    published: true,
-  },
-  {
-    id: 'oshiete',
-    name: 'Cosmo Baseで宇宙教えて',
-    description: 'Cosmo Base内では宇宙に関する質問をいつでもできるチャンネルを準備しております。',
-    logo: '/CosmoBase/CBoshiete.png',
-    category: '',
-    url: null,
-    status: '提供中',
-    sortOrder: 6,
-    published: true,
-  },
-  {
-    id: 'ittoide',
-    name: '宇宙に行っといで',
-    description: '運営がおすすめする宇宙に関するイベントを紹介します。',
-    logo: '/CosmoBase/CBittoide.png',
-    category: 'イベント',
-    url: null,
-    status: '提供中',
-    sortOrder: 7,
-    published: true,
-  },
-  {
-    id: 'CBMD',
-    name: 'Cosmo Base Museum Databese',
-    description: '宇宙系の展示がある博物館を紹介しています。',
-    logo: '/CosmoBase/CBMD.png',
-    category: 'イベント',
-    url: null,
-    status: '提供中',
-    sortOrder: 8,
-    published: true,
-  },
-  {
-    id: 'CBED',
-    name: 'Cosmo Base Event Database',
-    description: '全国で開催される宇宙に関するイベント一覧を公開しています。',
-    logo: '/CosmoBase/CBED.png',
-    category: 'イベント',
-    url: null,
-    status: '提供中',
-    sortOrder: 8,
-    published: true,
-  },
-  {
-    id: 'ittekita',
-    name: '宇宙のイベント行ってきた',
-    description: '運営メンバーが宇宙に関するイベントに行ってきた際に、不定期でイベントレポートを配信します。',
-    logo: '/CosmoBase/CBittekita.png',
-    category: 'イベント',
-    url: null,
-    status: '準備中',
-    sortOrder: 9,
-    published: true,
-  },
-  {
-    id: 'CBL',
-    name: 'Cosmo Base Library',
-    description: 'Cosmo Base内で公開された資料や、運営団体である未来宇宙産業フォーラムが収集した情報などをデータベースとして格納しています。',
-    logo: '/CosmoBase/CBL.png',
-    category: '資料',
-    url: null,
-    status: '提供中',
-    sortOrder: 10,
-    published: true,
-  },
-  {
-    id: 'match',
-    name: 'Cosmo Match',
-    description:
-      '自分の感覚で宇宙テーマとの相性がわかる参加型診断コンテンツ。知識ではなく直感的な質問から、あなたの"推し"となるロケットや星座と出会えます。',
-    logo: '/CosmoBase/CosmoMatch.png',
-    category: 'マッチング',
-    url: null,
-    status: '提供中',
-    sortOrder: 4,
-    published: true,
-  },
-  {
-    id: 'voyager',
-    name: 'Space Voyager',
-    description: 'レベル確認などに利用していただける検定制度。宇宙に関する検定の他に、コミュニティーでの権限が一気に増える「Space Navigator」の認定なども行います。',
-    logo: '/CosmoBase/CBvoyager.png',
-    category: '体験',
-    url: null,
-    status: '準備中',
-    sortOrder: 11,
-    published: true,
-  },
-  // ロゴ未確定のため一時的に非表示（コメントアウト）。
-  // {
-  //   id: 'CBM',
-  //   name: 'Cosmo Base Media',
-  //   description: '宇宙系の記事やレポートを届けるメディア。',
-  //   logo: null,
-  //   category: 'メディア',
-  //   url: null,
-  //   status: '提供中',
-  //   sortOrder: 12,
-  //   published: true,
-  // },
-]
+/**
+ * Cosmo Base提供コンテンツデータ。運営が管理するGoogleスプレッドシート
+ * （「ウェブに公開」のCSVリンク）をビルド時に取得して生成する。シートのURLは
+ * COSMOBASE_CONTENTS_CSV_URL（GitHub Actions シークレット）経由でのみ渡し、
+ * リポジトリには含めない。シート未設定時（ローカル開発でシークレット未設定
+ * など）は空配列を返す。
+ *
+ * シートのヘッダー（1行目）:
+ * id, name, description, logo, category, url, status, sortOrder, published
+ */
 
-export function getPublishedContents(): CosmoContent[] {
-  return cosmoContents.filter((c) => c.published).sort((a, b) => a.sortOrder - b.sortOrder)
+function rowToCosmoContent(row: Record<string, string>): CosmoContent | null {
+  const id = row.id?.trim()
+  const name = row.name?.trim()
+  if (!id || !name) return null
+
+  return {
+    id,
+    name,
+    description: row.description?.trim() || '',
+    logo: row.logo?.trim() || null,
+    category: row.category?.trim() || '',
+    url: row.url?.trim() || null,
+    status: row.status?.trim() === '準備中' ? '準備中' : '提供中',
+    sortOrder: Number(row.sortOrder) || 0,
+    published: row.published?.trim().toLowerCase() !== 'false',
+  }
+}
+
+/** ビルド時にシートからCosmo Base提供コンテンツ一覧を取得する。未設定・取得失敗時は空配列。 */
+export async function fetchCosmoContents(): Promise<CosmoContent[]> {
+  const records = await fetchSheetCsv(process.env.COSMOBASE_CONTENTS_CSV_URL)
+  return records
+    .map(rowToCosmoContent)
+    .filter((c): c is CosmoContent => c !== null)
+}
+
+export function getPublishedContents(all: CosmoContent[]): CosmoContent[] {
+  return all.filter((c) => c.published).sort((a, b) => a.sortOrder - b.sortOrder)
 }
 
 // パートナーデータは cosmobase-partners.ts でスプレッドシートから取得する。
