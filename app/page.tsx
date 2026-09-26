@@ -9,13 +9,19 @@ import { StatsNumbers } from '@/components/home/stats-numbers'
 import { FeaturedEvent } from '@/components/home/featured-event'
 import { JoinFsif } from '@/components/home/join-fsif'
 import { PartnershipCta } from '@/components/home/partnership-cta'
+import { fetchNews, getFeaturedNews, getLatestNews, getImportantNews } from '@/lib/data/news'
 
-export default function HomePage() {
+export default async function HomePage() {
+  const news = await fetchNews()
+  const featured = getFeaturedNews(news)
+  const rest = getLatestNews(news, 6)
+  const important = getImportantNews(news)
+
   return (
     <>
       <HeroSlider />
-      <ImportantNews />
-      <LatestNews />
+      <ImportantNews items={important} />
+      <LatestNews featured={featured} rest={rest} />
       <AboutFsif />
       <PhilosophySection />
       <OurActivities />

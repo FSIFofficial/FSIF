@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next'
 import { SITE_URL } from '@/lib/site-url'
-import { news } from '@/lib/data/news'
+import { fetchNews } from '@/lib/data/news'
 import { events } from '@/lib/data/events'
 import { leadership } from '@/lib/data/org'
 
@@ -42,7 +42,9 @@ const staticRoutes: Array<{ path: string; priority: number; changeFrequency: Met
   { path: '/social-media-policy', priority: 0.3, changeFrequency: 'yearly' },
 ]
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const news = await fetchNews()
+
   const staticEntries: MetadataRoute.Sitemap = staticRoutes.map((r) => ({
     url: `${SITE_URL}${r.path}`,
     changeFrequency: r.changeFrequency,

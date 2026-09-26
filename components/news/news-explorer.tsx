@@ -3,8 +3,8 @@
 import { useCallback, useMemo, useState, useEffect } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { Search, X, SlidersHorizontal } from 'lucide-react'
-import { news, newsCategories } from '@/lib/data/news'
-import type { BusinessArea, NewsCategory } from '@/lib/types'
+import { newsCategories } from '@/lib/data/news'
+import type { BusinessArea, NewsCategory, NewsItem } from '@/lib/types'
 import { NewsCard } from '@/components/shared/news-card'
 import { cn } from '@/lib/utils'
 
@@ -23,7 +23,7 @@ const tagLabels: Record<string, string> = {
 
 const PER_PAGE = 6
 
-export function NewsExplorer() {
+export function NewsExplorer({ initialNews }: { initialNews: NewsItem[] }) {
   const router = useRouter()
   const searchParams = useSearchParams()
 
@@ -38,8 +38,8 @@ export function NewsExplorer() {
   const [showFilters, setShowFilters] = useState(false)
 
   const years = useMemo(
-    () => Array.from(new Set(news.map((n) => n.date.slice(0, 4)))).sort().reverse(),
-    [],
+    () => Array.from(new Set(initialNews.map((n) => n.date.slice(0, 4)))).sort().reverse(),
+    [initialNews],
   )
   const months = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12']
 
@@ -62,7 +62,7 @@ export function NewsExplorer() {
   }
 
   const filtered = useMemo(() => {
-    return news
+    return initialNews
       .filter((n) => {
         if (keyword) {
           const hay = `${n.title} ${n.excerpt} ${n.lead}`.toLowerCase()
@@ -81,7 +81,7 @@ export function NewsExplorer() {
         return true
       })
       .sort((a, b) => (a.date < b.date ? 1 : -1))
-  }, [keyword, categories, year, month, area])
+  }, [initialNews, keyword, categories, year, month, area])
 
   const totalPages = Math.max(1, Math.ceil(filtered.length / PER_PAGE))
   const currentPage = Math.min(page, totalPages)

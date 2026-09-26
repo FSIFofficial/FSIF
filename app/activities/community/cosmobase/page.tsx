@@ -8,7 +8,7 @@ import { NewsCard } from '@/components/shared/news-card'
 import { CosmoContentCards } from '@/components/cosmobase/content-cards'
 import { CosmoPartnerCarousel } from '@/components/cosmobase/partner-carousel'
 import { fetchCosmoPartners } from '@/lib/data/cosmobase-partners'
-import { news } from '@/lib/data/news'
+import { fetchNews } from '@/lib/data/news'
 import { externalUrls } from '@/lib/data/site'
 
 const title = 'Cosmo Base'
@@ -27,22 +27,23 @@ const pillars = [
   { en: 'EXPERIENCE', ja: '体験する', d: 'ワークショップや制作を通じて、手を動かして宇宙を体験します。' },
 ]
 
-/**
- * 「関連ニュース」欄は最新2件 + 重要（featured）なものを表示する。
- * 単純な配列順ではなく日付降順にソートしてから絞り込む。
- */
-const cosmoBaseNews = news
-  .filter((n) => n.relatedArea === 'community' || n.relatedTag === 'cosmobase')
-  .sort((a, b) => b.date.localeCompare(a.date))
-const latestCosmoBaseNews = cosmoBaseNews.slice(0, 2)
-const importantCosmoBaseNews = cosmoBaseNews.filter(
-  (n) => n.featured && !latestCosmoBaseNews.includes(n),
-)
-const relatedNews = [...latestCosmoBaseNews, ...importantCosmoBaseNews]
-
 export default async function CosmoBasePage() {
   const officialUrl = externalUrls.cosmoBaseOfficial
   const partners = await fetchCosmoPartners()
+  const news = await fetchNews()
+
+  /**
+   * 「関連ニュース」欄は最新2件 + 重要（featured）なものを表示する。
+   * 単純な配列順ではなく日付降順にソートしてから絞り込む。
+   */
+  const cosmoBaseNews = news
+    .filter((n) => n.relatedArea === 'community' || n.relatedTag === 'cosmobase')
+    .sort((a, b) => b.date.localeCompare(a.date))
+  const latestCosmoBaseNews = cosmoBaseNews.slice(0, 2)
+  const importantCosmoBaseNews = cosmoBaseNews.filter(
+    (n) => n.featured && !latestCosmoBaseNews.includes(n),
+  )
+  const relatedNews = [...latestCosmoBaseNews, ...importantCosmoBaseNews]
 
   return (
     <>

@@ -1,4 +1,4 @@
-import { news } from '@/lib/data/news'
+import type { NewsItem } from '@/lib/types'
 import { projects } from '@/lib/data/projects'
 import { events } from '@/lib/data/events'
 import { getPublishedContents } from '@/lib/data/cosmobase'
@@ -104,7 +104,7 @@ const staticPages: SearchDoc[] = [
   },
 ]
 
-export function buildSearchIndex(): SearchDoc[] {
+export function buildSearchIndex(news: NewsItem[]): SearchDoc[] {
   return [
     ...news.map<SearchDoc>((a) => ({
       title: a.title,
@@ -161,11 +161,10 @@ export function buildSearchIndex(): SearchDoc[] {
   ]
 }
 
-export function searchDocs(query: string): SearchDoc[] {
+export function searchDocs(query: string, index: SearchDoc[]): SearchDoc[] {
   const q = query.trim().toLowerCase()
   if (!q) return []
   const terms = q.split(/\s+/).filter(Boolean)
-  const index = buildSearchIndex()
   return index
     .map((doc) => {
       const title = doc.title.toLowerCase()

@@ -37,6 +37,8 @@ export interface NewsItem {
   relatedArea?: BusinessArea
   relatedTag?: RelatedTag
   featured?: boolean
+  /** ホーム上部の「重要なお知らせ」ティッカーに表示するかどうか。 */
+  important?: boolean
   lead: string
   body: NewsBody[]
   externalUrl?: { label: string; href: string }

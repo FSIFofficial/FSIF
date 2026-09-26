@@ -5,7 +5,7 @@ import { PageHero } from '@/components/shared/page-hero'
 import { SectionHeading } from '@/components/ui/section-heading'
 import { CtaLink } from '@/components/ui/cta-link'
 import { NewsCard } from '@/components/shared/news-card'
-import { news } from '@/lib/data/news'
+import { fetchNews } from '@/lib/data/news'
 
 const title = 'コミュニティ事業'
 const description = '学ぶ・つながる・体験する。誰もが参加できる宇宙コミュニティを運営するFSIFのコミュニティ事業。'
@@ -16,9 +16,10 @@ export const metadata: Metadata = {
   openGraph: pageOpenGraph(title, description),
 }
 
-const relatedNews = news.filter((n) => n.relatedArea === 'community').slice(0, 3)
+export default async function CommunityPage() {
+  const news = await fetchNews()
+  const relatedNews = news.filter((n) => n.relatedArea === 'community').slice(0, 3)
 
-export default function CommunityPage() {
   return (
     <>
       <PageHero
