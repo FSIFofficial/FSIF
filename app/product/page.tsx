@@ -6,7 +6,7 @@ import { CtaLink } from '@/components/ui/cta-link'
 import { products } from '@/lib/data/projects'
 
 const title = 'PRODUCT'
-const description = 'FSIFから生まれたプロダクト。FSIF内部から生まれ、外部への提供を想定している自主開発ツールを紹介します。現在はOrbit。'
+const description = 'FSIFから生まれたプロダクト。FSIF内部から生まれ、外部への提供を想定している自主開発ツールを紹介します。現在はOhsumi。'
 
 export const metadata: Metadata = {
   title,
