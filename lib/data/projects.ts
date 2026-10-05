@@ -14,14 +14,14 @@ export const projects: Project[] = [
     kind: 'community',
   },
   {
-    slug: 'orbit',
-    name: 'Orbit',
-    tagline: 'タスクを打ち上げ、組織を軌道に乗せる。',
-    summary:
-      'タスク管理・人材管理・人材育成をつなぐ、FSIF発の組織運営プラットフォーム。遂行履歴と要求スキル、担当者の成長を一つの流れとして扱います。',
-    image: '/images/orbit-team.png',
-    imageAlt: 'Orbitを開発・活用するチーム',
-    href: '/product/orbit',
+    slug: 'ohsumi',
+    name: 'Ohsumi',
+    tagline: '仕事を進めるほど、組織が見えてくる。',
+    summary: '仕事を中心に、人・プロジェクト・組織・知識をつなぐ組織運営プラットフォームです。',
+    image: '/images/ohsumi-team.png',
+    imageAlt: 'Ohsumiのサンプル画面',
+    href: '/product/ohsumi',
+    external: { label: 'Ohsumi公式サイト', href: 'https://ohsumi.fsif.jp' },
     kind: 'product',
   },
   {
@@ -41,46 +41,46 @@ export function getProjectBySlug(slug: string): Project | undefined {
   return projects.find((p) => p.slug === slug)
 }
 
-/** PRODUCT section: FSIF発の自主開発ツールで、外部提供を想定するもの。現在はOrbitのみ。 */
+/** PRODUCT section: FSIF発の自主開発ツールで、外部提供を想定するもの。現在はOhsumiのみ。 */
 export const products: Project[] = projects.filter((p) => p.kind === 'product')
 
-// Orbit の課題・機能（詳細ページ用）
-export const orbitProblems = [
+// Ohsumi の課題・軸(詳細ページ用)
+export const ohsumiProblems = [
   {
-    title: '誰が何をしているか分からない',
-    description: 'メンバーが増えるほど、いま誰がどのタスクを担っているかが見えにくくなります。',
+    title: '誰が何をしているか見えない',
+    description: '人が増えるほど、担当や進み具合、確認待ちの仕事が見えにくくなります。',
   },
   {
-    title: '確認待ちが見えない',
-    description: 'レビューや承認の待ち状態が可視化されず、進行が静かに止まってしまいます。',
+    title: '経験が人と一緒に抜けていく',
+    description: '代替わりや卒業のたびに、仕事のやり方や判断の理由が失われます。',
   },
   {
-    title: '成果物の場所が分からない',
-    description: '資料やアウトプットが各所に散らばり、必要なときに辿り着けません。',
+    title: '任せる相手を決める材料がない',
+    description: '誰がどんなスキルや経験を持っているかが分からず、仕事が一部の人に偏ります。',
   },
   {
-    title: '適任者を判断できない',
-    description: '誰にどのタスクを任せるべきか、経験やスキルの情報が揃っていません。',
+    title: '頑張りが成長として残らない',
+    description: 'タスクを終えても、その経験がスキルや次の挑戦につながりません。',
   },
 ]
 
-export const orbitFeatures = [
+export const ohsumiFeatures = [
   {
-    name: 'Task Management',
-    labelJa: 'タスク管理',
+    name: 'WORK',
+    labelJa: '仕事を進める',
     description:
-      'タスクの状態、担当、期限、確認待ちを一覧で可視化。単なるToDoではなく、遂行の履歴として蓄積されます。',
+      'タスクの担当・期限・確認待ちを、一覧・カンバン・カレンダー・ガントで見える化。承認や確認の流れも、そのまま記録に残ります。',
   },
   {
-    name: 'Talent Management',
-    labelJa: '人材管理',
+    name: 'PEOPLE',
+    labelJa: '人を知る',
     description:
-      'メンバーの担当領域や要求スキルを整理し、タスクと人を適切に結びつけます。適任者の判断を支援します。',
+      '完了した仕事が、一人ひとりのスキルと経験として積み上がります。仕事を任せる前の判断の材料がそろいます。',
   },
   {
-    name: 'Human Development',
-    labelJa: '人材育成',
+    name: 'ORGANIZATION',
+    labelJa: '組織に残す',
     description:
-      '遂行履歴から一人ひとりのスキルの伸びを可視化。成果と成長を同じ場所で扱い、次の挑戦につなげます。',
+      '成果物・振り返り・判断の記録が組織に残り、代替わりの後も次の担当者の手がかりになります。',
   },
 ]
