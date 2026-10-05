@@ -13,11 +13,11 @@ export type NewsCategory =
   | 'REPORT'
   | 'PROJECT'
 
-/** The 4 FSIF activity areas. Orbit/Cosmo Base are products/community, not activity areas. */
+/** The 4 FSIF activity areas. Ohsumi/Cosmo Base are products/community, not activity areas. */
 export type BusinessArea = 'community' | 'working-group' | 'event' | 'thinktank'
 
 /** Non-activity related tags kept separate from the 4 activities. */
-export type RelatedTag = 'cosmobase' | 'orbit'
+export type RelatedTag = 'cosmobase' | 'ohsumi'
 
 export interface NewsBody {
   heading?: string

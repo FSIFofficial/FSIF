@@ -29,13 +29,13 @@ export const heroSlides: HeroSlide[] = [
     imageAlt: 'イベントで交流する参加者たち',
   },
   {
-    id: 'orbit',
-    eyebrow: 'PRODUCT / ORBIT',
-    copy: 'タスクを打ち上げ、組織を軌道に乗せる。',
-    sub: 'タスク管理、人材管理、人材育成をつなぐ組織運営プラットフォーム。',
-    cta: { label: 'Orbitを見る', href: '/product/orbit' },
-    image: '/images/orbit-team.png',
-    imageAlt: 'Orbitを開発・活用するチーム',
+    id: 'ohsumi',
+    eyebrow: 'PRODUCT / OHSUMI',
+    copy: '仕事を進めるほど、組織が見えてくる。',
+    sub: '仕事を中心に、人・プロジェクト・組織・知識をつなぐ組織運営プラットフォーム。',
+    cta: { label: 'Ohsumiを見る', href: '/product/ohsumi' },
+    image: '/images/ohsumi-team.png',
+    imageAlt: 'Ohsumiのサンプル画面',
   },
 ]
 

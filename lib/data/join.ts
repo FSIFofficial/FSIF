@@ -138,6 +138,6 @@ export const joinFaqs: Faq[] = [
 export const joinFlow = [
   { step: '01', title: 'エントリー', description: 'お問い合わせフォームから関心のある領域を添えて応募します。' },
   { step: '02', title: 'オンライン面談', description: 'カジュアルにお話しし、活動内容や希望をすり合わせます。' },
-  { step: '03', title: 'オリエンテーション', description: '活動の進め方やツール（Orbit）の使い方を共有します。' },
+  { step: '03', title: 'オリエンテーション', description: '活動の進め方やツール（Ohsumi）の使い方を共有します。' },
   { step: '04', title: '活動スタート', description: '興味のある事業・プロジェクトで実際の活動を始めます。' },
 ]

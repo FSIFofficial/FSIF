@@ -4,10 +4,10 @@ import { SectionHeading } from '@/components/ui/section-heading'
 import { CtaLink } from '@/components/ui/cta-link'
 import { Reveal } from '@/components/ui/reveal'
 
-/** HOME PRODUCT section. FSIF発の自主開発ツールを紹介。現在の掲載対象はOrbitのみ。 */
+/** HOME PRODUCT section. FSIF発の自主開発ツールを紹介。現在の掲載対象はOhsumiのみ。 */
 export function HomeProduct() {
-  const orbit = products[0]
-  if (!orbit) return null
+  const ohsumi = products[0]
+  if (!ohsumi) return null
 
   return (
     <section className="bg-surface py-20 md:py-28">
@@ -22,8 +22,8 @@ export function HomeProduct() {
           <div className="grid overflow-hidden rounded-2xl border border-border bg-card lg:grid-cols-2">
             <div className="relative aspect-[16/11] bg-navy lg:aspect-auto">
               <Image
-                src={orbit.image || '/placeholder.svg'}
-                alt={orbit.imageAlt}
+                src={ohsumi.image || '/placeholder.svg'}
+                alt={ohsumi.imageAlt}
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
@@ -31,15 +31,15 @@ export function HomeProduct() {
             </div>
             <div className="flex flex-col justify-center p-8 md:p-12">
               <span className="font-mono text-sm font-bold tracking-wide text-fsif-blue">
-                {orbit.name}
+                {ohsumi.name}
               </span>
               <h3 className="mt-3 text-balance text-2xl font-bold leading-snug text-foreground md:text-3xl">
-                {orbit.tagline}
+                {ohsumi.tagline}
               </h3>
-              <p className="mt-4 leading-relaxed text-muted-foreground">{orbit.summary}</p>
+              <p className="mt-4 leading-relaxed text-muted-foreground">{ohsumi.summary}</p>
               <div className="mt-8">
-                <CtaLink href="/product/orbit" variant="primary">
-                  View Orbit
+                <CtaLink href="/product/ohsumi" variant="primary">
+                  View Ohsumi
                 </CtaLink>
               </div>
             </div>

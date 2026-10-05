@@ -14,7 +14,7 @@ const typeStyles: Record<SearchType, string> = {
   ページ: 'bg-muted text-muted-foreground',
 }
 
-const suggestions = ['Orbit', 'シンポジウム', 'コミュニティ', '参加', '理念']
+const suggestions = ['Ohsumi', 'シンポジウム', 'コミュニティ', '参加', '理念']
 
 export function SearchClient({ index }: { index: SearchDoc[] }) {
   const searchParams = useSearchParams()
@@ -34,7 +34,7 @@ export function SearchClient({ index }: { index: SearchDoc[] }) {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           autoFocus
-          placeholder="キーワードを入力（例：Orbit、シンポジウム）"
+          placeholder="キーワードを入力（例：Ohsumi、シンポジウム）"
           aria-label="サイト内検索"
           className="w-full rounded-full border border-border bg-background py-4 pl-12 pr-5 text-base text-foreground shadow-sm outline-none transition-colors placeholder:text-muted-foreground/60 focus:border-fsif-blue focus:ring-2 focus:ring-fsif-blue/20"
         />

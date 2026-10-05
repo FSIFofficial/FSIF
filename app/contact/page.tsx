@@ -8,7 +8,7 @@ import { Mail, MessageSquare, Users } from 'lucide-react'
 
 const title = 'お問い合わせ'
 const description =
-  'FSIFへのお問い合わせ窓口。参加・エントリー、企業連携、取材、Orbit導入、登壇・協賛など、お気軽にご相談ください。'
+  'FSIFへのお問い合わせ窓口。参加・エントリー、企業連携、取材、Ohsumi導入、登壇・協賛など、お気軽にご相談ください。'
 
 export const metadata: Metadata = {
   title,
