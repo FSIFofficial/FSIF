@@ -89,9 +89,9 @@ export default function OrganizationPage() {
             {/* PRODUCT: 活動から生まれる自主開発ツール */}
             <span className="mt-2 h-6 w-px bg-border" aria-hidden="true" />
             <p className="section-label text-muted-foreground">PRODUCT</p>
-            <Link href="/product/orbit" className="w-full max-w-xs">
+            <Link href="/product/ohsumi" className="w-full max-w-xs">
               <div className="rounded-lg border border-border bg-background px-4 py-4 text-center transition-colors hover:border-fsif-blue">
-                <p className="text-sm font-bold text-foreground">Orbit</p>
+                <p className="text-sm font-bold text-foreground">Ohsumi</p>
                 <p className="mt-0.5 text-xs text-muted-foreground">FSIF発の自主開発ツール</p>
               </div>
             </Link>

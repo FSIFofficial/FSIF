@@ -10,7 +10,7 @@ export const profile = {
     { label: '活動拠点', value: 'オンラインを併用し全国で活動' },
     { label: 'メンバー数', value: '約20名' },
     { label: '事業領域', value: 'コミュニティ / ワーキンググループ / イベント / シンクタンク' },
-    { label: 'プロダクト', value: 'Orbit（FSIF発の自主開発ツール）' },
+    { label: 'プロダクト', value: 'Ohsumi（FSIF発の自主開発ツール）' },
     { label: '連絡先', value: 'fsif.official＠gmail.com' },
     { label: 'SNS', value: 'X / Instagram / Facebook / note / YouTube' },
   ],
@@ -101,10 +101,10 @@ export const history: HistoryEntry[] = [
   {
     year: '2026',
     date: '2026.08',
-    title: 'Orbit 開発開始',
-    description: '組織運営の課題を解決するプラットフォーム「Orbit」の開発に着手。',
-    image: '/images/orbit-team.png',
-    imageAlt: 'Orbit開発',
+    title: 'Ohsumi 開発開始',
+    description: '組織運営の課題を解決するプラットフォーム「Ohsumi」の開発に着手。',
+    image: '/images/ohsumi-team.png',
+    imageAlt: 'Ohsumi開発',
   },
 ]
 

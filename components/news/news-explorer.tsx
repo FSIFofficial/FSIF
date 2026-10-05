@@ -15,10 +15,10 @@ const areaLabels: Record<BusinessArea, string> = {
   thinktank: 'シンクタンク',
 }
 
-/** 4事業とは別に保持する関連タグ（Orbitを第5の事業に戻さないための区分）。 */
+/** 4事業とは別に保持する関連タグ（Ohsumiを第5の事業に戻さないための区分）。 */
 const tagLabels: Record<string, string> = {
   cosmobase: 'Cosmo Base',
-  orbit: 'Orbit',
+  ohsumi: 'Ohsumi',
 }
 
 const PER_PAGE = 6

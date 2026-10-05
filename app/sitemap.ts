@@ -35,7 +35,7 @@ const staticRoutes: Array<{ path: string; priority: number; changeFrequency: Met
   { path: '/join', priority: 0.8, changeFrequency: 'weekly' },
   { path: '/news', priority: 0.8, changeFrequency: 'daily' },
   { path: '/product', priority: 0.7, changeFrequency: 'monthly' },
-  { path: '/product/orbit', priority: 0.6, changeFrequency: 'monthly' },
+  { path: '/product/ohsumi', priority: 0.6, changeFrequency: 'monthly' },
   { path: '/search', priority: 0.3, changeFrequency: 'yearly' },
   { path: '/privacy-policy', priority: 0.3, changeFrequency: 'yearly' },
   { path: '/terms', priority: 0.3, changeFrequency: 'yearly' },

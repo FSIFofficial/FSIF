@@ -73,11 +73,11 @@ const staticPages: SearchDoc[] = [
     keywords: 'working group ワーキンググループ 学生団体 宇宙利用 議論',
   },
   {
-    title: 'PRODUCT / Orbit',
-    excerpt: 'FSIFから生まれたプロダクト。組織運営プラットフォームOrbit。',
+    title: 'PRODUCT / Ohsumi',
+    excerpt: 'FSIFから生まれたプロダクト。組織運営プラットフォームOhsumi。',
     href: '/product',
     type: 'ページ',
-    keywords: 'product プロダクト orbit オービット タスク管理',
+    keywords: 'product プロダクト ohsumi おおすみ 組織運営',
   },
   {
     title: 'プライバシーポリシー',

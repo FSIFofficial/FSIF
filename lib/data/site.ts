@@ -121,7 +121,7 @@ export const footerSitemap = [
     heading: 'PRODUCT',
     links: [
       { label: 'PRODUCT一覧', href: '/product' },
-      { label: 'Orbit', href: '/product/orbit' },
+      { label: 'Ohsumi', href: '/product/ohsumi' },
     ],
   },
   {
