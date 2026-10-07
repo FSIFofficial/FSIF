@@ -39,8 +39,8 @@ export function JoinFsif() {
           <Reveal delay={100} className="order-1 lg:order-2">
             <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
               <Image
-                src="/images/join.png"
-                alt="プロジェクトを終えて喜ぶFSIFの学生メンバー"
+                src="/images/member.png"
+                alt="FSIFのメンバー"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"

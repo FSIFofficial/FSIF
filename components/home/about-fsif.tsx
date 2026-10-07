@@ -11,8 +11,8 @@ export function AboutFsif() {
           <Reveal className="relative">
             <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
               <Image
-                src="/images/about-collab.png"
-                alt="ミーティングで議論するFSIFのメンバー"
+                src="/images/member.png"
+                alt="FSIFのメンバー"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"

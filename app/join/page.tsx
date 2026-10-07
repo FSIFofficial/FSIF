@@ -60,8 +60,8 @@ export default async function JoinPage() {
           <Reveal delay={100}>
             <div className="relative aspect-[16/11] overflow-hidden rounded-2xl">
               <Image
-                src="/images/join.png"
-                alt="プロジェクトの完成を喜ぶメンバー"
+                src="/images/member.png"
+                alt="FSIFのメンバー"
                 fill
                 className="object-cover"
                 sizes="(min-width: 768px) 50vw, 100vw"
