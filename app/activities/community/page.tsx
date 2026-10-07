@@ -27,8 +27,8 @@ export default async function CommunityPage() {
         title="誰もが参加できる、宇宙コミュニティ。"
         description="学ぶ・つながる・体験する。立場や専攻を越えて、宇宙に関心のある人が集う場をつくります。"
         breadcrumbs={[{ label: 'ACTIVITIES', href: '/activities' }, { label: 'コミュニティ事業' }]}
-        image="/images/cosmobase.png"
-        imageAlt="コミュニティの活動"
+        image="/images/cosmobase-hero.png"
+        imageAlt="Cosmo Baseのアプリ画面"
       />
 
       <section className="bg-surface py-16 md:py-20">

@@ -59,8 +59,8 @@ export default async function CosmoBasePage() {
           { label: 'コミュニティ事業', href: '/activities/community' },
           { label: 'Cosmo Base' },
         ]}
-        image="/images/cosmobase.png"
-        imageAlt="Cosmo Baseの活動"
+        image="/images/cosmobase-hero.png"
+        imageAlt="Cosmo Baseのアプリ画面"
       />
       <section className="bg-[#000033]">
         <div className="container-fsif flex flex-wrap items-center justify-between gap-6 py-8">

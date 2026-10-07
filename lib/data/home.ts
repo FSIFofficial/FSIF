@@ -16,8 +16,8 @@ export const heroSlides: HeroSlide[] = [
     copy: '宇宙への一歩を、ここから。',
     sub: '学ぶ。つながる。体験する。誰もが参加できる宇宙コミュニティ。',
     cta: { label: 'Cosmo Baseを見る', href: '/activities/community/cosmobase' },
-    image: '/images/cosmobase.png',
-    imageAlt: 'Cosmo Baseのコミュニティで交流する参加者たち',
+    image: '/images/cosmobase-hero.png',
+    imageAlt: 'Cosmo Baseのアプリ画面',
   },
   {
     id: 'event',
@@ -89,7 +89,7 @@ export const activities: Activity[] = [
     labelJa: 'コミュニティ事業',
     description: '学ぶ・つながる・体験する。誰もが参加できる宇宙コミュニティを運営します。',
     image: '/images/cosmobase.png',
-    imageAlt: 'コミュニティ事業の活動風景',
+    imageAlt: 'Cosmo Baseのアプリ画面',
     href: '/activities/community',
   },
   {
