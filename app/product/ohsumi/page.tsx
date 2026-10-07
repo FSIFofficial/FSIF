@@ -16,7 +16,7 @@ const description =
 export const metadata: Metadata = {
   title,
   description,
-  openGraph: pageOpenGraph(title, description, '/images/ohsumi-team.png'),
+  openGraph: pageOpenGraph(title, description, '/images/ohsumi-og.png'),
 }
 
 const problems = [
@@ -30,7 +30,7 @@ const axes = [
   {
     en: 'WORK',
     ja: '仕事を進める',
-    d: 'タスクの担当・期限・確認待ちを、一覧・カンバン・カレンダー・ガントで見える化。承認や確認の流れも、そのまま記録に残ります。',
+    d: 'タスクの担当・期限・確認待ちを、リスト・ワークフロー（カンバン）・カレンダー・ガントで見える化。承認や確認の流れも、そのまま記録に残ります。',
   },
   {
     en: 'PEOPLE',
@@ -45,9 +45,9 @@ const axes = [
 ]
 
 const features = [
-  { name: 'タスク管理', description: '登録・承認・担当・確認までの流れを一つに。表示は一覧・カンバン・カレンダー・ガントから選べます。' },
-  { name: 'スキルと経験', description: '完了したタスクがスキルの点数になり、レベルとして積み上がります。基準は団体ごとに決められます。' },
-  { name: '人材の情報', description: 'メンバーのスキル・やりたいこと・経験を、必要な人が必要な範囲で確認できます。' },
+  { name: 'タスク管理', description: '登録・承認・担当・確認までの流れを一つに。表示はリスト・ワークフロー（カンバン）・カレンダー・ガントなどから選べます。' },
+  { name: 'スキルと経験', description: '完了したタスクに管理者がスキルの点数を付け、レベルとして積み上がります。基準は団体ごとに決められます。' },
+  { name: '人材の情報', description: 'メンバーのスキル・やりたいこと・強み・経験を一か所に。評価や面談の記録は、権限のある人だけが見られます。' },
   { name: '通知', description: 'Discord・Slack・メールで、確認の依頼や期限の知らせを受け取れます。' },
   { name: '日報・週報、申請', description: '日報・週報、経費の申請、申請フォームとその承認を、同じ場所で扱えます。' },
   { name: '安全とバックアップ', description: 'データは各団体の Google アカウントの中に保存。毎日のバックアップから戻せます。' },
@@ -59,6 +59,7 @@ export default function OhsumiPage() {
       <PageHero
         labelEn="PRODUCT / OHSUMI"
         title="Ohsumi"
+        titleLogo="/images/ohsumi-logo-dark.svg"
         description="仕事を進めるほど、組織が見えてくる。"
         breadcrumbs={[{ label: 'PRODUCT', href: '/product' }, { label: 'Ohsumi' }]}
       />
@@ -91,8 +92,8 @@ export default function OhsumiPage() {
           <Reveal delay={100}>
             <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-border">
               <Image
-                src="/images/ohsumi-team.png"
-                alt="Ohsumi を活用するチーム"
+                src="/images/ohsumi-hero.png"
+                alt="Ohsumi の管理画面（ホーム）とメンバーのページ"
                 fill
                 className="object-cover"
                 sizes="(min-width: 768px) 50vw, 100vw"
@@ -192,7 +193,7 @@ export default function OhsumiPage() {
       <section className="border-b border-border bg-surface">
         <div className="container-fsif grid items-center gap-10 py-16 md:grid-cols-2 md:gap-16 md:py-20">
           <div className="relative aspect-[16/11] overflow-hidden rounded-2xl border border-border">
-            <Image src="/images/ohsumi-team.png" alt="Ohsumi を活用するチーム" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
+            <Image src="/images/ohsumi-in-use.png" alt="Ohsumi のカレンダー表示と承認待ちの画面" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
           </div>
           <div>
             <SectionHeading labelEn="IN USE" title="日々の運営に、自然になじむ。" />
