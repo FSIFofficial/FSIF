@@ -63,7 +63,7 @@ export const mainNav: NavItem[] = [
       feature: {
         title: '一番身近な宇宙の専門家として',
         description: '肯定の組織で、すべてに挑戦する。FSIFの原点となる理念をご覧ください。',
-        image: '/images/about-collab.png',
+        image: '/images/member.png',
         href: '/about/philosophy',
       },
     },

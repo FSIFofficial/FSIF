@@ -62,6 +62,11 @@ interface PageHeroProps {
   breadcrumbs: Crumb[]
   image?: string
   imageAlt?: string
+  /**
+   * CSS object-position(省略時は中央)。このヒーローは横長で高さが低いため、
+   * 人物写真など被写体が上寄りの画像では 'top' 等を指定して顔が切れないようにする。
+   */
+  imagePosition?: string
 }
 
 /** Subpage hero. Uses an image + navy overlay when an image is provided, else a clean navy band. */
@@ -75,6 +80,7 @@ export function PageHero({
   breadcrumbs,
   image,
   imageAlt,
+  imagePosition,
 }: PageHeroProps) {
   const label = labelEn ?? eyebrow
   const copy = description ?? lead
@@ -88,6 +94,7 @@ export function PageHero({
             fill
             priority
             sizes="100vw"
+            style={imagePosition ? { objectPosition: imagePosition } : undefined}
             className="object-cover opacity-40"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/80 to-navy/60" />

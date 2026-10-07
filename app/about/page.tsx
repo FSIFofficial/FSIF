@@ -35,8 +35,9 @@ export default function AboutPage() {
         title="宇宙への入口を、さまざまな形でつくる。"
         description="未来宇宙産業フォーラム（FSIF）は、すべての人に宇宙とかかわる選択肢をつくる組織です。"
         breadcrumbs={[{ label: 'ABOUT' }]}
-        image="/images/about-collab.png"
-        imageAlt="議論するFSIFのメンバー"
+        image="/images/member.png"
+        imageAlt="FSIFのメンバー"
+        imagePosition="top"
       />
 
       {/* Intro */}
