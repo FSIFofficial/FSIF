@@ -65,7 +65,7 @@ export default function AboutPage() {
       <section className="bg-background py-16 md:py-20">
         <div className="container-fsif">
           <SectionHeading labelEn="THE CHALLENGE" title="私たちが解決したい課題" />
-          <div className="mt-10 grid gap-5 md:grid-cols-4">
+          <div className="mt-8 grid gap-5 md:grid-cols-4">
             {[
               { t: '他産業の宇宙産業進出が少ない', d: '宇宙産業は開かれつつあるとはいえ、まだまだ参入が少ない。'},
               { t: '関わり方が見えない', d: '宇宙に関心はあっても、どこから始めればよいか分からず一歩を踏み出せない。' },
