@@ -8,11 +8,10 @@ export const profile = {
     { label: '設立', value: '2023年' },
     { label: '代表', value: '眞鍋 和士' },
     { label: '活動拠点', value: 'オンラインを併用し全国で活動' },
-    { label: 'メンバー数', value: '約20名' },
+    { label: 'メンバー数', value: '約10名' },
     { label: '事業領域', value: 'コミュニティ / ワーキンググループ / イベント / シンクタンク' },
-    { label: 'プロダクト', value: 'Ohsumi（FSIF発の自主開発ツール）' },
     { label: '連絡先', value: 'fsif.official＠gmail.com' },
-    { label: 'SNS', value: 'X / Instagram / Facebook / note / YouTube' },
+    { label: 'SNS', value: 'X / Instagram / Facebook / YouTube' },
   ],
 }
 
