@@ -51,6 +51,11 @@ interface PageHeroProps {
   labelEn?: string
   eyebrow?: string
   title: string
+  /**
+   * 見出しを文字の代わりにロゴ画像で出す(省略可)。背景は紺なので、暗い背景用のロゴを渡す。
+   * title は画像の alt に使う。縦横比は画像のまま(高さだけ指定し、幅は自動)
+   */
+  titleLogo?: string
   /** Supporting copy. `lead` is an accepted alias. */
   description?: string
   lead?: string
@@ -64,6 +69,7 @@ export function PageHero({
   labelEn,
   eyebrow,
   title,
+  titleLogo,
   description,
   lead,
   breadcrumbs,
@@ -91,7 +97,13 @@ export function PageHero({
         <Breadcrumbs items={breadcrumbs} onDark />
         {label && <p className="section-label mt-8 text-accent-blue">{label}</p>}
         <h1 className="mt-3 text-balance text-[clamp(1.9rem,4.5vw,3.2rem)] font-bold leading-tight text-white">
-          {title}
+          {titleLogo ? (
+            // SVG のロゴをそのまま出す(画像の最適化は不要)。高さは見出しの文字に合わせ、幅は縦横比から自動
+            // eslint-disable-next-line @next/next/no-img-element
+            <img src={titleLogo} alt={title} className="block h-[clamp(2.4rem,5.6vw,4rem)] w-auto" />
+          ) : (
+            title
+          )}
         </h1>
         {copy && (
           <p className="mt-5 max-w-2xl text-pretty leading-relaxed text-navy-foreground/80">
