@@ -103,8 +103,8 @@ export const history: HistoryEntry[] = [
     date: '2026.08',
     title: 'Ohsumi 開発開始',
     description: '組織運営の課題を解決するプラットフォーム「Ohsumi」の開発に着手。',
-    image: '/images/ohsumi-team.png',
-    imageAlt: 'Ohsumi開発',
+    image: '/images/ohsumi-history-wide.png',
+    imageAlt: 'Ohsumi のロゴとタスクのつながりを表した図',
   },
 ]
 

@@ -34,7 +34,7 @@ export const heroSlides: HeroSlide[] = [
     copy: '仕事を進めるほど、組織が見えてくる。',
     sub: '仕事を中心に、人・プロジェクト・組織・知識をつなぐ組織運営プラットフォーム。',
     cta: { label: 'Ohsumiを見る', href: '/product/ohsumi' },
-    image: '/images/ohsumi-team.png',
+    image: '/images/ohsumi-hero.png',
     imageAlt: 'Ohsumiのサンプル画面',
   },
 ]

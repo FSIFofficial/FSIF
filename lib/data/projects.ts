@@ -18,7 +18,7 @@ export const projects: Project[] = [
     name: 'Ohsumi',
     tagline: '仕事を進めるほど、組織が見えてくる。',
     summary: '仕事を中心に、人・プロジェクト・組織・知識をつなぐ組織運営プラットフォームです。',
-    image: '/images/ohsumi-team.png',
+    image: '/images/ohsumi-hero.png',
     imageAlt: 'Ohsumiのサンプル画面',
     href: '/product/ohsumi',
     external: { label: 'Ohsumi公式サイト', href: 'https://ohsumi.fsif.jp' },
@@ -43,44 +43,3 @@ export function getProjectBySlug(slug: string): Project | undefined {
 
 /** PRODUCT section: FSIF発の自主開発ツールで、外部提供を想定するもの。現在はOhsumiのみ。 */
 export const products: Project[] = projects.filter((p) => p.kind === 'product')
-
-// Ohsumi の課題・軸(詳細ページ用)
-export const ohsumiProblems = [
-  {
-    title: '誰が何をしているか見えない',
-    description: '人が増えるほど、担当や進み具合、確認待ちの仕事が見えにくくなります。',
-  },
-  {
-    title: '経験が人と一緒に抜けていく',
-    description: '代替わりや卒業のたびに、仕事のやり方や判断の理由が失われます。',
-  },
-  {
-    title: '任せる相手を決める材料がない',
-    description: '誰がどんなスキルや経験を持っているかが分からず、仕事が一部の人に偏ります。',
-  },
-  {
-    title: '頑張りが成長として残らない',
-    description: 'タスクを終えても、その経験がスキルや次の挑戦につながりません。',
-  },
-]
-
-export const ohsumiFeatures = [
-  {
-    name: 'WORK',
-    labelJa: '仕事を進める',
-    description:
-      'タスクの担当・期限・確認待ちを、一覧・カンバン・カレンダー・ガントで見える化。承認や確認の流れも、そのまま記録に残ります。',
-  },
-  {
-    name: 'PEOPLE',
-    labelJa: '人を知る',
-    description:
-      '完了した仕事が、一人ひとりのスキルと経験として積み上がります。仕事を任せる前の判断の材料がそろいます。',
-  },
-  {
-    name: 'ORGANIZATION',
-    labelJa: '組織に残す',
-    description:
-      '成果物・振り返り・判断の記録が組織に残り、代替わりの後も次の担当者の手がかりになります。',
-  },
-]
