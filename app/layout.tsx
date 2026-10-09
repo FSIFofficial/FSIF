@@ -1,4 +1,3 @@
-import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { Geist, Geist_Mono, Noto_Sans_JP } from 'next/font/google'
 import { SiteHeader } from '@/components/layout/site-header'
@@ -27,6 +26,8 @@ const notoSansJP = Noto_Sans_JP({
 
 export const metadata: Metadata = {
   metadataBase: new URL(`${SITE_URL}/`),
+  // 各ページの正しい URL(./ は、そのページの URL に解決される)
+  alternates: { canonical: './' },
   title: {
     default: '未来宇宙産業フォーラム FSIF | 宇宙を、みんなのものにする。',
     template: '%s | 未来宇宙産業フォーラム',
@@ -71,7 +72,6 @@ export default function RootLayout({
         <SiteHeader />
         <main id="main">{children}</main>
         <SiteFooter />
-        {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
   )
