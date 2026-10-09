@@ -1,8 +1,7 @@
-// Canonical production URL, including the GitHub Pages repo subpath.
-// Used to build absolute OGP/Twitter image URLs directly, sidestepping
-// relative-URL resolution against metadataBase (a path starting with "/"
-// resolves against the origin only, dropping the "/FSIF" subpath).
-export const SITE_URL = 'https://fsifofficial.github.io/FSIF'
+// 本番のサイトの URL(独自ドメイン。CNAME と同じ)。
+// 検索エンジン向けの正しい URL(canonical)・sitemap.xml・robots.txt・SNS の画像の URL に使う。
+// 以前は GitHub Pages の https://fsifofficial.github.io/FSIF だったため、サイトマップなどが古い URL を指していた
+export const SITE_URL = 'https://www.fsif.jp'
 
 export function absoluteUrl(path: string): string {
   return `${SITE_URL}${path.startsWith('/') ? path : `/${path}`}`

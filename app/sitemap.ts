@@ -11,7 +11,7 @@ export const dynamic = 'force-static'
 /**
  * サイトマップ。検索エンジンがサイト全体を効率よくクロール・インデックス
  * できるよう、静的ページと動的ルート（ニュース・イベント報告書・
- * 経営メンバー個別ページ）を網羅する。
+ * 経営メンバー個別ページ）を網羅する。URL は末尾が / の形(next.config の trailingSlash と同じ)。
  */
 
 const staticRoutes: Array<{ path: string; priority: number; changeFrequency: MetadataRoute.Sitemap[number]['changeFrequency'] }> = [
@@ -47,27 +47,27 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const events = await fetchEvents()
 
   const staticEntries: MetadataRoute.Sitemap = staticRoutes.map((r) => ({
-    url: `${SITE_URL}${r.path}`,
+    url: `${SITE_URL}${r.path === '/' ? '/' : `${r.path}/`}`,
     changeFrequency: r.changeFrequency,
     priority: r.priority,
   }))
 
   const newsEntries: MetadataRoute.Sitemap = news.map((n) => ({
-    url: `${SITE_URL}/news/${n.slug}`,
+    url: `${SITE_URL}/news/${n.slug}/`,
     lastModified: n.date,
     changeFrequency: 'monthly',
     priority: 0.5,
   }))
 
   const eventEntries: MetadataRoute.Sitemap = events.map((e) => ({
-    url: `${SITE_URL}/activities/event/${e.slug}`,
+    url: `${SITE_URL}/activities/event/${e.slug}/`,
     lastModified: e.publishedDate,
     changeFrequency: 'yearly',
     priority: 0.4,
   }))
 
   const leadershipEntries: MetadataRoute.Sitemap = leadership.map((m) => ({
-    url: `${SITE_URL}/about/leadership/${m.id}`,
+    url: `${SITE_URL}/about/leadership/${m.id}/`,
     changeFrequency: 'monthly',
     priority: 0.5,
   }))
