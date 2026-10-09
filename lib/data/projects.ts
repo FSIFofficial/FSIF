@@ -10,7 +10,7 @@ export const projects: Project[] = [
     image: '/images/cosmobase.png',
     imageAlt: 'Cosmo Baseの活動風景',
     href: '/activities/community/cosmobase',
-    external: { label: 'Cosmo Base公式サイト', href: 'https://fsifofficial.github.io/CosmoBase/' },
+    external: { label: 'Cosmo Base公式サイト', href: 'https://cosmobase.fsif.jp/' },
     kind: 'community',
   },
   {
