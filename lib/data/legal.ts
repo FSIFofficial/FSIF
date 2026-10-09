@@ -17,7 +17,7 @@ export interface LegalDoc {
 
 export const privacyPolicy: LegalDoc = {
   title: 'プライバシーポリシー',
-  lastUpdated: '2026-09-20',
+  lastUpdated: '2026-10-10',
   intro:
     '未来宇宙産業フォーラム（以下「FSIF」）は、本サイトおよび関連する活動（Cosmo Base、イベント、お問い合わせ対応等を含む）において取得する個人情報を、以下の方針に基づき適切に取り扱います。',
   sections: [
@@ -64,7 +64,7 @@ export const privacyPolicy: LegalDoc = {
 
 export const terms: LegalDoc = {
   title: '利用規約',
-  lastUpdated: '2026-09-20',
+  lastUpdated: '2026-10-10',
   intro:
     '本規約は、未来宇宙産業フォーラム（以下「FSIF」）が提供する本サイトおよび関連するコミュニティ（Cosmo Base等）のご利用にあたって遵守いただく事項を定めるものです。',
   sections: [
@@ -109,7 +109,7 @@ export const terms: LegalDoc = {
 
 export const socialMediaPolicy: LegalDoc = {
   title: 'ソーシャルメディアポリシー',
-  lastUpdated: '2026-09-20',
+  lastUpdated: '2026-10-10',
   intro:
     '未来宇宙産業フォーラム（以下「FSIF」）は、X（Twitter）、Instagram、YouTube、Facebook等の公式ソーシャルメディアアカウントを通じて情報発信を行っています。以下の方針のもとで運用いたします。',
   sections: [
