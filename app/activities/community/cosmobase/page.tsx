@@ -188,8 +188,8 @@ export default async function CosmoBasePage() {
             <CtaLink href={officialUrl} variant="secondary" onDark external>
               Cosmo Base公式サイト
             </CtaLink>
-            <CtaLink href="/join" variant="secondary" onDark>
-              FSIFに参加する
+            <CtaLink href="https://discord.gg/3UzPQUYaZB" variant="secondary" onDark external>
+              Cosmo Baseに参加する
             </CtaLink>
           </div>
         </div>
