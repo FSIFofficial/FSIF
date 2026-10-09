@@ -9,7 +9,7 @@ export const brand = {
 /** External URLs. Replace with confirmed values before launch. */
 export const externalUrls = {
   cosmoBaseOfficial:
-    process.env.NEXT_PUBLIC_COSMO_BASE_OFFICIAL_URL ?? 'https://fsifofficial.github.io/CosmoBase/',
+    process.env.NEXT_PUBLIC_COSMO_BASE_OFFICIAL_URL ?? 'https://cosmobase.fsif.jp',
 }
 
 export interface NavFeature {
@@ -58,7 +58,7 @@ export const mainNav: NavItem[] = [
         { label: '組織図', description: '代表から4事業までの体制', href: '/about/organization' },
         { label: '組織概要', description: '名称・設立・拠点・連絡先', href: '/about/profile' },
         { label: '沿革 / History', description: '2023年からの歩み', href: '/about/history' },
-        { label: 'ブランド', description: 'ロゴ・カラー・書体・素材配布', href: '/about/brand' },
+        // { label: 'ブランド', description: 'ロゴ・カラー・書体・素材配布', href: '/about/brand' },
       ],
       feature: {
         title: '一番身近な宇宙の専門家として',
@@ -138,5 +138,5 @@ export const legalLinks = [
   { label: 'Privacy Policy', href: '/privacy-policy' },
   { label: 'Terms', href: '/terms' },
   { label: 'Social Media Policy', href: '/social-media-policy' },
-  { label: 'Brand', href: '/about/brand' },
+  // { label: 'Brand', href: '/about/brand' },
 ]
