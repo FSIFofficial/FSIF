@@ -3,6 +3,7 @@ import { products } from '@/lib/data/projects'
 import { SectionHeading } from '@/components/ui/section-heading'
 import { CtaLink } from '@/components/ui/cta-link'
 import { Reveal } from '@/components/ui/reveal'
+import { imageAspectStyle } from '@/lib/image-aspect'
 
 /** HOME PRODUCT section. FSIF発の自主開発ツールを紹介。現在の掲載対象はOhsumiのみ。 */
 export function HomeProduct() {
@@ -20,7 +21,7 @@ export function HomeProduct() {
 
         <Reveal className="mt-12">
           <div className="grid overflow-hidden rounded-2xl border border-border bg-card lg:grid-cols-2">
-            <div className="relative aspect-[16/11] bg-navy lg:aspect-auto">
+            <div className="relative aspect-[16/11] self-center bg-navy lg:aspect-auto" style={imageAspectStyle(ohsumi.image)}>
               <Image
                 src={ohsumi.image || '/placeholder.svg'}
                 alt={ohsumi.imageAlt}

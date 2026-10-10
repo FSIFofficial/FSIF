@@ -6,6 +6,7 @@ import { SectionHeading } from '@/components/ui/section-heading'
 import { CtaLink } from '@/components/ui/cta-link'
 import { Reveal } from '@/components/ui/reveal'
 import { cn } from '@/lib/utils'
+import { imageAspectStyle } from '@/lib/image-aspect'
 
 export function OurActivities() {
   return (
@@ -27,7 +28,7 @@ export function OurActivities() {
                 className={cn('group')}
               >
                 <Link href={a.href} className="block h-full">
-                  <div className="relative aspect-[16/10] overflow-hidden rounded-xl bg-navy">
+                  <div className="relative aspect-[16/10] overflow-hidden rounded-xl bg-navy" style={imageAspectStyle(a.image)}>
                     <Image
                       src={a.image || '/placeholder.svg'}
                       alt={a.imageAlt}

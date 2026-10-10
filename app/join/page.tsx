@@ -14,6 +14,7 @@ import {
   joinFlow,
 } from '@/lib/data/join'
 import { cn } from '@/lib/utils'
+import { imageAspectStyle } from '@/lib/image-aspect'
 
 const title = '参加する'
 const description =
@@ -174,7 +175,7 @@ export default async function JoinPage() {
             {memberStories.map((story, i) => (
               <Reveal key={story.name} delay={i * 60}>
                 <figure className="flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-secondary">
-                  <div className="relative aspect-[16/10]">
+                  <div className="relative aspect-[16/10]" style={imageAspectStyle(story.image)}>
                     <Image
                       src={story.image || '/placeholder.svg'}
                       alt=""

@@ -6,6 +6,7 @@ import { SectionHeading } from '@/components/ui/section-heading'
 import { CtaLink } from '@/components/ui/cta-link'
 import { NewsCard } from '@/components/shared/news-card'
 import { fetchNews } from '@/lib/data/news'
+import { imageAspectStyle } from '@/lib/image-aspect'
 
 const title = 'コミュニティ事業'
 const description = '学ぶ・つながる・体験する。誰もが参加できる宇宙コミュニティを運営するFSIFのコミュニティ事業。'
@@ -52,7 +53,7 @@ export default async function CommunityPage() {
         <div className="container-fsif">
           <SectionHeading labelEn="OUR COMMUNITY" title="FSIFが運営するコミュニティ" />
           <div className="mt-8 grid overflow-hidden rounded-2xl border border-border bg-surface lg:grid-cols-2">
-            <div className="relative aspect-[16/10] lg:aspect-auto">
+            <div className="relative aspect-[16/10] self-center lg:aspect-auto" style={imageAspectStyle('/images/cosmobase.png')}>
               <Image src="/images/cosmobase.png" alt="Cosmo Base" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
             </div>
             <div className="p-8 md:p-12">
