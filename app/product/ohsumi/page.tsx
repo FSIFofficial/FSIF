@@ -5,6 +5,7 @@ import { SectionHeading } from '@/components/ui/section-heading'
 import { Reveal } from '@/components/ui/reveal'
 import { CtaLink } from '@/components/ui/cta-link'
 import { pageOpenGraph } from '@/lib/site-url'
+import { imageAspectStyle } from '@/lib/image-aspect'
 
 // FSIF の HP の Ohsumi の紹介。詳しい説明・申込・ログインは、Ohsumi のサイト(ohsumi.fsif.jp)に任せる
 const OHSUMI_URL = 'https://ohsumi.fsif.jp'
@@ -90,7 +91,7 @@ export default function OhsumiPage() {
             </div>
           </Reveal>
           <Reveal delay={100}>
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-border">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-border" style={imageAspectStyle('/images/ohsumi-hero.png')}>
               <Image
                 src="/images/ohsumi-hero.png"
                 alt="Ohsumi の管理画面（ホーム）とメンバーのページ"

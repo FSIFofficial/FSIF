@@ -3,6 +3,7 @@ import { pageOpenGraph } from '@/lib/site-url'
 import Image from 'next/image'
 import { PageHero } from '@/components/shared/page-hero'
 import { history } from '@/lib/data/org'
+import { imageAspectStyle } from '@/lib/image-aspect'
 
 const title = '沿革 / History'
 const description = '2023年の設立から現在まで、FSIFの歩みを写真とともにご紹介します。'
@@ -40,7 +41,7 @@ export default function HistoryPage() {
                     </p>
                   </div>
                   {entry.image && (
-                    <div className="relative aspect-[16/10] w-full overflow-hidden rounded-lg bg-pale-blue md:w-64">
+                    <div className="relative aspect-[16/10] w-full overflow-hidden rounded-lg bg-pale-blue md:w-64" style={imageAspectStyle(entry.image)}>
                       <Image
                         src={entry.image || '/placeholder.svg'}
                         alt={entry.imageAlt ?? entry.title}

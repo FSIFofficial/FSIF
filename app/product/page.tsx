@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { PageHero } from '@/components/shared/page-hero'
 import { CtaLink } from '@/components/ui/cta-link'
 import { products } from '@/lib/data/projects'
+import { imageAspectStyle } from '@/lib/image-aspect'
 
 const title = 'PRODUCT'
 const description = 'FSIFから生まれたプロダクト。FSIF内部から生まれ、外部への提供を想定している自主開発ツールを紹介します。現在はOhsumi。'
@@ -28,7 +29,7 @@ export default function ProductPage() {
         <div className="container-fsif flex flex-col gap-16">
           {products.map((p) => (
             <article key={p.slug} className="grid items-center gap-8 lg:grid-cols-2 lg:gap-16">
-              <div className="relative aspect-[16/11] overflow-hidden rounded-2xl border border-border bg-navy">
+              <div className="relative aspect-[16/11] overflow-hidden rounded-2xl border border-border bg-navy" style={imageAspectStyle(p.image)}>
                 <Image
                   src={p.image || '/placeholder.svg'}
                   alt={p.imageAlt}
