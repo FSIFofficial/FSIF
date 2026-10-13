@@ -1,9 +1,12 @@
 import type { Metadata, Viewport } from 'next'
 import { Geist, Geist_Mono, Noto_Sans_JP } from 'next/font/google'
+import Script from 'next/script'
 import { SiteHeader } from '@/components/layout/site-header'
 import { SiteFooter } from '@/components/layout/site-footer'
 import { SITE_URL, absoluteUrl } from '@/lib/site-url'
 import './globals.css'
+
+const GA_MEASUREMENT_ID = 'G-F8ZLXX4L5C'
 
 const geistSans = Geist({
   subsets: ['latin'],
@@ -63,6 +66,18 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} ${notoSansJP.variable} bg-background`}
     >
       <body className="antialiased">
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}');
+          `}
+        </Script>
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-fsif-blue focus:px-4 focus:py-2 focus:text-primary-foreground"
