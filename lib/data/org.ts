@@ -58,7 +58,7 @@ export const leadership: LeadershipMember[] = [
 
 /**
  * 2026年10月の組織体制再編(4本部体制)。代表の直下に3つの事業本部と
- * 経営推進本部(仮称)が並び、各本部長は副代表を兼任する。
+ * 経営推進本部が並び、各本部長は副代表を兼任する。
  */
 export const orgDivisions: OrgDivision[] = [
   {
@@ -87,7 +87,7 @@ export const orgDivisions: OrgDivision[] = [
     leadTitle: '副代表 兼 本部長',
     leadName: null,
     units: [
-      { name: 'イベント企画運営部' },
+      { name: 'イベント企画運営部', href: '/activities/event' },
       { name: 'ワーキンググループ推進室', href: '/activities/working-group' },
       { name: '各テーマWG' },
     ],
@@ -98,18 +98,18 @@ export const orgDivisions: OrgDivision[] = [
     labelEn: 'THINK TANK',
     leadTitle: '副代表 兼 本部長',
     leadName: null,
-    units: [{ name: '調査研究室' }, { name: 'イベントレポート室' }],
+    units: [{ name: '調査研究室', href: '/activities/thinktank' }, { name: 'イベントレポート室' }],
   },
   {
     id: 'management',
-    name: '経営推進本部〈仮称〉',
+    name: '経営推進本部',
     labelEn: 'MANAGEMENT',
     leadTitle: '副代表 兼 本部長',
     leadName: null,
     units: [
       { name: '人事・組織開発室' },
       { name: '広報部' },
-      { name: 'プロダクト開発室', href: '/product/ohsumi' },
+      { name: 'プロダクト開発室', href: '/product' },
       { name: '総務・会計室' },
     ],
   },

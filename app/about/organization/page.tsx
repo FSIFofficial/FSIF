@@ -5,7 +5,7 @@ import { PageHero } from '@/components/shared/page-hero'
 import { orgDivisions } from '@/lib/data/org'
 
 const title = '組織図'
-const description = '代表の直下に3つの事業本部と経営推進本部(仮称)が並ぶ、4本部体制のFSIFの組織図をご紹介します。'
+const description = '代表の直下に3つの事業本部と経営推進本部が並ぶ、4本部体制のFSIFの組織図をご紹介します。'
 
 export const metadata: Metadata = {
   title,
@@ -44,7 +44,7 @@ export default function OrganizationPage() {
       <PageHero
         labelEn="ORGANIZATION"
         title="組織体制"
-        description="代表を起点に、コミュニティ・イベント・シンクタンクの3つの事業本部と、経営推進本部(仮称)が並ぶ4本部体制です。各本部長は副代表を兼任し、代表・副代表による経営会議で全体方針や本部間の調整を行います。"
+        description="代表を起点に、コミュニティ・イベント・シンクタンクの3つの事業本部と、経営推進本部が並ぶ4本部体制です。各本部長は副代表を兼任し、代表・副代表による経営会議で全体方針や本部間の調整を行います。"
         breadcrumbs={[{ label: 'ABOUT', href: '/about' }, { label: 'ORGANIZATION' }]}
       />
 
