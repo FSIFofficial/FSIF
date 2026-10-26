@@ -55,7 +55,7 @@ export const mainNav: NavItem[] = [
         { label: '理念 / Philosophy', description: 'Mission・Vision・Value・Purpose', href: '/about/philosophy' },
         { label: '代表メッセージ', description: '代表が描く宇宙とのかかわり方', href: '/about/message' },
         { label: '経営・執行メンバー', description: '組織を動かすリーダーたち', href: '/about/leadership' },
-        { label: '組織図', description: '代表から4事業までの体制', href: '/about/organization' },
+        { label: '組織図', description: '代表から4本部までの体制', href: '/about/organization' },
         { label: '組織概要', description: '名称・設立・拠点・連絡先', href: '/about/profile' },
         { label: '沿革 / History', description: '2023年からの歩み', href: '/about/history' },
         // { label: 'ブランド', description: 'ロゴ・カラー・書体・素材配布', href: '/about/brand' },
@@ -73,10 +73,9 @@ export const mainNav: NavItem[] = [
     labelJa: '事業',
     href: '/activities',
     mega: {
-      intro: '4つの事業で、コミュニティ・共創・調査をつなぎます。',
+      intro: '3つの事業で、コミュニティ・共創・調査をつなぎます。',
       columns: [
         { label: 'コミュニティ事業', description: '誰もが参加できる宇宙コミュニティ', href: '/activities/community' },
-        { label: 'ワーキンググループ事業', description: '学生団体とFSIFが宇宙利用を議論する場', href: '/activities/working-group' },
         { label: 'イベント事業', description: '出会いと共創が始まる場', href: '/activities/event' },
         { label: 'シンクタンク事業', description: '調査・レポート・提言', href: '/activities/thinktank' },
       ],
@@ -112,7 +111,6 @@ export const footerSitemap = [
     heading: 'ACTIVITIES',
     links: [
       { label: 'コミュニティ事業', href: '/activities/community' },
-      { label: 'ワーキンググループ事業', href: '/activities/working-group' },
       { label: 'イベント事業', href: '/activities/event' },
       { label: 'シンクタンク事業', href: '/activities/thinktank' },
     ],

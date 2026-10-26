@@ -10,12 +10,11 @@ import { cn } from '@/lib/utils'
 
 const areaLabels: Record<BusinessArea, string> = {
   community: 'コミュニティ',
-  'working-group': 'ワーキンググループ',
   event: 'イベント',
   thinktank: 'シンクタンク',
 }
 
-/** 4事業とは別に保持する関連タグ（Ohsumiを第5の事業に戻さないための区分）。 */
+/** 3事業とは別に保持する関連タグ（Ohsumiを4番目の事業に戻さないための区分）。 */
 const tagLabels: Record<string, string> = {
   cosmobase: 'Cosmo Base',
   ohsumi: 'Ohsumi',
