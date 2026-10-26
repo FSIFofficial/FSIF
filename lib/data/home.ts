@@ -92,6 +92,16 @@ export const activities: Activity[] = [
     imageAlt: 'Cosmo Baseのアプリ画面',
     href: '/activities/community',
   },
+  // {
+  //   id: 'working-group',
+  //   number: '02',
+  //   labelEn: 'WORKING GROUP',
+  //   labelJa: 'ワーキンググループ事業',
+  //   description: 'テーマごとに有志が集い、調査や企画を具体的なアウトプットへ形にします。',
+  //   image: '/images/design-session.png',
+  //   imageAlt: 'ワーキンググループの議論風景',
+  //   href: '/activities/working-group',
+  // },
   {
     id: 'event',
     number: '02',
