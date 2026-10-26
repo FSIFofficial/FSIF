@@ -74,7 +74,7 @@ export const orgDivisions: OrgDivision[] = [
         children: [
           { name: 'コミュニティ運営部' },
           { name: 'コンテンツ企画部' },
-          { name: 'メディア部' },
+          { name: 'メディア運用開発部' },
           { name: 'パートナー連携室' },
         ],
       },
@@ -89,7 +89,6 @@ export const orgDivisions: OrgDivision[] = [
     units: [
       { name: 'イベント企画運営部', href: '/activities/event' },
       { name: 'ワーキンググループ推進室', href: '/activities/working-group' },
-      { name: '各テーマWG' },
     ],
   },
   {
@@ -107,7 +106,7 @@ export const orgDivisions: OrgDivision[] = [
     leadTitle: '副代表 兼 本部長',
     leadName: null,
     units: [
-      { name: '人事・組織開発室' },
+      { name: '人財・組織開発室' },
       { name: '広報部' },
       { name: 'プロダクト開発室', href: '/product' },
       { name: '総務・会計室' },

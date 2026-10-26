@@ -13,10 +13,14 @@ export type NewsCategory =
   | 'REPORT'
   | 'PROJECT'
 
-/** The 4 FSIF activity areas. Ohsumi/Cosmo Base are products/community, not activity areas. */
-export type BusinessArea = 'community' | 'working-group' | 'event' | 'thinktank'
+/**
+ * The 3 FSIF activity areas. Working groups moved under the event business
+ * (2026年10月の組織体制再編) and are no longer a top-level activity area.
+ * Ohsumi/Cosmo Base are products/community, not activity areas.
+ */
+export type BusinessArea = 'community' | 'event' | 'thinktank'
 
-/** Non-activity related tags kept separate from the 4 activities. */
+/** Non-activity related tags kept separate from the 3 activities. */
 export type RelatedTag = 'cosmobase' | 'ohsumi'
 
 export interface NewsBody {

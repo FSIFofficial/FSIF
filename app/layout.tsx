@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     template: '%s | 未来宇宙産業フォーラム',
   },
   description:
-    '未来宇宙産業フォーラム（Future Space Industry Forum / FSIF）は、すべての人に宇宙とかかわる選択肢をつくる組織です。コミュニティ、ワーキンググループ、イベント、シンクタンクの4事業とプロダクト開発を通じて宇宙をみんなのものにします。',
+    '未来宇宙産業フォーラム（Future Space Industry Forum / FSIF）は、すべての人に宇宙とかかわる選択肢をつくる組織です。コミュニティ、イベント、シンクタンクの3事業とプロダクト開発を通じて宇宙をみんなのものにします。',
   keywords: ['FSIF', '未来宇宙産業フォーラム', '宇宙', '宇宙産業', 'Cosmo Base', 'Ohsumi', '宇宙ビジネス'],
   openGraph: {
     type: 'website',

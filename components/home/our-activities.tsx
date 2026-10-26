@@ -13,7 +13,7 @@ export function OurActivities() {
     <section className="bg-background py-20 md:py-28">
       <div className="container-fsif">
         <div className="flex flex-wrap items-end justify-between gap-4">
-          <SectionHeading labelEn="OUR ACTIVITIES" title="4つの事業で、宇宙とつながる。" />
+          <SectionHeading labelEn="OUR ACTIVITIES" title="3つの事業で、宇宙とつながる。" />
           <CtaLink href="/activities" variant="text" className="pb-1">
             事業一覧を見る
           </CtaLink>

@@ -22,7 +22,7 @@ const aboutLinks = [
   { label: '理念', en: 'PHILOSOPHY', href: '/about/philosophy', desc: 'Mission・Vision・Value・Purpose' },
   { label: '代表メッセージ', en: 'MESSAGE', href: '/about/message', desc: '代表が描く宇宙とのかかわり方' },
   { label: '経営・執行メンバー', en: 'LEADERSHIP', href: '/about/leadership', desc: '組織を動かすリーダーたち' },
-  { label: '組織図', en: 'ORGANIZATION', href: '/about/organization', desc: '代表から4事業までの体制' },
+  { label: '組織図', en: 'ORGANIZATION', href: '/about/organization', desc: '代表から4本部までの体制' },
   { label: '組織概要', en: 'PROFILE', href: '/about/profile', desc: '名称・設立・拠点・連絡先' },
   { label: '沿革', en: 'HISTORY', href: '/about/history', desc: '2023年からの歩み' },
 ]
@@ -85,7 +85,7 @@ export default function AboutPage() {
       <section className="bg-surface py-16 md:py-20">
         <div className="container-fsif">
           <div className="flex items-end justify-between gap-4">
-            <SectionHeading labelEn="BUSINESS AREAS" title="4つの事業領域" />
+            <SectionHeading labelEn="BUSINESS AREAS" title="3つの事業領域" />
             <CtaLink href="/activities" variant="text" className="pb-1">事業一覧を見る</CtaLink>
           </div>
           <ul className="mt-10 divide-y divide-border border-y border-border">

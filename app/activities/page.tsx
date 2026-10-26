@@ -7,7 +7,7 @@ import { PageHero } from '@/components/shared/page-hero'
 import { activities } from '@/lib/data/home'
 
 const title = '事業 / Activities'
-const description = 'コミュニティ、ワーキンググループ、イベント、シンクタンク。FSIFの4つの事業をご紹介します。'
+const description = 'コミュニティ、イベント、シンクタンク。FSIFの3つの事業をご紹介します。'
 
 export const metadata: Metadata = {
   title,
@@ -20,8 +20,8 @@ export default function ActivitiesPage() {
     <>
       <PageHero
         labelEn="ACTIVITIES"
-        title="4つの事業で、宇宙とつながる。"
-        description="コミュニティから共創、研究まで。FSIFは4つの事業を有機的につなぎ、宇宙とかかわる選択肢を広げています。"
+        title="3つの事業で、宇宙とつながる。"
+        description="コミュニティから共創、研究まで。FSIFは3つの事業を有機的につなぎ、宇宙とかかわる選択肢を広げています。"
         breadcrumbs={[{ label: 'ACTIVITIES' }]}
       />
 
