@@ -118,6 +118,24 @@ export interface LeadershipMember {
   career?: { date: string; text: string }[]
 }
 
+/** 本部傘下の組織(事業部・部・室など)。孫組織がある場合のみ children を持つ(例: Cosmo Base事業部の下の4部署)。 */
+export interface OrgUnit {
+  name: string
+  href?: string
+  children?: { name: string; href?: string }[]
+}
+
+/** 代表直下の4本部体制(2026年10月の組織体制再編)。leadName が null の本部長ポストは空席。 */
+export interface OrgDivision {
+  id: string
+  name: string
+  labelEn: string
+  /** 本部長の呼称(例: 副代表 兼 本部長)。全本部共通。 */
+  leadTitle: string
+  leadName: string | null
+  units: OrgUnit[]
+}
+
 export interface HistoryEntry {
   year: string
   date: string

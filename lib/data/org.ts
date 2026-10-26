@@ -1,4 +1,4 @@
-import type { LeadershipMember, HistoryEntry, Partner } from '@/lib/types'
+import type { LeadershipMember, HistoryEntry, Partner, OrgDivision } from '@/lib/types'
 
 export const profile = {
   rows: [
@@ -52,6 +52,65 @@ export const leadership: LeadershipMember[] = [
       { date: '2023年4月', text: '慶應義塾大学公認学生団体　宇宙科学総合研究会 LYNCS　入会' },
       { date: '2023年12月', text: '未来宇宙産業フォーラム　入会' },
       { date: '2026年6月', text: "MIRAI CREATOR'Z 2026　選出" },
+    ],
+  },
+]
+
+/**
+ * 2026年10月の組織体制再編(4本部体制)。代表の直下に3つの事業本部と
+ * 経営推進本部(仮称)が並び、各本部長は副代表を兼任する。
+ */
+export const orgDivisions: OrgDivision[] = [
+  {
+    id: 'community',
+    name: 'コミュニティ事業本部',
+    labelEn: 'COMMUNITY',
+    leadTitle: '副代表 兼 本部長',
+    leadName: '後藤 槻成',
+    units: [
+      {
+        name: 'Cosmo Base事業部',
+        href: '/activities/community/cosmobase',
+        children: [
+          { name: 'コミュニティ運営部' },
+          { name: 'コンテンツ企画部' },
+          { name: 'メディア部' },
+          { name: 'パートナー連携室' },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'event',
+    name: 'イベント事業本部',
+    labelEn: 'EVENT',
+    leadTitle: '副代表 兼 本部長',
+    leadName: null,
+    units: [
+      { name: 'イベント企画運営部' },
+      { name: 'ワーキンググループ推進室', href: '/activities/working-group' },
+      { name: '各テーマWG' },
+    ],
+  },
+  {
+    id: 'thinktank',
+    name: 'シンクタンク事業本部',
+    labelEn: 'THINK TANK',
+    leadTitle: '副代表 兼 本部長',
+    leadName: null,
+    units: [{ name: '調査研究室' }, { name: 'イベントレポート室' }],
+  },
+  {
+    id: 'management',
+    name: '経営推進本部〈仮称〉',
+    labelEn: 'MANAGEMENT',
+    leadTitle: '副代表 兼 本部長',
+    leadName: null,
+    units: [
+      { name: '人事・組織開発室' },
+      { name: '広報部' },
+      { name: 'プロダクト開発室', href: '/product/ohsumi' },
+      { name: '総務・会計室' },
     ],
   },
 ]
