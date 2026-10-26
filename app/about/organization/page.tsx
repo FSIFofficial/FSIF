@@ -2,22 +2,15 @@ import type { Metadata } from 'next'
 import { pageOpenGraph } from '@/lib/site-url'
 import Link from 'next/link'
 import { PageHero } from '@/components/shared/page-hero'
-import { activities } from '@/lib/data/home'
+import { orgDivisions } from '@/lib/data/org'
 
 const title = '組織図'
-const description = '代表から経営・執行、4つの事業、そしてプロダクトまで。FSIFの組織体制をご紹介します。'
+const description = '代表の直下に3つの事業本部と経営推進本部が並ぶ、4本部体制のFSIFの組織図をご紹介します。'
 
 export const metadata: Metadata = {
   title,
   description,
   openGraph: pageOpenGraph(title, description),
-}
-
-const projectsByArea: Record<string, string[]> = {
-  community: ['Cosmo Base'],
-  'working-group': ['各テーマWG'],
-  event: ['宇宙ビジネスシンポジウム2024'],
-  thinktank: ['調査レポート'],
 }
 
 function Node({ children, accent = false }: { children: React.ReactNode; accent?: boolean }) {
@@ -32,13 +25,26 @@ function Node({ children, accent = false }: { children: React.ReactNode; accent?
   )
 }
 
+function UnitItem({ unit, nested = false }: { unit: { name: string; href?: string }; nested?: boolean }) {
+  const className = nested
+    ? 'block rounded-md border border-border bg-surface px-3 py-1.5 text-center text-[0.7rem] text-muted-foreground transition-colors hover:border-fsif-blue hover:text-fsif-blue'
+    : 'block rounded-md bg-pale-blue px-3 py-2 text-center text-xs text-navy transition-colors hover:bg-pale-blue/70'
+  return unit.href ? (
+    <Link href={unit.href} className={className}>
+      {unit.name}
+    </Link>
+  ) : (
+    <span className={className}>{unit.name}</span>
+  )
+}
+
 export default function OrganizationPage() {
   return (
     <>
       <PageHero
         labelEn="ORGANIZATION"
         title="組織体制"
-        description="代表を起点に、経営・執行が全体を支え、4つの事業がそれぞれの取り組みを推進します。プロダクト開発もここから生まれます。"
+        description="代表を起点に、コミュニティ・イベント・シンクタンクの3つの事業本部と、経営推進本部が並ぶ4本部体制です。各本部長は副代表を兼任し、代表・副代表による経営会議で全体方針や本部間の調整を行います。"
         breadcrumbs={[{ label: 'ABOUT', href: '/about' }, { label: 'ORGANIZATION' }]}
       />
 
@@ -51,50 +57,44 @@ export default function OrganizationPage() {
             </Node>
             <span className="h-6 w-px bg-border" aria-hidden="true" />
 
-            {/* Tier 2 */}
-            <Node>
-              <span className="font-medium">経営・執行 / Management & Operations</span>
-            </Node>
-            <span className="h-6 w-px bg-border" aria-hidden="true" />
-
-            {/* Tier 3: 4 business areas */}
-            <p className="section-label text-muted-foreground">4 BUSINESS AREAS</p>
-            <ul className="grid w-full gap-4 sm:grid-cols-2 md:grid-cols-4">
-              {activities.map((a) => (
-                <li key={a.id} className="flex flex-col items-center gap-3">
-                  <Link href={a.href} className="w-full">
-                    <div className="rounded-lg border border-border bg-background px-3 py-4 text-center transition-colors hover:border-fsif-blue">
-                      <span className="font-mono text-xs font-bold text-fsif-blue">{a.number}</span>
-                      <p className="mt-1 text-sm font-bold text-foreground">{a.labelJa}</p>
-                      <p className="mt-0.5 font-mono text-[0.6rem] tracking-wide text-muted-foreground">
-                        {a.labelEn}
+            {/* Tier 2: 4 divisions */}
+            <p className="section-label text-muted-foreground">4 本部体制</p>
+            <ul className="grid w-full gap-5 sm:grid-cols-2 lg:grid-cols-4">
+              {orgDivisions.map((d) => (
+                <li key={d.id} className="flex h-full flex-col gap-3 rounded-xl border border-border bg-background p-4">
+                  <div className="text-center">
+                    <span className="font-mono text-xs font-bold text-fsif-blue">{d.labelEn}</span>
+                    <p className="mt-1 text-sm font-bold text-foreground">{d.name}</p>
+                    {d.leadName ? (
+                      <p className="mt-1 text-xs text-muted-foreground">
+                        {d.leadTitle}: {d.leadName}
                       </p>
-                    </div>
-                  </Link>
-                  <span className="h-4 w-px bg-border" aria-hidden="true" />
-                  <ul className="flex w-full flex-col gap-2">
-                    {(projectsByArea[a.id] ?? []).map((proj) => (
-                      <li
-                        key={proj}
-                        className="rounded-md bg-pale-blue px-3 py-2 text-center text-xs text-navy"
-                      >
-                        {proj}
+                    ) : (
+                      <p className="mt-1 inline-block rounded-full border border-dashed border-border px-2 py-0.5 text-[0.65rem] text-muted-foreground">
+                        {d.leadTitle}: 空席
+                      </p>
+                    )}
+                  </div>
+                  <span className="mx-auto h-4 w-px bg-border" aria-hidden="true" />
+                  <ul className="flex flex-col gap-2">
+                    {d.units.map((unit) => (
+                      <li key={unit.name} className="flex flex-col gap-1.5">
+                        <UnitItem unit={unit} />
+                        {unit.children && (
+                          <ul className="flex flex-col gap-1.5 pl-3">
+                            {unit.children.map((child) => (
+                              <li key={child.name}>
+                                <UnitItem unit={child} nested />
+                              </li>
+                            ))}
+                          </ul>
+                        )}
                       </li>
                     ))}
                   </ul>
                 </li>
               ))}
             </ul>
-
-            {/* PRODUCT: 活動から生まれる自主開発ツール */}
-            <span className="mt-2 h-6 w-px bg-border" aria-hidden="true" />
-            <p className="section-label text-muted-foreground">PRODUCT</p>
-            <Link href="/product/ohsumi" className="w-full max-w-xs">
-              <div className="rounded-lg border border-border bg-background px-4 py-4 text-center transition-colors hover:border-fsif-blue">
-                <p className="text-sm font-bold text-foreground">Ohsumi</p>
-                <p className="mt-0.5 text-xs text-muted-foreground">FSIF発の自主開発ツール</p>
-              </div>
-            </Link>
           </div>
         </div>
       </section>
