@@ -77,7 +77,7 @@ export const philosophies: Philosophy[] = [
 export const homeStats: Stat[] = [
   { value: 2023, suffix: '', label: '設立', labelEn: 'FOUNDED', noSeparator: true },
   { value: 12, suffix: '+', label: 'イベント主催・参加', labelEn: 'EVENTS HOSTED & JOINED' },
-  { value: 1500, suffix: '+', label: 'コンテンツ利用者数', labelEn: 'CONTENT USERS' },
+  { value: 2000, suffix: '+', label: 'コンテンツ利用者数', labelEn: 'CONTENT USERS' },
   { value: 9, suffix: '', label: 'メンバー数', labelEn: 'MEMBERS' },
 ]
 
